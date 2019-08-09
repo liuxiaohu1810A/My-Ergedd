@@ -1,18 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        android:id="@+id/rlayout_main_phone_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/diviver" />
 
-</android.support.constraint.ConstraintLayout>
+    <ViewStub
+        android:id="@+id/play_history"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="90dp"
+        android:layout="@layout/play_history" />
+
+    <View
+        android:id="@+id/diviver"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_above="@+id/rgroup_main_phone_tab"
+        android:background="@color/gray33" />
+
+    <RadioGroup
+        android:id="@+id/rgroup_main_phone_tab"
+        android:layout_width="match_parent"
+        android:layout_height="48.67dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/btn_phone_main_video"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/phone_bottom_bar_background"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/bottom_bar_video_background"
+            android:gravity="center|bottom"
+            android:paddingBottom="4dp"
+            android:paddingTop="6dp"
+            android:text="@string/baby_song_watch"
+            android:textColor="@color/bottom_bar_color"
+            android:textSize="10sp" />
+
+        <RadioButton
+            android:id="@+id/btn_phone_main_audio"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/phone_bottom_bar_background"
+            android:button="@null"
+            android:drawableTop="@drawable/bottom_bar_audio_background"
+            android:gravity="center|bottom"
+            android:paddingBottom="4dp"
+            android:paddingTop="6dp"
+            android:text="@string/baby_song_listen"
+            android:textColor="@color/bottom_bar_color"
+            android:textSize="10sp" />
+
+        <RadioButton
+            android:id="@+id/btn_phone_main_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/phone_bottom_bar_background"
+            android:button="@null"
+            android:drawableTop="@drawable/bottom_bar_mine_background"
+            android:gravity="center|bottom"
+            android:paddingBottom="4dp"
+            android:paddingTop="6dp"
+            android:text="@string/mine"
+            android:textColor="@color/bottom_bar_color"
+            android:textSize="10sp" />
+
+    </RadioGroup>
+</RelativeLayout>
