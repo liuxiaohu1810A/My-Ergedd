@@ -12,6 +12,10 @@ public class ShowFragmentUtils {
         addFragment(manager, tClass, layout, null, false);
     }
 
+    public static void addFragment(FragmentManager manager, Class<? extends Fragment> tClass, int layout, boolean isNeedToBackStack) {
+        addFragment(manager, tClass, layout, null, isNeedToBackStack);
+    }
+
     public static void addFragment(FragmentManager manager, Class<? extends Fragment> tClass, int layout, Bundle bundle) {
         addFragment(manager, tClass, layout, bundle, false);
     }

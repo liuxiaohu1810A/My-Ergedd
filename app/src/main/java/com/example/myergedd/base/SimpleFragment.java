@@ -19,8 +19,8 @@ public abstract class SimpleFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         initMvp();
-        mUnbinder = ButterKnife.bind(getActivity());
         View view = inflater.inflate(getLayoutID(), null);
+        mUnbinder = ButterKnife.bind(getActivity());
         initView(view);
         initData();
         initListener();

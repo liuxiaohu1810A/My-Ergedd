@@ -9,7 +9,7 @@ import retrofit2.HttpException;
 
 public abstract class BaseObserver<T> implements Observer<T> {
     //管理每次的网络请求
-    CompositeDisposable mCompositeDisposable = new CompositeDisposable();
+    private CompositeDisposable mCompositeDisposable = new CompositeDisposable();
 
     @Override
     public void onComplete() {

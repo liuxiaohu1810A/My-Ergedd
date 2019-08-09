@@ -1,40 +1,56 @@
 package com.example.myergedd;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewStub;
+import android.widget.FrameLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.example.myergedd.app.ApiServier;
-import com.example.myergedd.app.Globle;
 import com.example.myergedd.base.BaseObserver;
 import com.example.myergedd.base.BaseResponse;
 import com.example.myergedd.base.SimpleActivity;
 import com.example.myergedd.bean.DongHua;
+import com.example.myergedd.fragment.CacheFragment;
+import com.example.myergedd.fragment.HearFragment;
+import com.example.myergedd.fragment.SeeFragment;
 import com.example.myergedd.http.HttpManager;
 import com.example.myergedd.utils.RxJavaUtils;
+import com.example.myergedd.utils.ShowFragmentUtils;
 import com.example.myergedd.utils.ToastUtils;
 
 import java.util.List;
 
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
+import butterknife.BindView;
+import butterknife.OnClick;
 
 public class MainActivity extends SimpleActivity {
+    @BindView(R.id.rlayout_main_phone_container)
+    FrameLayout mRlayoutMainPhoneContainer;
+    @BindView(R.id.play_history)
+    ViewStub mPlayHistory;
+    @BindView(R.id.diviver)
+    View mDiviver;
+    @BindView(R.id.btn_phone_main_video)
+    RadioButton mBtnPhoneMainVideo;
+    @BindView(R.id.btn_phone_main_audio)
+    RadioButton mBtnPhoneMainAudio;
+    @BindView(R.id.btn_phone_main_profile)
+    RadioButton mBtnPhoneMainProfile;
+    @BindView(R.id.rgroup_main_phone_tab)
+    RadioGroup mRgroupMainPhoneTab;
+
     @Override
     protected int getLayoutID() {
         return R.layout.activity_main;
     }
 
     @Override
-    protected void initMvp() {
-        HttpManager.getInstance().getServer(ApiServier.class).get()
+    protected void initView() {
+        ShowFragmentUtils.addFragment(getSupportFragmentManager(), SeeFragment.class, R.id.rlayout_main_phone_container);
+       /* HttpManager.getInstance().getServer(ApiServier.class).get()
                 .compose(RxJavaUtils.<BaseResponse<List<DongHua>>>rxScheduleThread())
                 .compose(RxJavaUtils.<List<DongHua>>changeResult())
                 .subscribe(new BaseObserver<List<DongHua>>() {
@@ -51,6 +67,23 @@ public class MainActivity extends SimpleActivity {
                             ToastUtils.ShowToast(MainActivity.this, error);
                         }
                     }
-                });
+                });*/
+    }
+
+    @OnClick({R.id.btn_phone_main_video, R.id.btn_phone_main_audio, R.id.btn_phone_main_profile, R.id.rgroup_main_phone_tab})
+    public void onClick(View v) {
+        switch (v.getId()) {
+            default:
+                break;
+            case R.id.btn_phone_main_video:
+                ShowFragmentUtils.addFragment(getSupportFragmentManager(), SeeFragment.class, R.id.rlayout_main_phone_container);
+                break;
+            case R.id.btn_phone_main_audio:
+                ShowFragmentUtils.addFragment(getSupportFragmentManager(), HearFragment.class, R.id.rlayout_main_phone_container);
+                break;
+            case R.id.btn_phone_main_profile:
+                ShowFragmentUtils.addFragment(getSupportFragmentManager(), CacheFragment.class, R.id.rlayout_main_phone_container);
+                break;
+        }
     }
 }

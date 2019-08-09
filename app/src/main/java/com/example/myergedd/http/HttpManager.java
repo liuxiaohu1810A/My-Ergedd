@@ -51,9 +51,7 @@ public class HttpManager {
                 .build();
     }
 
-    //
     public <T> T getServer(Class<T> tClass) {
-
         return getRetrofit().create(tClass);
     }
 

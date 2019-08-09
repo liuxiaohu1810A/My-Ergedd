@@ -15,8 +15,8 @@ public abstract class SimpleActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initMvp();
-        mUnbinder = ButterKnife.bind(this);
         setContentView(getLayoutID());
+        mUnbinder = ButterKnife.bind(this);
         initView();
         initData();
         initListener();
