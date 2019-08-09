@@ -26,15 +26,14 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends SimpleActivity {
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        initView();
+    protected int getLayoutID() {
+        return R.layout.activity_main;
     }
 
-    private void initView() {
+    @Override
+    protected void initMvp() {
         HttpManager.getInstance().getServer(ApiServier.class).get()
                 .compose(RxJavaUtils.<BaseResponse<List<DongHua>>>rxScheduleThread())
                 .compose(RxJavaUtils.<List<DongHua>>changeResult())
