@@ -1,3 +1,147 @@
 <resources>
-    <string name="app_name">My Ergedd</string>
+    <string name="app_name">儿歌点点</string>
+    <string name="title_activity_phone_search">PhoneSearchActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <!--phone-->
+    <string name="phone_tab_collection">精选</string>
+    <string name="phone_tab_songlist">歌单</string>
+    <string name="phone_tab_mine">我的</string>
+    <string name="phone_tab_nursery_rhymes">儿歌</string>
+    <string name="phone_tab_story">故事</string>
+    <string name="phone_tab_cartoon">动画片</string>
+    <string name="phone_tab_special">特色</string>
+
+
+    <string name="exit_hint">再点一次返回退出</string>
+    <string name="show_prompt_favourite">收藏成功，可以去我的界面查看</string>
+    <string name="common_question">常见问题</string>
+    <string name="go_comment">评分支持</string>
+    <string name="setting_check_upgrade">检查更新</string>
+
+    <string name="about_us">关于我们</string>
+    <string name="cooperation">内容合作</string>
+    <string name="advise">建议反馈</string>
+    <string name="download_video">离线视频</string>
+    <string name="controll_play_counts">控制视频播放次数</string>
+    <string name="song_play_five_counts">5首</string>
+    <string name="song_play_ten">10首</string>
+    <string name="song_play_fifteen">15首</string>
+    <string name="setting_audio_playtime">设置音频播放的时间</string>
+
+
+    <string name="baby_song_listen">宝宝听</string>
+    <string name="baby_song_watch">宝宝看</string>
+    <string name="mine">缓存</string>
+    <string name="empty_title" />
+    <string name="video">视频</string>
+    <string name="audio">音频</string>
+    <string name="my_favourite">我的收藏</string>
+    <string name="my_download">我的缓存</string>
+    <string name="network_error_hint">当前无网络,可看离线视频</string>
+    <string name="setting">设置</string>
+    <string name="title_player_setting">播放设置</string>
+    <string name="application_name">儿歌点点</string>
+    <string name="favourite_list_empty_reminder">收藏你喜欢的音乐，可以更快找到内容</string>
+    <string name="video_list_empty_reminder">没有离线视频,赶快去缓存吧</string>
+    <string name="audio_list_empty_reminder">没有离线音频,赶快去缓存吧</string>
+    <string name="delete">删除</string>
+    <string name="all_selected">全选</string>
+    <string name="cancel">取消</string>
+    <string name="edit">清理缓存</string>
+    <string name="cancel_all_selected">取消全选</string>
+    <string name="search_video_input_hint">输入儿歌、动画、故事名称</string>
+    <string name="search_audio_input_hint">请输入你想要的音频</string>
+    <string name="lock_hint_text">锁屏成功</string>
+    <string name="unlock_hint_text">解锁成功</string>
+    <string name="video_error_hint_message">视频播放出错,请重新打开</string>
+    <string name="play_error">播放失败,请重新打开</string>
+    <string name="cache_controller_hint">边播边缓存</string>
+    <string name="not_download_video_hint">没有网络，当前没有视频可播放</string>
+    <string name="play_history_hint">点击继续上次的播放：</string>
+    <string name="wifi_controller_hint">允许流量播放和缓存</string>
+    <string name="play_video_by_net_hint">正在使用移动数据流量播放歌曲</string>
+    <string name="unlimited">无限制</string>
+    <string name="audio_player_time_setting">播放设置</string>
+    <string name="set_time">定时</string>
+    <string name="play_controll_time10">10分钟</string>
+    <string name="play_controll_time20">20分钟</string>
+    <string name="play_controll_time30">30分钟</string>
+    <string name="set_count">定量</string>
+    <string name="play_controll_time40">40分钟</string>
+    <string name="play_controll_time50">50分钟</string>
+    <string name="play_controll_time60">60分钟</string>
+    <string name="play_controll_count3"> 3首 </string>
+    <string name="play_controll_count5"> 5首 </string>
+    <string name="play_controll_count10">10首</string>
+    <string name="play_controll_count15">15首</string>
+    <string name="play_controll_count20">20首</string>
+
+    <string name="music_controller_hint">背景音乐播放</string>
+    <string name="iqiyi_controller_hint">高清播放（更多流量）</string>
+    <string name="message_network_error">网络连接错误</string>
+
+    <string name="msg_share_success">分享成功</string>
+    <string name="download_disable_hint">版权要求不支持缓存</string>
+
+    <string name="empty_lrc">暂无歌词</string>
+
+    <string name="title_dlna">投电视</string>
+
+    <string name="tv_help_step_one_title">咨询厂商或查看说明书，确认您的智能电视/互联网盒子可以支持 DLNA 或 AirPlay，投屏前打开相应设备。</string>
+    <string name="tv_help_step_one_hint">不支持老式机顶盒、非智能电视、及不能连 wifi 的设备。如果您搜索不到设备，可能就不支持。</string>
+    <string name="tv_help_step_two_title">将手机、智能电视/互联网盒子连接在同一无线网络下</string>
+    <string name="tv_help_step_two_hint">手机在 3G/4G 环境下，电视/互联网盒子未连接 wifi 都是不行的。</string>
+    <string name="tv_help_step_three_title">点击儿歌点点手机播放器右上角投屏按钮，选择投屏设备，视频就可以投放到电视上啦！</string>
+    <string name="tv_help_step_three_hint1">如未发现投屏按钮，很可能是设备不支持，或该视频无投放源。</string>
+    <string name="tv_help_step_three_hint2">当视频投放成功，可用手机调整播放进度和选集哦！</string>
+    <string name="tv_current_using_device">%s 正在投放</string>
+    <string name="text_title_rest_frequency">休息频率</string>
+
+    <!-- setting vip -->
+    <string name="setting_vip_rights_text">会员权益</string>
+    <string name="setting_vip_no_interfence">无干扰播放</string>
+    <string name="setting_vip_hd_text">高清护眼</string>
+    <string name="setting_vip_money_warn">限时抢购！立享VIP会员特权</string>
+    <string name="setting_vip_limit_text">会员有效期</string>
+    <string name="setting_vip_renew_text">自动续费管理</string>
+    <string name="setting_vip_record_text">交易记录</string>
+    <string name="setting_vip_share_text">分享推荐</string>
+    <string name="setting_vip_nocontent_text">暂无交易记录</string>
+    <string name="setting_login_warn">点击登录</string>
+    <string name="setting_vip_open">立即开通</string>
+    <string name="setting_vip_renew">立即续费</string>
+    <string name="setting_vip_action_title">开通会员</string>
+    <string name="weixin_login_not_installed">登录需要先安装微信客户端</string>
+    <string name="weixin_share_not_installed">分享需要先安装微信客户端</string>
+
+    <!-- pay -->
+    <string name="pay_title_text">加入VIP会员</string>
+    <string name="pay_vip_warn">VIP会员</string>
+    <string name="pay_vip_content_text">手机、iPad均可使用</string>
+    <string name="pay_wechat_text">微信支付</string>
+    <string name="pay_confirm_text">确认支付</string>
+    <string name="pay_vip_agreement_text">会员服务协议</string>
+    <string name="pay_renew_agreement_text">自动续费的服务协议</string>
+    <string name="pay_success_title_text">支付</string>
+    <string name="pay_success_warn">支付成功！正在为您开通中...</string>
+    <string name="pay_success_username">用户昵称</string>
+    <string name="pay_success_money">订单金额</string>
+    <string name="pay_success_product">购买商品</string>
+
+    <!-- video -->
+    <string name="video_definition_standard">标清</string>
+    <string name="video_definition_high">高清</string>
+    <string name="video_definition_cache">本地</string>
+    <string name="video_lock_title">解锁专辑</string>
+    <string name="video_unlock_text">解锁</string>
+
+    <!-- order record -->
+    <string name="vip_record_order_id">订单编号</string>
+    <string name="vip_record_order_money">订单金额</string>
+    <string name="vip_record_buy_time">购买时间</string>
+    <string name="vip_record_buy_type">购买方式</string>
+    <string name="vip_record_vip_starttime">VIP生效日期</string>
+    <string name="vip_record_vip_endtime">VIP到期日期</string>
 </resources>
