@@ -1,11 +1,21 @@
 package com.example.myergedd.http;
 
 public class HttpErrorCode extends Throwable{
+    private int code;
     private String message;
-    private boolean success;
+    private String success;
+    private String mMessage;
 
     public HttpErrorCode(String message) {
-        this.message = message;
+        mMessage = message;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
     }
 
     @Override
@@ -17,11 +27,11 @@ public class HttpErrorCode extends Throwable{
         this.message = message;
     }
 
-    public boolean isSuccess() {
+    public String getSuccess() {
         return success;
     }
 
-    public void setSuccess(boolean success) {
+    public void setSuccess(String success) {
         this.success = success;
     }
 }

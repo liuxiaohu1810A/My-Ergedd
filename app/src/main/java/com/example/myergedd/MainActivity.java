@@ -62,13 +62,14 @@ public class MainActivity extends SimpleActivity {
                     public void onSuccessful(List<DongHua> data) {
                         if (data != null) {
                             Log.e("data", "onSuccessful: " + data.toString());
+                            ToastUtils.ShowToast(data.toString());
                         }
                     }
 
                     @Override
                     public void onFailed(String error) {
                         if (error != null) {
-                            ToastUtils.ShowToast(MainActivity.this, error);
+                            ToastUtils.ShowToast(error);
                         }
                     }
                 });
