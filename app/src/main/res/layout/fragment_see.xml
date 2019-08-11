@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:ignore="MissingDefaultResource">
+
     <RelativeLayout
         android:id="@+id/top_bar"
         android:layout_width="match_parent"
@@ -16,48 +18,55 @@
             android:id="@+id/child"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:scaleType="center"
             android:layout_marginLeft="@dimen/dp_10"
             android:layout_marginTop="@dimen/dp_4"
+            android:scaleType="center"
             android:src="@drawable/phone_main_child" />
 
         <TextView
             android:id="@+id/child_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="11岁7个月"
-            android:textSize="@dimen/dp_8"
-            android:layout_marginLeft="@dimen/dp_4"
             android:layout_below="@+id/child"
+            android:layout_marginLeft="@dimen/dp_4"
             android:layout_marginTop="@dimen/dp_2"
+            android:text="11岁7个月"
             android:textColor="@color/color_6_blue"
-            />
+            android:textSize="@dimen/dp_8" />
 
         <ImageView
             android:id="@+id/icon_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/icon_search_black"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/dp_10"
-            />
+            android:src="@mipmap/icon_search_black" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_alignParentBottom="true"
-            android:background="@color/divider"
-            />
+            android:background="@color/divider" />
     </RelativeLayout>
+
     <android.support.design.widget.TabLayout
+        android:id="@+id/see_tab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/see_tab"
-        />
-    <android.support.v4.view.ViewPager
+        app:tabIndicatorColor="#27D181"
+        app:tabIndicatorFullWidth="false"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="#27D181" />
+
+    <TextView
+        android:id="@+id/views"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="#eaeaea" />
+
+    <android.support.v4.view.ViewPager
         android:id="@+id/see_vp"
-        />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>
