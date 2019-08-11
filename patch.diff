@@ -1,0 +1,67 @@
+From 7d3fddababd8451bd4370770121d14186f3ee0de Mon Sep 17 00:00:00 2001
+From: liuzishuo <705377068@qq.com>
+Date: Fri, 9 Aug 2019 10:14:59 +0800
+Subject: [PATCH] =?UTF-8?q?=E4=BF=AE=E6=94=B9?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+---
+ .idea/codeStyles/Project.xml | 29 +++++++++++++++++++++++++++++
+ .idea/vcs.xml                |  6 ++++++
+ 2 files changed, 35 insertions(+)
+ create mode 100644 .idea/codeStyles/Project.xml
+ create mode 100644 .idea/vcs.xml
+
+diff --git a/.idea/codeStyles/Project.xml b/.idea/codeStyles/Project.xml
+new file mode 100644
+index 0000000..30aa626
+--- /dev/null
++++ b/.idea/codeStyles/Project.xml
+@@ -0,0 +1,29 @@
++<component name="ProjectCodeStyleConfiguration">
++  <code_scheme name="Project" version="173">
++    <Objective-C-extensions>
++      <file>
++        <option name="com.jetbrains.cidr.lang.util.OCDeclarationKind" value="Import" />
++        <option name="com.jetbrains.cidr.lang.util.OCDeclarationKind" value="Macro" />
++        <option name="com.jetbrains.cidr.lang.util.OCDeclarationKind" value="Typedef" />
++        <option name="com.jetbrains.cidr.lang.util.OCDeclarationKind" value="Enum" />
++        <option name="com.jetbrains.cidr.lang.util.OCDeclarationKind" value="Constant" />
++        <option name="com.jetbrains.cidr.lang.util.OCDeclarationKind" value="Global" />
++        <option name="com.jetbrains.cidr.lang.util.OCDeclarationKind" value="Struct" />
++        <option name="com.jetbrains.cidr.lang.util.OCDeclarationKind" value="FunctionPredecl" />
++        <option name="com.jetbrains.cidr.lang.util.OCDeclarationKind" value="Function" />
++      </file>
++      <class>
++        <option name="com.jetbrains.cidr.lang.util.OCDeclarationKind" value="Property" />
++        <option name="com.jetbrains.cidr.lang.util.OCDeclarationKind" value="Synthesize" />
++        <option name="com.jetbrains.cidr.lang.util.OCDeclarationKind" value="InitMethod" />
++        <option name="com.jetbrains.cidr.lang.util.OCDeclarationKind" value="StaticMethod" />
++        <option name="com.jetbrains.cidr.lang.util.OCDeclarationKind" value="InstanceMethod" />
++        <option name="com.jetbrains.cidr.lang.util.OCDeclarationKind" value="DeallocMethod" />
++      </class>
++      <extensions>
++        <pair source="cpp" header="h" fileNamingConvention="NONE" />
++        <pair source="c" header="h" fileNamingConvention="NONE" />
++      </extensions>
++    </Objective-C-extensions>
++  </code_scheme>
++</component>
+\ No newline at end of file
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+index 0000000..35eb1dd
+--- /dev/null
++++ b/.idea/vcs.xml
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+-- 
+2.21.0.windows.1
+
