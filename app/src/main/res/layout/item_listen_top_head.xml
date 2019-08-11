@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="220dp"
+    android:background="@color/action_bar_bg">
+
+    <ImageView
+        android:id="@+id/item_listen_top_details"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:scaleType="fitXY"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:background="@color/black20"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/listen_top_white"/>
+
+    <RelativeLayout
+        android:id="@+id/item_list_image_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="9dp"
+        android:background="@drawable/bg_white_round_with_grey_border"
+        android:padding="3dp">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/item_listen_top_img"
+            android:layout_width="153dp"
+            android:layout_height="153dp"
+            android:scaleType="centerCrop"
+            android:padding="3dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:layout_alignBottom="@id/item_listen_top_img"
+            android:background="@mipmap/bg_small_grey_label"
+            android:drawableLeft="@mipmap/icon_music_white"
+            android:drawablePadding="4dp"
+            android:gravity="center"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:text="99"
+            android:textColor="@color/white"
+            android:textSize="11sp"/>
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/item_list_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignTop="@id/item_list_image_container"
+        android:layout_toRightOf="@id/item_list_image_container"
+        android:text="专辑标题"
+        android:textColor="@color/white"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/item_list_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/item_list_title"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/item_list_image_container"
+        android:text="专辑介绍专辑介绍专辑介绍专辑介绍专辑介绍专辑介绍专辑介绍专辑介绍专辑介绍专辑介绍专辑介绍专辑介绍专辑介绍专辑介绍专辑介绍专辑介绍专辑介绍专辑介绍专辑介绍专辑介绍专辑介绍专辑介绍专辑介绍专辑介绍专辑介绍专辑介绍专辑介绍专辑介绍"
+        android:lines="3"
+        android:ellipsize="end"
+        android:layout_marginLeft="16dp"
+        android:textColor="@color/white"
+        android:textSize="13dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/item_list_image_container"
+        android:layout_alignParentBottom="true"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/item_list_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:src="@mipmap/btn_play_all" />
+    </LinearLayout>
+</RelativeLayout>
