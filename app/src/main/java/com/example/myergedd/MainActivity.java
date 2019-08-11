@@ -50,7 +50,11 @@ public class MainActivity extends SimpleActivity {
     @Override
     protected void initView() {
         ShowFragmentUtils.addFragment(getSupportFragmentManager(), SeeFragment.class, R.id.rlayout_main_phone_container);
-       /* HttpManager.getInstance().getServer(ApiServier.class).get()
+    }
+
+    @Override
+    protected void initData() {
+        HttpManager.getInstance().getServer(ApiServier.class).get()
                 .compose(RxJavaUtils.<BaseResponse<List<DongHua>>>rxScheduleThread())
                 .compose(RxJavaUtils.<List<DongHua>>changeResult())
                 .subscribe(new BaseObserver<List<DongHua>>() {
@@ -67,7 +71,7 @@ public class MainActivity extends SimpleActivity {
                             ToastUtils.ShowToast(MainActivity.this, error);
                         }
                     }
-                });*/
+                });
     }
 
     @OnClick({R.id.btn_phone_main_video, R.id.btn_phone_main_audio, R.id.btn_phone_main_profile, R.id.rgroup_main_phone_tab})

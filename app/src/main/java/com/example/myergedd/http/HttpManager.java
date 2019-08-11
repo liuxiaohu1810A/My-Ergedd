@@ -72,8 +72,8 @@ public class HttpManager {
         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
 
-        //指定缓存的路径
-        Cache cache = new Cache(new File(MyApp.getInstance().getCacheDir(), "Cache"), 1024 * 1024 * 10);
+        //指定缓存的路径，缓存20M
+        Cache cache = new Cache(new File(MyApp.getInstance().getCacheDir(), "Cache"), 1024 * 1024 * 20);
 
 
         MyCacheinterceptor myCacheinterceptor = new MyCacheinterceptor();

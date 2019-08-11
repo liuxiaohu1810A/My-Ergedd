@@ -46,11 +46,11 @@ public class ShowFragmentUtils {
                     fragment.setArguments(bundle);//传出消息
                     transaction.show(fragment);//添加fragment
                     hideOtherFragment(manager, transaction, fragment);//隐藏其他fragment
-                } else {
-                    fragment.setArguments(bundle);//传出消息
-                    transaction.add(layoutId, fragment, name);//添加fragment
-                    hideOtherFragment(manager, transaction, fragment);//隐藏其他fragment
                 }
+            } else {
+                fragment.setArguments(bundle);//传出消息
+                transaction.add(layoutId, fragment, name);//添加fragment
+                hideOtherFragment(manager, transaction, fragment);//隐藏其他fragment
             }
         }
         transaction.commit();//提交事务，只能提交一次
