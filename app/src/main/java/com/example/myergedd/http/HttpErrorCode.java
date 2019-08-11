@@ -4,10 +4,9 @@ public class HttpErrorCode extends Throwable{
     private int code;
     private String message;
     private String success;
-    private String mMessage;
 
     public HttpErrorCode(String message) {
-        mMessage = message;
+        this.message = message;
     }
 
     public int getCode() {

@@ -50,30 +50,6 @@ public class MainActivity extends SimpleActivity {
     protected void initView() {
         ShowFragmentUtils.addFragment(getSupportFragmentManager(), SeeFragment.class, R.id.rlayout_main_phone_container);
     }
-
-    @Override
-    protected void initData() {
-        HttpManager.getInstance().getServer(ApiServier.class).get()
-                .compose(RxJavaUtils.<BaseResponse<List<DongHua>>>rxScheduleThread())
-                .compose(RxJavaUtils.<List<DongHua>>changeResult())
-                .subscribe(new BaseObserver<List<DongHua>>() {
-                    @Override
-                    public void onSuccessful(List<DongHua> data) {
-                        if (data != null) {
-                            Log.e("data", "onSuccessful: " + data.toString());
-                            ToastUtils.ShowToast(data.toString());
-                        }
-                    }
-
-                    @Override
-                    public void onFailed(String error) {
-                        if (error != null) {
-                            ToastUtils.ShowToast(error);
-                        }
-                    }
-                });
-    }
-
     @OnClick({R.id.btn_phone_main_video, R.id.btn_phone_main_audio, R.id.btn_phone_main_profile, R.id.rgroup_main_phone_tab})
     public void onClick(View v) {
         switch (v.getId()) {

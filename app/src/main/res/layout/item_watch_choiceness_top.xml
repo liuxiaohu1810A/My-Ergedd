@@ -25,6 +25,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="120dp"
+            android:layout_toEndOf="@+id/watch_top_pig"
             android:layout_toRightOf="@+id/watch_top_pig"
             android:orientation="vertical">
 
