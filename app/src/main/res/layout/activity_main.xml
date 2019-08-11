@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
-    <RelativeLayout
+    <FrameLayout
         android:id="@+id/rlayout_main_phone_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,21 +12,21 @@
     <ViewStub
         android:id="@+id/play_history"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="90dp"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_90"
         android:layout="@layout/play_history" />
 
     <View
         android:id="@+id/diviver"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/dp_1"
         android:layout_above="@+id/rgroup_main_phone_tab"
         android:background="@color/gray33" />
 
     <RadioGroup
         android:id="@+id/rgroup_main_phone_tab"
         android:layout_width="match_parent"
-        android:layout_height="48.67dp"
+        android:layout_height="@dimen/dp_49"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal">
 
@@ -41,11 +40,11 @@
             android:checked="true"
             android:drawableTop="@drawable/bottom_bar_video_background"
             android:gravity="center|bottom"
-            android:paddingBottom="4dp"
-            android:paddingTop="6dp"
+            android:paddingTop="@dimen/dp_6"
+            android:paddingBottom="@dimen/dp_4"
             android:text="@string/baby_song_watch"
             android:textColor="@color/bottom_bar_color"
-            android:textSize="10sp" />
+            android:textSize="@dimen/sp_10" />
 
         <RadioButton
             android:id="@+id/btn_phone_main_audio"
@@ -56,11 +55,11 @@
             android:button="@null"
             android:drawableTop="@drawable/bottom_bar_audio_background"
             android:gravity="center|bottom"
-            android:paddingBottom="4dp"
-            android:paddingTop="6dp"
+            android:paddingTop="@dimen/dp_6"
+            android:paddingBottom="@dimen/dp_4"
             android:text="@string/baby_song_listen"
             android:textColor="@color/bottom_bar_color"
-            android:textSize="10sp" />
+            android:textSize="@dimen/sp_10" />
 
         <RadioButton
             android:id="@+id/btn_phone_main_profile"
@@ -71,11 +70,10 @@
             android:button="@null"
             android:drawableTop="@drawable/bottom_bar_mine_background"
             android:gravity="center|bottom"
-            android:paddingBottom="4dp"
-            android:paddingTop="6dp"
+            android:paddingTop="@dimen/dp_6"
+            android:paddingBottom="@dimen/dp_4"
             android:text="@string/mine"
             android:textColor="@color/bottom_bar_color"
-            android:textSize="10sp" />
-
+            android:textSize="@dimen/sp_10" />
     </RadioGroup>
 </RelativeLayout>
