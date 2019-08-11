@@ -2,7 +2,7 @@ package com.example.myergedd.bean;
 
 import java.util.List;
 
-public class DongHua {
+public class CartoonBean {
     /**
      * id : 4
      * name : 动画
@@ -55,17 +55,6 @@ public class DongHua {
 
     public void setAlbums(List<AlbumsBean> albums) {
         this.albums = albums;
-    }
-
-    @Override
-    public String toString() {
-        return "DongHua{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", display_count=" + display_count +
-                ", copyright_sensitive=" + copyright_sensitive +
-                ", albums=" + albums +
-                '}';
     }
 
     public static class AlbumsBean {
@@ -221,27 +210,6 @@ public class DongHua {
 
         public void setPublisher_name(String publisher_name) {
             this.publisher_name = publisher_name;
-        }
-
-        @Override
-        public String toString() {
-            return "AlbumsBean{" +
-                    "id=" + id +
-                    ", name='" + name + '\'' +
-                    ", image_url='" + image_url + '\'' +
-                    ", description='" + description + '\'' +
-                    ", status=" + status +
-                    ", video_count=" + video_count +
-                    ", play_count=" + play_count +
-                    ", icon_url='" + icon_url + '\'' +
-                    ", index_recommend=" + index_recommend +
-                    ", copyright_sensitive=" + copyright_sensitive +
-                    ", is_vip=" + is_vip +
-                    ", type=" + type +
-                    ", sensitive=" + sensitive +
-                    ", erge_img_url='" + erge_img_url + '\'' +
-                    ", publisher_name='" + publisher_name + '\'' +
-                    '}';
         }
     }
 }

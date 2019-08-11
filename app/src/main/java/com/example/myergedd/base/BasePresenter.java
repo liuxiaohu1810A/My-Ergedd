@@ -4,7 +4,7 @@ import java.lang.ref.WeakReference;
 
 public class BasePresenter<V> {
     private WeakReference<V> mWeakReference;
-    private V mView;
+    protected V mView;
 
     public void addView(V view) {
         mWeakReference = new WeakReference<>(view);
