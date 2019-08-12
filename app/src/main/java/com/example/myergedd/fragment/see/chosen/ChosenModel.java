@@ -1,4 +1,4 @@
-package com.example.myergedd.fragment.chosen;
+package com.example.myergedd.fragment.see.chosen;
 
 import android.util.Log;
 

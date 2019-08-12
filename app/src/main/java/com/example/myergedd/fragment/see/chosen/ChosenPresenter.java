@@ -1,4 +1,4 @@
-package com.example.myergedd.fragment.chosen;
+package com.example.myergedd.fragment.see.chosen;
 
 import com.example.myergedd.base.BaseCallBack;
 import com.example.myergedd.base.BasePresenter;
