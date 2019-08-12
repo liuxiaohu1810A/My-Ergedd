@@ -15,7 +15,7 @@ import retrofit2.http.GET;
 
 public interface ApiServier {
     String mUrl = "http://api.t.ergedd.com/api/v1/";
-    @GET("album_categories")
+    @GET("album_categories/4/albums?channel=new&offset=0&limit=20&sensitive=8")
     Observable<BaseResponse<List<CartoonBean>>> getCartoonData();
 
     @GET("album_categories/1/albums?channel=new&offset=0&limit=20&sensitive=8")

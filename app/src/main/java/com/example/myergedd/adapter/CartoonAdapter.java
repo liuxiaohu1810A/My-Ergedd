@@ -40,10 +40,10 @@ public class CartoonAdapter extends RecyclerView.Adapter<CartoonAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
 
-            viewHolder.name.setText(albumsBeans.get(i).getAlbums().get(i).getName());
-            viewHolder.desc.setText(albumsBeans.get(i).getAlbums().get(i).getDescription());
-            viewHolder.ji.setText("共"+albumsBeans.get(i).getAlbums().get(i).getVideo_count()+"集");
-            Glide.with(activity).load(albumsBeans.get(i).getAlbums().get(i).getImage_url()).into(viewHolder.img);
+            viewHolder.name.setText(albumsBeans.get(i).getName());
+            viewHolder.desc.setText(albumsBeans.get(i).getDescription());
+            viewHolder.ji.setText("共"+albumsBeans.get(i).getVideo_count()+"集");
+            Glide.with(activity).load(albumsBeans.get(i).getImage_url()).into(viewHolder.img);
     }
 
     @Override
