@@ -31,6 +31,9 @@ public interface ApiServier {
     @GET("album_categories/2/albums?channel=new&offset=0&limit=20&sensitive=8")
     Observable<BaseResponse<List<EnglishBean>>> getEnglishData();
 
-    @GET("audio_categories")
-    Observable<BaseResponse<List<Listen_ErgeBean>>> getListenErgeData();
+    @GET("audio_categories/1/playlists?channel=new&offset=0&limit=20")
+    Observable<BaseResponse<List<Listen_ErgeBean>>> getListen_ErgeBeanData();
+
+    @GET("audio_categories/2/playlists?channel=new&offset=0&limit=20")
+    Observable<BaseResponse<List<Listen_StoryBean>>> getListen_StroyData();
 }

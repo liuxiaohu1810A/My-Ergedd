@@ -19,7 +19,7 @@ public class IModel implements Erge.ErgeModel {
     @Override
     public void getListenErgeData(final BaseCallBack<List<Listen_ErgeBean>> listBaseCallBack) {
         HttpManager.getInstance().getServer(ApiServier.class)
-                .getListenErgeData()
+                .getListen_ErgeBeanData()
                 .compose(RxJavaUtils.<BaseResponse<List<Listen_ErgeBean>>>rxScheduleThread())
                 .compose(RxJavaUtils.<List<Listen_ErgeBean>>changeResult())
                 .subscribe(new Consumer<List<Listen_ErgeBean>>() {
