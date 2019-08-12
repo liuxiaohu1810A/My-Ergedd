@@ -45,6 +45,7 @@
             android:background="@color/divider" />
     </RelativeLayout>
 
+
     <android.support.design.widget.TabLayout
         android:id="@+id/cache_tab"
         android:layout_width="match_parent"
@@ -53,5 +54,20 @@
     <android.support.v4.view.ViewPager
         android:id="@+id/cache_vp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/cache_gift"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_30"
+        android:background="@color/color_6_blue"
+        android:drawableLeft="@mipmap/icon_gift"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:paddingLeft="@dimen/dp_10"
+        android:paddingRight="@dimen/dp_10"
+        android:drawableRight="@mipmap/icon_enter_white"
+        android:textSize="@dimen/dp_12"
+        android:text="关注微信好礼"/>
 </LinearLayout>

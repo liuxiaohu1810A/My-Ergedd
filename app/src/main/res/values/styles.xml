@@ -24,5 +24,8 @@
         <item name="android:minHeight">20dip</item>
         <item name="android:maxHeight">20dip</item>
     </style>
+<!--<<<<<<< HEAD-->
 
+<!--=======-->
+<!--&gt;>>>>>> 0d74f28ffabdb9133259e1aa7b330115a70d32f2-->
 </resources>

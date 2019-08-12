@@ -36,7 +36,8 @@
         </activity>
         <activity
             android:name=".SearchActivity"
-            android:theme="@style/NoAppTheme"></activity>
+            android:theme="@style/NoAppTheme" />
+        <activity android:name=".HomeActivity"></activity>
     </application>
 
 </manifest>
