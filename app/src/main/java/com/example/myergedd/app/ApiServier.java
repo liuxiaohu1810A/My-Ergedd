@@ -6,7 +6,6 @@ import com.example.myergedd.bean.EarlyBean;
 import com.example.myergedd.bean.EnglishBean;
 import com.example.myergedd.bean.StoryBean;
 import com.example.myergedd.bean.SynthesizeBean;
-import com.example.myergedd.fragment.english.contract.English;
 
 import java.util.List;
 
@@ -18,7 +17,7 @@ public interface ApiServier {
     @GET("album_categories/4/albums?channel=new&offset=0&limit=20&sensitive=8")
     Observable<BaseResponse<List<CartoonBean>>> getCartoonData();
 
-    @GET("album_categories/1/albums?channel=new&offset=0&limit=20&sensitive=8")
+    @GET("album_categories/3/albums?channel=new&offset=0&limit=20&sensitive=8")
     Observable<BaseResponse<List<StoryBean>>> getStoryData();
 
     @GET("album_categories/6/albums?channel=new&offset=0&limit=20&sensitive=8")
