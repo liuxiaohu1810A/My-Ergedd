@@ -15,8 +15,12 @@ import com.example.myergedd.bean.MusicBean;
 import com.example.myergedd.bean.SinologyBean;
 import com.example.myergedd.bean.StoryBean;
 import com.example.myergedd.bean.SynthesizeBean;
+<<<<<<< HEAD
 import com.example.myergedd.fragment.hear.english.bean.HearEnglishBean;
 
+=======
+import com.example.myergedd.fragment.english.contract.English;
+>>>>>>> liuzishuo
 
 import java.util.List;
 
@@ -55,9 +59,12 @@ public interface ApiServier {
     Observable<BaseResponse<List<CartoonBean>>> getCartoonData();
 
     @GET("album_categories/1/albums?channel=new&offset=0&limit=20&sensitive=8")
+<<<<<<< HEAD
     Observable<BaseResponse<List<ErgeBean>>> getErgeData();
 
     @GET("album_categories/3/albums?channel=new&offset=0&limit=20&sensitive=8")
+=======
+>>>>>>> liuzishuo
     Observable<BaseResponse<List<StoryBean>>> getStoryData();
 
     @GET("album_categories/6/albums?channel=new&offset=0&limit=20&sensitive=8")
