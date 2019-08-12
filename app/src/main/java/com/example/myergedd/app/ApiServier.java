@@ -11,9 +11,11 @@ import com.example.myergedd.bean.CartoonBean;
 import com.example.myergedd.bean.EarlyBean;
 import com.example.myergedd.bean.EnglishBean;
 import com.example.myergedd.bean.ErgeBean;
+import com.example.myergedd.bean.MusicBean;
+import com.example.myergedd.bean.SinologyBean;
 import com.example.myergedd.bean.StoryBean;
 import com.example.myergedd.bean.SynthesizeBean;
-
+import com.example.myergedd.fragment.hear.english.bean.HearEnglishBean;
 
 
 import java.util.List;
@@ -66,4 +68,13 @@ public interface ApiServier {
 
     @GET("album_categories/2/albums?channel=new&offset=0&limit=20&sensitive=8")
     Observable<BaseResponse<List<EnglishBean>>> getEnglishData();
+
+    @GET("audio_categories/6/playlists?channel=new&offset=0&limit=20")
+    Observable<BaseResponse<List<MusicBean>>> getMusicData();
+
+    @GET("audio_categories/7/playlists?channel=new&offset=0&limit=20 http/1.1")
+    Observable<BaseResponse<List<SinologyBean>>> getSinologyData();
+
+    @GET("audio_categories/8/playlists?channel=new&offset=0&limit=20")
+    Observable<BaseResponse<List<HearEnglishBean>>> getHearEnglishData();
 }
