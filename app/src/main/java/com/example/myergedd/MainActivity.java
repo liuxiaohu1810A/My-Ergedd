@@ -11,7 +11,6 @@ import com.example.myergedd.app.ApiServier;
 import com.example.myergedd.base.BaseObserver;
 import com.example.myergedd.base.BaseResponse;
 import com.example.myergedd.base.SimpleActivity;
-import com.example.myergedd.bean.DongHua;
 import com.example.myergedd.fragment.CacheFragment;
 import com.example.myergedd.fragment.HearFragment;
 import com.example.myergedd.fragment.SeeFragment;
@@ -53,25 +52,25 @@ public class MainActivity extends SimpleActivity {
 
     @Override
     protected void initData() {
-        HttpManager.getInstance().getServer(ApiServier.class).get()
-                .compose(RxJavaUtils.<BaseResponse<List<DongHua>>>rxScheduleThread())
-                .compose(RxJavaUtils.<List<DongHua>>changeResult())
-                .subscribe(new BaseObserver<List<DongHua>>() {
-                    @Override
-                    public void onSuccessful(List<DongHua> data) {
-                        if (data != null) {
-                            Log.e("data", "onSuccessful: " + data.toString());
-                            ToastUtils.ShowToast(data.toString());
-                        }
-                    }
-
-                    @Override
-                    public void onFailed(String error) {
-                        if (error != null) {
-                            ToastUtils.ShowToast(error);
-                        }
-                    }
-                });
+//        HttpManager.getInstance().getServer(ApiServier.class).get()
+//                .compose(RxJavaUtils.<BaseResponse<List<DongHua>>>rxScheduleThread())
+//                .compose(RxJavaUtils.<List<DongHua>>changeResult())
+//                .subscribe(new BaseObserver<List<DongHua>>() {
+//                    @Override
+//                    public void onSuccessful(List<DongHua> data) {
+//                        if (data != null) {
+//                            Log.e("data", "onSuccessful: " + data.toString());
+//                            ToastUtils.ShowToast(data.toString());
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onFailed(String error) {
+//                        if (error != null) {
+//                            ToastUtils.ShowToast(error);
+//                        }
+//                    }
+//                });
     }
 
     @OnClick({R.id.btn_phone_main_video, R.id.btn_phone_main_audio, R.id.btn_phone_main_profile, R.id.rgroup_main_phone_tab})
