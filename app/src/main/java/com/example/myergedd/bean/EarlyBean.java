@@ -1,22 +1,22 @@
 package com.example.myergedd.bean;
 
-public class EnglishBean {
+public class EarlyBean {
     /**
-     * id : 10
-     * name : 巴塔木英文歌
-     * image_url : http://img5g22.ergedd.com/album/10_20170414114412_vatw.jpg
-     * description : 来学习纯正的英语吧
+     * id : 239
+     * name : 人际交往
+     * image_url : http://img5g22.ergedd.com/album/239_1511942142422.png
+     * description : 培养宝贝好性格好习惯
      * status : 1
-     * video_count : 52
-     * play_count : 18123096
-     * icon_url : http://img5g22.ergedd.com/album/10_1492578783440.png
+     * video_count : 21
+     * play_count : 0
+     * icon_url : http://img5g22.ergedd.com/album/64493018054_1492738377273.jpg
      * index_recommend : null
      * copyright_sensitive : 0
      * is_vip : 2
      * type : 1
      * sensitive : 0
      * erge_img_url :
-     * publisher_name : 捷成华视-巴塔木
+     * publisher_name : 七彩森林-蓝迪儿歌
      */
 
     private int id;

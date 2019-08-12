@@ -1,22 +1,23 @@
 package com.example.myergedd.bean;
 
-public class EnglishBean {
+public class CartoonBean {
+
     /**
-     * id : 10
-     * name : 巴塔木英文歌
-     * image_url : http://img5g22.ergedd.com/album/10_20170414114412_vatw.jpg
-     * description : 来学习纯正的英语吧
+     * id : 646
+     * name : 萌鸡小队 第二季
+     * image_url : http://img5g22.ergedd.com/album/646_1550054329322.jpg
+     * description : 启迪小萌鸡，欢乐再延续！
      * status : 1
      * video_count : 52
-     * play_count : 18123096
-     * icon_url : http://img5g22.ergedd.com/album/10_1492578783440.png
+     * play_count : 0
+     * icon_url : http://img5g22.ergedd.com/album/64493018054_1492738377273.jpg
      * index_recommend : null
      * copyright_sensitive : 0
      * is_vip : 2
      * type : 1
      * sensitive : 0
      * erge_img_url :
-     * publisher_name : 捷成华视-巴塔木
+     * publisher_name : 奥飞文化-奥飞
      */
 
     private int id;

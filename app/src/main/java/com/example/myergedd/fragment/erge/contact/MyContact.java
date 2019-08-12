@@ -1,15 +1,15 @@
-package com.example.myergedd.contact;
+package com.example.myergedd.fragment.erge.contact;
 
 import com.example.myergedd.base.BaseCallBack;
-import com.example.myergedd.bean.SongBean;
-
+import com.example.myergedd.bean.ErgeBean;
+import com.example.myergedd.bean.StoryBean;
 
 import java.util.List;
 
 public interface MyContact {
     //View层
-    interface MainView<T> {
-        void onSuccess(T songBean);
+    interface MainView {
+        void onSuccess(List<ErgeBean> songBean);
 
         void onFail(String fail);
 
@@ -22,6 +22,6 @@ public interface MyContact {
 
     //Model层
     interface MainModel {
-        void getDataM(BaseCallBack<SongBean> callBack);
+        void getDataM(BaseCallBack<List<ErgeBean>> callBack);
     }
 }

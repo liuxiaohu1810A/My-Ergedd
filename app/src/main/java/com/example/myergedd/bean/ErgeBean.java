@@ -2,7 +2,7 @@ package com.example.myergedd.bean;
 
 import java.util.List;
 
-public class SongBean {
+public class ErgeBean{
         /**
          * id : 575
          * name : 经典中文儿歌

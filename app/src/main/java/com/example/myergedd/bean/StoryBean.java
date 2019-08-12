@@ -1,22 +1,22 @@
 package com.example.myergedd.bean;
 
-public class EnglishBean {
+public class StoryBean {
     /**
-     * id : 10
-     * name : 巴塔木英文歌
-     * image_url : http://img5g22.ergedd.com/album/10_20170414114412_vatw.jpg
-     * description : 来学习纯正的英语吧
+     * id : 28
+     * name : 哈利讲故事
+     * image_url : http://img5g22.ergedd.com/album/28_1545204938210.jpg
+     * description : 中外经典绘本故事
      * status : 1
-     * video_count : 52
-     * play_count : 18123096
-     * icon_url : http://img5g22.ergedd.com/album/10_1492578783440.png
-     * index_recommend : null
+     * video_count : 60
+     * play_count : 27951527
+     * icon_url : http://img5g22.ergedd.com/album/28_1492578758731.png
+     * index_recommend : 1
      * copyright_sensitive : 0
      * is_vip : 2
      * type : 1
      * sensitive : 0
      * erge_img_url :
-     * publisher_name : 捷成华视-巴塔木
+     * publisher_name : 上海臻材-哈利儿歌
      */
 
     private int id;
@@ -27,7 +27,7 @@ public class EnglishBean {
     private int video_count;
     private int play_count;
     private String icon_url;
-    private Object index_recommend;
+    private int index_recommend;
     private int copyright_sensitive;
     private int is_vip;
     private int type;
@@ -99,11 +99,11 @@ public class EnglishBean {
         this.icon_url = icon_url;
     }
 
-    public Object getIndex_recommend() {
+    public int getIndex_recommend() {
         return index_recommend;
     }
 
-    public void setIndex_recommend(Object index_recommend) {
+    public void setIndex_recommend(int index_recommend) {
         this.index_recommend = index_recommend;
     }
 

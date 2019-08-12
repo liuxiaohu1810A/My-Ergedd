@@ -1,13 +1,13 @@
-package com.example.myergedd.presenter;
-
-import android.util.Log;
+package com.example.myergedd.fragment.erge.presenter;
 
 import com.example.myergedd.base.BaseCallBack;
 import com.example.myergedd.base.BasePresenter;
-import com.example.myergedd.bean.SongBean;
-import com.example.myergedd.contact.MyContact;
-import com.example.myergedd.model.MyMidel;
-import com.squareup.haha.perflib.Main;
+import com.example.myergedd.bean.ErgeBean;
+import com.example.myergedd.bean.StoryBean;
+import com.example.myergedd.fragment.erge.contact.MyContact;
+import com.example.myergedd.fragment.erge.model.MyMidel;
+
+import java.util.List;
 
 public class MyPresenter<V extends MyContact.MainView> extends BasePresenter<V> implements MyContact.MainPresenter {
     private MyContact.MainModel myModel = new MyMidel();
@@ -15,9 +15,9 @@ public class MyPresenter<V extends MyContact.MainView> extends BasePresenter<V> 
     @Override
     public void getDataP() {
         if (mView != null) {
-            myModel.getDataM(new BaseCallBack<SongBean>() {
+            myModel.getDataM(new BaseCallBack<List<ErgeBean>>() {
                 @Override
-                public void onSuccessful(SongBean songBean) {
+                public void onSuccessful(List<ErgeBean> songBean) {
                     if (songBean != null) {
                         mView.onSuccess(songBean);
                     }
