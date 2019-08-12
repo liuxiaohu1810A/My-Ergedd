@@ -19,10 +19,12 @@ public class StoryFragment extends BaseFragment<HearStory.HearStoryView,IPresent
     private RecyclerView res;
     private HearStoryAdapter hearStoryAdapter;
 
+
     @Override
     protected int getLayoutID() {
         return R.layout.fragment_english;
     }
+
 
     @Override
     protected void initData() {
@@ -51,4 +53,5 @@ public class StoryFragment extends BaseFragment<HearStory.HearStoryView,IPresent
     public void onFailed(String error) {
 
     }
+
 }

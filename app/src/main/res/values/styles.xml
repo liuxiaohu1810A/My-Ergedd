@@ -22,4 +22,8 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowFullscreen">true</item>
     </style>
+<!--<<<<<<< HEAD-->
+
+<!--=======-->
+<!--&gt;>>>>>> 0d74f28ffabdb9133259e1aa7b330115a70d32f2-->
 </resources>

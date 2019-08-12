@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+<<<<<<< HEAD
     android:layout_height="match_parent"
     android:layout_marginTop="5dp"
     android:layout_marginBottom="4dp"
@@ -10,17 +11,43 @@
     app:cardMaxElevation="1dp"
     app:cardPreventCornerOverlap="true"
     app:cardUseCompatPadding="true">
+=======
+    android:layout_height="120dp"
+    android:layout_marginTop="2dp"
+    android:layout_marginBottom="2dp">
+>>>>>>> origin/zhangyadan
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_150">
 
+<<<<<<< HEAD
         <ImageView
             android:id="@+id/watch_top_pig"
             android:layout_width="@dimen/dp_250"
             android:layout_height="@dimen/dp_150"
             android:scaleType="fitXY"
             android:src="@mipmap/icon_notification" />
+=======
+        <!--<android.support.v7.widget.CardView-->
+            <!--android:id="@+id/care_watch_top_pig_card"-->
+            <!--android:layout_width="@dimen/dp_230"-->
+            <!--android:layout_height="@dimen/dp_120"-->
+            <!--app:cardCornerRadius="@dimen/dp_0"-->
+            <!--app:cardElevation="1dp"-->
+            <!--app:cardMaxElevation="1dp"-->
+            <!--app:cardPreventCornerOverlap="true"-->
+            <!--app:cardUseCompatPadding="true">-->
+
+            <ImageView
+                android:id="@+id/watch_top_pig"
+                android:layout_width="230dp"
+                android:layout_height="120dp"
+                android:scaleType="fitXY"
+                android:background="@color/red"
+                android:src="@mipmap/icon_notification" />
+        <!--</android.support.v7.widget.CardView>-->
+>>>>>>> origin/zhangyadan
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -30,7 +57,18 @@
             android:layout_marginLeft="@dimen/dp_5"
             android:layout_toEndOf="@+id/watch_top_pig"
             android:layout_toRightOf="@+id/watch_top_pig"
+            android:layout_marginLeft="@dimen/dp_5"
             android:orientation="vertical">
+
+            <!--<android.support.v7.widget.CardView-->
+                <!--android:id="@+id/care_watch_top_chicken"-->
+                <!--android:layout_width="@dimen/dp_142"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--app:cardCornerRadius="1dp"-->
+                <!--app:cardElevation="1dp"-->
+                <!--app:cardMaxElevation="1dp"-->
+                <!--app:cardPreventCornerOverlap="true"-->
+                <!--app:cardUseCompatPadding="true">-->
 
             <ImageView
                 android:id="@+id/watch_top_chicken"
@@ -38,16 +76,40 @@
                 android:layout_height="@dimen/dp_75"
                 android:layout_weight="1"
                 android:scaleType="fitXY"
+                android:background="@color/red"
                 android:src="@mipmap/icon_notification" />
+            <!--</android.support.v7.widget.CardView>-->
+
+
+
+            <!--<android.support.v7.widget.CardView-->
+                <!--android:id="@+id/care_watch_top_dog"-->
+                <!--android:layout_width="@dimen/dp_142"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="@dimen/dp_5"-->
+                <!--android:layout_marginTop="2dp"-->
+                <!--app:cardCornerRadius="1dp"-->
+                <!--app:cardElevation="1dp"-->
+                <!--app:cardMaxElevation="1dp"-->
+                <!--app:cardPreventCornerOverlap="true"-->
+                <!--app:cardUseCompatPadding="true">-->
 
             <ImageView
                 android:id="@+id/watch_top_dog"
+<<<<<<< HEAD
                 android:layout_width="@dimen/dp_142"
                 android:layout_height="@dimen/dp_75"
                 android:layout_marginTop="@dimen/dp_10"
+=======
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+>>>>>>> origin/zhangyadan
                 android:layout_weight="1"
+                android:layout_marginTop="@dimen/dp_3"
                 android:scaleType="fitXY"
+                android:background="@color/red"
                 android:src="@mipmap/icon_notification" />
+            <!--</android.support.v7.widget.CardView>-->
         </LinearLayout>
     </RelativeLayout>
-</android.support.v7.widget.CardView>
+</LinearLayout>

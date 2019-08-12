@@ -15,6 +15,7 @@ import com.example.myergedd.bean.MusicBean;
 import com.example.myergedd.bean.SinologyBean;
 import com.example.myergedd.bean.StoryBean;
 import com.example.myergedd.bean.SynthesizeBean;
+import com.example.myergedd.fragment.hear.erge.bean.Listen_ErgeBean;
 
 import com.example.myergedd.fragment.hear.english.bean.HearEnglishBean;
 import com.example.myergedd.fragment.hear.story.bean.HearStoryBean;
@@ -27,6 +28,7 @@ import retrofit2.http.GET;
 public interface ApiServier {
 
     String mUrl = "http://api.t.ergedd.com/api/v1/";
+
 
     /**
      * http://api.ergedd.com/api/v1/albums/home_recommended
@@ -45,6 +47,7 @@ public interface ApiServier {
      */
     @GET("home_items")
     Observable<BaseResponse<List<ChosenThree>>> getDataChosenThree();
+
 
     @GET("album_categories/4/albums?channel=new&offset=0&limit=20&sensitive=8")
     Observable<BaseResponse<List<CartoonBean>>> getCartoonData();
@@ -66,6 +69,7 @@ public interface ApiServier {
     @GET("album_categories/2/albums?channel=new&offset=0&limit=20&sensitive=8")
     Observable<BaseResponse<List<EnglishBean>>> getEnglishData();
 
+
     @GET("audio_categories/6/playlists?channel=new&offset=0&limit=20")
     Observable<BaseResponse<List<MusicBean>>> getMusicData();
 
@@ -77,4 +81,10 @@ public interface ApiServier {
 
     @GET("audio_categories/2/playlists?channel=new&offset=0&limit=20")
     Observable<BaseResponse<List<HearStoryBean>>> getHearStoryData();
+
+    @GET("audio_categories/1/playlists?channel=new&offset=0&limit=20")
+    Observable<BaseResponse<List<Listen_ErgeBean>>> getListen_ErgeBeanData();
+
+
+
 }
