@@ -87,7 +87,7 @@ public class ChosenAdapter extends RecyclerView.Adapter {
     @Override
     public int getItemCount() {
         if (image.length > 0 && mTwoBeans.size() > 0) {
-            return mThrees.size()+2;
+            return mThrees.size() + 2;
         } else {
             return mTwoBeans.size();
         }

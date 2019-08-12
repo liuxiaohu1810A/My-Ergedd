@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/listen_buttom_Relative"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:id="@+id/listen_buttom_Relative"
     android:layout_marginTop="3dp"
     android:padding="3dp">
 
@@ -14,8 +14,8 @@
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="8dp"
-        android:src="@mipmap/ic_launcher"
-        android:scaleType="fitXY"/>
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/listen_buttom_title"
@@ -36,4 +36,12 @@
         android:src="@mipmap/icon_download"
         tools:ignore="RtlCompat" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/listen_buttom_img"
+        android:layout_marginLeft="@dimen/dp_5"
+        android:layout_marginTop="@dimen/dp_8"
+        android:layout_marginRight="@dimen/dp_5"
+        android:background="@color/black10" />
 </RelativeLayout>
