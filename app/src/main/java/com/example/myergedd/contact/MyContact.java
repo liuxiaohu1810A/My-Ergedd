@@ -8,26 +8,20 @@ import java.util.List;
 
 public interface MyContact {
     //View层
-    interface MainView {
-        void onSuccess(SongBean songBean);
+    interface MainView<T> {
+        void onSuccess(T songBean);
 
         void onFail(String fail);
-
 
     }
 
     //Presenter层
     interface MainPresenter {
-        void getDataP(int page);
+        void getDataP();
     }
 
     //Model层
     interface MainModel {
-
-
-        void getDataM(BaseCallBack callBack);
-
-        void getDataList( BaseCallBack callBack);
-
+        void getDataM(BaseCallBack<SongBean> callBack);
     }
 }
