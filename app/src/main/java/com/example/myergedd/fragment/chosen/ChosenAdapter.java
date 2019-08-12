@@ -74,11 +74,8 @@ public class ChosenAdapter extends RecyclerView.Adapter {
             Glide.with(mContext).load(mTwoBeans.get(7).getIcon_url()).into(holder.mListen_center_img_eight);
             holder.mTv_title_eight.setText(mTwoBeans.get(7).getName());
         } else {
-            if (image.length > 0) {
-                i = i - 1;
-            }
             if (mTwoBeans.size() > 0) {
-                i = i - 1;
+                i = i - 2;
             }
             MyThreeViewHolder holder = (MyThreeViewHolder) viewHolder;
             ChosenThree chosenThree = mThrees.get(i);
@@ -89,12 +86,10 @@ public class ChosenAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        if (image.length > 0) {
-            return mTwoBeans.size() + 1;
-        } else if (mTwoBeans.size() > 0) {
-            return mThrees.size() + 1;
+        if (image.length > 0 && mTwoBeans.size() > 0) {
+            return mThrees.size()+2;
         } else {
-            return mThrees.size();
+            return mTwoBeans.size();
         }
     }
 
@@ -102,7 +97,7 @@ public class ChosenAdapter extends RecyclerView.Adapter {
     public int getItemViewType(int position) {
         if (image.length > 0 && position == 0) {
             return ONE;
-        } else if (position == 1 && image.length > 0 && mTwoBeans.size() > 0) {
+        } else if (position == 1 && mTwoBeans.size() > 0) {
             return TWO;
         } else {
             return THREE;
