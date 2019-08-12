@@ -72,15 +72,6 @@ public class HearFragment extends SimpleFragment {
         mTopBar = (RelativeLayout) view.findViewById(R.id.top_bar);
         mHearTab = (TabLayout) view.findViewById(R.id.hear_tab);
         mHearVp = (ViewPager) view.findViewById(R.id.hear_vp);
-        mAudioPlayerProgressMini = (ProgressBar) view.findViewById(R.id.audio_player_progress_mini);
-        mMiniPlayerPlayStop = (ImageView) view.findViewById(R.id.mini_player_play_stop);
-        mMiniPlayerSongName = (TextView) view.findViewById(R.id.mini_player_song_name);
-        mMiniPlayerPlayTime = (TextView) view.findViewById(R.id.mini_player_play_time);
-        mMiniPlayerPlayPrev = (ImageView) view.findViewById(R.id.mini_player_play_prev);
-        mMiniPlayerPlayNext = (ImageView) view.findViewById(R.id.mini_player_play_next);
-        mMiniPlayerPlayMode = (ImageView) view.findViewById(R.id.mini_player_play_mode);
-        mMiniPlayerPlayTimer = (ImageView) view.findViewById(R.id.mini_player_play_timer);
-        mMiniPlayerLrc = (ImageView) view.findViewById(R.id.mini_player_lrc);
         mActionContainer = (LinearLayout) view.findViewById(R.id.action_container);
 
         final ArrayList<Fragment> fs = new ArrayList<>();

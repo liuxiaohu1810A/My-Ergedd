@@ -95,6 +95,6 @@ public class MainActivity extends SimpleActivity {
         } else {
             finish();
             System.exit(0);
-    }
+        }
     }
 }
