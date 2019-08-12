@@ -83,5 +83,7 @@ dependencies {
 
     implementation 'com.zhxh:ximageviewlib:1.2'
 
-    compile 'com.makeramen:roundedimageview:2.2.1'
+    implementation 'com.makeramen:roundedimageview:2.2.1'
+
+
 }
