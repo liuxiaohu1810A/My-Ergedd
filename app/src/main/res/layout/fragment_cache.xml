@@ -47,16 +47,6 @@
     </RelativeLayout>
 
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/cache_tab"
-<<<<<<< HEAD
-        app:tabMode="scrollable"/>
-    <android.support.v4.view.ViewPager
-=======
->>>>>>> origin/zhangyadan
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
     <android.support.v4.view.ViewPager
         android:id="@+id/cache_vp"
         android:layout_width="match_parent"

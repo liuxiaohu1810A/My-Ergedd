@@ -43,13 +43,6 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
-=======
-        <activity
-            android:name=".SearchActivity"
-            android:theme="@style/NoAppTheme" />
-        <activity android:name=".HomeActivity"></activity>
->>>>>>> origin/zhangyadan
     </application>
 
 </manifest>
