@@ -21,8 +21,8 @@ public class IPresenter<V extends Story.StoryView> extends BasePresenter<V> impl
                 }
 
                 @Override
-                public void onFiled() {
-
+                public void onFiled(String error) {
+                    mView.onFailed(error);
                 }
             });
         }

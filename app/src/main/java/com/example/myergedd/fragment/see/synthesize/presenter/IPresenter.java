@@ -21,8 +21,8 @@ public class IPresenter<V extends Synthesize.SynthesizeView> extends BasePresent
                 }
 
                 @Override
-                public void onFiled() {
-
+                public void onFiled(String error) {
+                    mView.onFailed(error);
                 }
             });
         }

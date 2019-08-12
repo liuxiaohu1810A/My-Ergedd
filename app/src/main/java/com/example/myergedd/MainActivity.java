@@ -1,5 +1,8 @@
 package com.example.myergedd;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.FrameLayout;
@@ -8,9 +11,12 @@ import android.widget.RadioGroup;
 
 import com.example.myergedd.base.SimpleActivity;
 import com.example.myergedd.fragment.CacheFragment;
+
 import com.example.myergedd.fragment.hear.HearFragment;
 import com.example.myergedd.fragment.see.SeeFragment;
 import com.example.myergedd.utils.ShowFragmentUtils;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -30,6 +36,8 @@ public class MainActivity extends SimpleActivity {
     RadioButton mBtnPhoneMainProfile;
     @BindView(R.id.rgroup_main_phone_tab)
     RadioGroup mRgroupMainPhoneTab;
+    private ArrayList<Fragment> mList;
+    private FragmentManager mManager;
 
     @Override
     protected int getLayoutID() {
@@ -40,30 +48,6 @@ public class MainActivity extends SimpleActivity {
     protected void initView() {
         ShowFragmentUtils.addFragment(getSupportFragmentManager(), SeeFragment.class, R.id.rlayout_main_phone_container);
     }
-
-    @Override
-    protected void initData() {
-//        HttpManager.getInstance().getServer(ApiServier.class).get()
-//                .compose(RxJavaUtils.<BaseResponse<List<DongHua>>>rxScheduleThread())
-//                .compose(RxJavaUtils.<List<DongHua>>changeResult())
-//                .subscribe(new BaseObserver<List<DongHua>>() {
-//                    @Override
-//                    public void onSuccessful(List<DongHua> data) {
-//                        if (data != null) {
-//                            Log.e("data", "onSuccessful: " + data.toString());
-//                            ToastUtils.ShowToast(data.toString());
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFailed(String error) {
-//                        if (error != null) {
-//                            ToastUtils.ShowToast(error);
-//                        }
-//                    }
-//                });
-    }
-
     @OnClick({R.id.btn_phone_main_video, R.id.btn_phone_main_audio, R.id.btn_phone_main_profile, R.id.rgroup_main_phone_tab})
     public void onClick(View v) {
         switch (v.getId()) {
@@ -79,5 +63,20 @@ public class MainActivity extends SimpleActivity {
                 ShowFragmentUtils.addFragment(getSupportFragmentManager(), CacheFragment.class, R.id.rlayout_main_phone_container);
                 break;
         }
+    }
+
+    private int last;
+
+    private void switchFragment(int type) {
+        Fragment fragment = mList.get(type);
+        Fragment lastFragment = mList.get(last);
+        FragmentTransaction fragmentTransaction = mManager.beginTransaction();
+        if (!fragment.isAdded()) {
+            fragmentTransaction.add(R.id.rlayout_main_phone_container, fragment);
+        }
+        fragmentTransaction.show(fragment);
+        fragmentTransaction.hide(lastFragment);
+        fragmentTransaction.commit();
+        last = type;
     }
 }

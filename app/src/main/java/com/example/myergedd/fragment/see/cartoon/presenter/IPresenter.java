@@ -21,8 +21,8 @@ public class IPresenter<V extends Cartoon.CartoonView> extends BasePresenter<V> 
                 }
 
                 @Override
-                public void onFiled() {
-
+                public void onFiled(String error) {
+                    mView.onFailed(error);
                 }
             });
         }

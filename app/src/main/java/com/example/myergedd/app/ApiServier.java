@@ -1,6 +1,8 @@
 package com.example.myergedd.app;
 
 import com.example.myergedd.base.BaseResponse;
+import com.example.myergedd.bean.ChosenThree;
+import com.example.myergedd.bean.ChosenTwoBean;
 import com.example.myergedd.bean.CartoonBean;
 import com.example.myergedd.bean.EarlyBean;
 import com.example.myergedd.bean.EnglishBean;
@@ -14,6 +16,25 @@ import retrofit2.http.GET;
 
 public interface ApiServier {
     String mUrl = "http://api.t.ergedd.com/api/v1/";
+
+    /**
+     * http://api.ergedd.com/api/v1/albums/home_recommended
+     * 精选布局二
+     *
+     * @return
+     */
+    @GET("albums/home_recommended")
+    Observable<BaseResponse<List<ChosenTwoBean>>> getDataChosenTwo();
+
+    /**
+     * http://api.ergedd.com/api/v1/home_items
+     * 精选链表数据
+     *
+     * @return
+     */
+    @GET("home_items")
+    Observable<BaseResponse<List<ChosenThree>>> getDataChosenThree();
+
     @GET("album_categories/4/albums?channel=new&offset=0&limit=20&sensitive=8")
     Observable<BaseResponse<List<CartoonBean>>> getCartoonData();
 
