@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         app:tabIndicatorColor="#27D181"
         app:tabIndicatorFullWidth="false"
-        app:tabMode="fixed"
+        app:tabMode="scrollable"
         app:tabSelectedTextColor="#27D181"
         />
     <TextView
