@@ -17,6 +17,7 @@ import com.example.myergedd.bean.StoryBean;
 import com.example.myergedd.bean.SynthesizeBean;
 
 import com.example.myergedd.fragment.hear.english.bean.HearEnglishBean;
+import com.example.myergedd.fragment.hear.story.bean.HearStoryBean;
 
 import java.util.List;
 
@@ -24,12 +25,6 @@ import io.reactivex.Observable;
 import retrofit2.http.GET;
 
 public interface ApiServier {
-
-
-
-
-
-
 
     String mUrl = "http://api.t.ergedd.com/api/v1/";
 
@@ -79,4 +74,7 @@ public interface ApiServier {
 
     @GET("audio_categories/8/playlists?channel=new&offset=0&limit=20")
     Observable<BaseResponse<List<HearEnglishBean>>> getHearEnglishData();
+
+    @GET("audio_categories/2/playlists?channel=new&offset=0&limit=20")
+    Observable<BaseResponse<List<HearStoryBean>>> getHearStoryData();
 }

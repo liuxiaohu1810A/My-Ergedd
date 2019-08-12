@@ -1,33 +1,28 @@
 package com.example.myergedd.fragment;
 
-import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.myergedd.R;
 import com.example.myergedd.base.SimpleFragment;
-import com.example.myergedd.fragment.cartoon.CartoonFragment;
-import com.example.myergedd.fragment.early.EarlyFragment;
-import com.example.myergedd.fragment.english.EnglishFragment;
-import com.example.myergedd.fragment.erge.ErgeFragment;
-import com.example.myergedd.fragment.partner.PartnerFragment;
+import com.example.myergedd.fragment.see.chosen.cartoon.CartoonFragment;
+import com.example.myergedd.fragment.see.chosen.early.EarlyFragment;
+import com.example.myergedd.fragment.see.chosen.english.EnglishFragment;
+import com.example.myergedd.fragment.see.chosen.erge.ErgeFragment;
+import com.example.myergedd.fragment.see.chosen.partner.PartnerFragment;
 import com.example.myergedd.fragment.see.chosen.ChosenFragment;
-import com.example.myergedd.fragment.story.StoryFragment;
-import com.example.myergedd.fragment.synthesize.SynthesizeFragment;
+import com.example.myergedd.fragment.see.chosen.story.StoryFragment;
+import com.example.myergedd.fragment.see.chosen.synthesize.SynthesizeFragment;
 
 import java.util.ArrayList;
-
-import butterknife.BindView;
 
 public class SeeFragment extends SimpleFragment {
     private View view;
