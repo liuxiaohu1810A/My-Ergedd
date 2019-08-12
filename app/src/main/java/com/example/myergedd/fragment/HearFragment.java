@@ -17,11 +17,7 @@ import java.util.List;
 public class ErgeFragment extends BaseFragment<MyContact.MainView, MyPresenter<MyContact.MainView>> implements MyContact.MainView {
     private ErgeAdapter myAdapter;
     private RecyclerView mRlv;
-
-<<<<<<< HEAD:app/src/main/java/com/example/myergedd/fragment/see/erge/ErgeFragment.java
-=======
 public class HearFragment extends SimpleFragment {
->>>>>>> liuzishuo:app/src/main/java/com/example/myergedd/fragment/HearFragment.java
     @Override
     protected int getLayoutID() {
         return R.layout.fragment_hear;
