@@ -17,11 +17,11 @@ import android.widget.TextView;
 import com.example.myergedd.R;
 import com.example.myergedd.base.SimpleFragment;
 import com.example.myergedd.fragment.cartoon.CartoonFragment;
-import com.example.myergedd.fragment.chosen.ChosenFragment;
 import com.example.myergedd.fragment.early.EarlyFragment;
 import com.example.myergedd.fragment.english.EnglishFragment;
 import com.example.myergedd.fragment.erge.ErgeFragment;
 import com.example.myergedd.fragment.partner.PartnerFragment;
+import com.example.myergedd.fragment.see.chosen.ChosenFragment;
 import com.example.myergedd.fragment.story.StoryFragment;
 import com.example.myergedd.fragment.synthesize.SynthesizeFragment;
 

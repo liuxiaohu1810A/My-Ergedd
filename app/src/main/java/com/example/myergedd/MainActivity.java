@@ -15,8 +15,8 @@ import android.widget.Toast;
 
 import com.example.myergedd.base.SimpleActivity;
 import com.example.myergedd.fragment.CacheFragment;
-import com.example.myergedd.fragment.HearFragment;
 import com.example.myergedd.fragment.SeeFragment;
+import com.example.myergedd.fragment.hear.HearFragment;
 import com.example.myergedd.utils.ShowFragmentUtils;
 import com.example.myergedd.utils.ToastUtils;
 
