@@ -15,6 +15,7 @@ import com.example.myergedd.activity.commonsee.CommonSeeAdapter;
 import com.example.myergedd.activity.commonsee.CommonSeeBean;
 import com.example.myergedd.activity.commonsee.CommonSeePresenter;
 import com.example.myergedd.base.BaseActivity;
+import com.example.myergedd.bean.ChosenThree;
 import com.example.myergedd.utils.ToastUtils;
 
 import java.util.List;
@@ -55,6 +56,20 @@ public class CommonSeeActivity extends BaseActivity<CommonSee.CommonSeeView, Com
         mRlv.setLayoutManager(new LinearLayoutManager(this));
         mAdapter = new CommonSeeAdapter(this);
         mRlv.setAdapter(mAdapter);
+    }
+
+    @Override
+    protected void initListener() {
+        mAdapter.setOnVideoClickListener(new CommonSeeAdapter.onVideoClickListener() {
+            @Override
+            public void onClick(View v, int position) {
+                Intent intent = new Intent(CommonSeeActivity.this, VideoActivity.class);
+                CommonSeeBean seeBean = mAdapter.mList.get(position);
+                intent.putExtra("video",seeBean.getResource());
+                intent.putExtra("name",seeBean.getName());
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

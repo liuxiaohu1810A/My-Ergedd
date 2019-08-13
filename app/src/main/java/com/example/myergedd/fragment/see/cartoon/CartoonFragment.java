@@ -10,9 +10,11 @@ import com.example.myergedd.activity.CommonSeeActivity;
 import com.example.myergedd.adapter.CartoonAdapter;
 import com.example.myergedd.base.BaseFragment;
 import com.example.myergedd.bean.CartoonBean;
+import com.example.myergedd.bean.ChosenThree;
 import com.example.myergedd.bean.ChosenTwoBean;
 import com.example.myergedd.fragment.see.cartoon.contract.Cartoon;
 import com.example.myergedd.fragment.see.cartoon.presenter.IPresenter;
+import com.example.myergedd.fragment.see.chosen.ChosenAdapter;
 
 import java.util.List;
 
@@ -35,7 +37,6 @@ public class CartoonFragment extends BaseFragment<Cartoon.CartoonView, IPresente
 
 
     }
-
     @Override
     protected void initData() {
         mPresenter.setCartoonData();

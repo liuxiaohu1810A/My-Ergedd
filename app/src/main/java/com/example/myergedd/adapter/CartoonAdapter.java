@@ -80,8 +80,8 @@ public class CartoonAdapter extends RecyclerView.Adapter<CartoonAdapter.ViewHold
         void onClick(View v, int position);
     }
 
-
     public void setOnClickListener(onClickListener listener) {
         mListener = listener;
     }
+
 }
