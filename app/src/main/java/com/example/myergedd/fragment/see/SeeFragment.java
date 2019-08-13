@@ -18,8 +18,8 @@ import com.example.myergedd.fragment.see.chosen.ChosenFragment;
 import com.example.myergedd.fragment.see.early.EarlyFragment;
 import com.example.myergedd.fragment.see.english.EnglishFragment;
 import com.example.myergedd.fragment.see.erge.ErgeFragment;
-import com.example.myergedd.fragment.see.partner.PartnerFragment;
 import com.example.myergedd.fragment.see.story.StoryFragment;
+import com.example.myergedd.fragment.see.partner.PartnerFragment;
 import com.example.myergedd.fragment.see.synthesize.SynthesizeFragment;
 
 import java.util.ArrayList;

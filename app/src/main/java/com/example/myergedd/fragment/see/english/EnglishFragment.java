@@ -9,6 +9,7 @@ import com.example.myergedd.R;
 import com.example.myergedd.activity.CommonSeeActivity;
 import com.example.myergedd.adapter.EnglishAdapter;
 import com.example.myergedd.base.BaseFragment;
+import com.example.myergedd.bean.EnglishBean;
 import com.example.myergedd.bean.CartoonBean;
 import com.example.myergedd.bean.EnglishBean;
 import com.example.myergedd.fragment.see.english.contract.English;

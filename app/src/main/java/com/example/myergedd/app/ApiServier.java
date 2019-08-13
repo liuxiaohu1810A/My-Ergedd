@@ -62,16 +62,6 @@ public interface ApiServier {
 
     @GET("album_categories/2/albums?channel=new&offset=0&limit=20&sensitive=8")
     Observable<BaseResponse<List<EnglishBean>>> getEnglishData();
-
-    /**
-     * http://api.t.ergedd.com/api/v1/albums/33/videos?channel=new&offset=0&limit=20&sensitive=8
-     *
-     * @param id
-     * @return
-     */
-    @GET("albums/{id}/videos?channel=new&offset=0&limit=20&sensitive=8")
-    Observable<BaseResponse<List<CommonSeeBean>>> getDataCommon(@Path("id") int id);
-
     @GET("audio_categories/6/playlists?channel=new&offset=0&limit=20")
     Observable<BaseResponse<List<MusicBean>>> getMusicData();
 
@@ -86,4 +76,13 @@ public interface ApiServier {
 
     @GET("audio_categories/1/playlists?channel=new&offset=0&limit=20")
     Observable<BaseResponse<List<Listen_ErgeBean>>> getListen_ErgeBeanData();
+
+    /**
+     * http://api.t.ergedd.com/api/v1/albums/33/videos?channel=new&offset=0&limit=20&sensitive=8
+     *
+     * @param id
+     * @return
+     */
+    @GET("albums/{id}/videos?channel=new&offset=0&limit=20&sensitive=8")
+    Observable<BaseResponse<List<CommonSeeBean>>> getDataCommon(@Path("id") int id);
 }

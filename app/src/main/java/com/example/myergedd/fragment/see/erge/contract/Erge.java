@@ -1,4 +1,4 @@
-package com.example.myergedd.fragment.see.chosen.erge.contract;
+package com.example.myergedd.fragment.see.erge.contract;
 
 import com.example.myergedd.base.BaseCallBack;
 import com.example.myergedd.bean.EnglishBean;
