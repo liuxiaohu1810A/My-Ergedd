@@ -13,9 +13,9 @@ import android.widget.TextView;
 
 import com.example.myergedd.R;
 import com.example.myergedd.base.SimpleFragment;
-import com.example.myergedd.fragment.hear.english.EnglishFragment;
-import com.example.myergedd.fragment.hear.erge.ErgeFragment;
-import com.example.myergedd.fragment.hear.story.StoryFragment;
+import com.example.myergedd.fragment.see.english.EnglishFragment;
+import com.example.myergedd.fragment.see.erge.ErgeFragment;
+import com.example.myergedd.fragment.see.story.StoryFragment;
 import com.example.myergedd.fragment.see.cartoon.CartoonFragment;
 import com.example.myergedd.fragment.see.early.EarlyFragment;
 import com.example.myergedd.fragment.see.partner.PartnerFragment;
