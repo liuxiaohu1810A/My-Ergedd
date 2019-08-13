@@ -18,7 +18,6 @@ public class EnglishFragment extends BaseFragment<HearEnglish.HearEnglishView,IP
 
     private RecyclerView res;
     private HearEnglishAdapter hearEnglishAdapter;
-    private RecyclerView englishRes;
 
 
     @Override
@@ -33,11 +32,6 @@ public class EnglishFragment extends BaseFragment<HearEnglish.HearEnglishView,IP
         res.setLayoutManager(new LinearLayoutManager(getActivity()));
         hearEnglishAdapter = new HearEnglishAdapter(getActivity());
         res.setAdapter(hearEnglishAdapter);
-
-        englishRes = view.findViewById(R.id.englishRes);
-
-
-
     }
 
     @Override

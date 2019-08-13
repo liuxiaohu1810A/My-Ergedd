@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.example.myergedd.R;
+import com.example.myergedd.adapter.ChosenAdapter;
 import com.example.myergedd.base.BaseFragment;
 import com.example.myergedd.bean.ChosenThree;
 import com.example.myergedd.bean.ChosenTwoBean;
