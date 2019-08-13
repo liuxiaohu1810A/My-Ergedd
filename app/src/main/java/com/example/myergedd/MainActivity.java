@@ -1,8 +1,9 @@
 package com.example.myergedd;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.annotation.SuppressLint;
+import android.os.Handler;
+import android.os.Message;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.FrameLayout;
@@ -11,12 +12,10 @@ import android.widget.RadioGroup;
 
 import com.example.myergedd.base.SimpleActivity;
 import com.example.myergedd.fragment.CacheFragment;
-
-import com.example.myergedd.fragment.hear.HearFragment;
 import com.example.myergedd.fragment.see.SeeFragment;
+import com.example.myergedd.fragment.hear.HearFragment;
 import com.example.myergedd.utils.ShowFragmentUtils;
-
-import java.util.ArrayList;
+import com.example.myergedd.utils.ToastUtils;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -36,18 +35,27 @@ public class MainActivity extends SimpleActivity {
     RadioButton mBtnPhoneMainProfile;
     @BindView(R.id.rgroup_main_phone_tab)
     RadioGroup mRgroupMainPhoneTab;
-    private ArrayList<Fragment> mList;
-    private FragmentManager mManager;
+    private static boolean isExit = false;
 
     @Override
     protected int getLayoutID() {
         return R.layout.activity_main;
     }
 
+    @SuppressLint("HandlerLeak")
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            isExit = false;
+        }
+    };
+
     @Override
     protected void initView() {
         ShowFragmentUtils.addFragment(getSupportFragmentManager(), SeeFragment.class, R.id.rlayout_main_phone_container);
     }
+
     @OnClick({R.id.btn_phone_main_video, R.id.btn_phone_main_audio, R.id.btn_phone_main_profile, R.id.rgroup_main_phone_tab})
     public void onClick(View v) {
         switch (v.getId()) {
@@ -65,18 +73,23 @@ public class MainActivity extends SimpleActivity {
         }
     }
 
-    private int last;
-
-    private void switchFragment(int type) {
-        Fragment fragment = mList.get(type);
-        Fragment lastFragment = mList.get(last);
-        FragmentTransaction fragmentTransaction = mManager.beginTransaction();
-        if (!fragment.isAdded()) {
-            fragmentTransaction.add(R.id.rlayout_main_phone_container, fragment);
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            exit();
+            return false;
         }
-        fragmentTransaction.show(fragment);
-        fragmentTransaction.hide(lastFragment);
-        fragmentTransaction.commit();
-        last = type;
+        return super.onKeyDown(keyCode, event);
+    }
+
+    private void exit() {
+        if (!isExit) {
+            isExit = true;
+            ToastUtils.ShowToast("再点一次返回退出");
+            handler.sendEmptyMessageDelayed(0, 2000);
+        } else {
+            finish();
+            System.exit(0);
+        }
     }
 }

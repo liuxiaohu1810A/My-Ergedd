@@ -18,7 +18,8 @@ import java.util.List;
 
 public class EnglishAdapter extends RecyclerView.Adapter<EnglishAdapter.ViewHolder> {
     private final FragmentActivity activity;
-    private ArrayList<EnglishBean> englishBeans=new ArrayList<>();
+    public ArrayList<EnglishBean> englishBeans = new ArrayList<>();
+    private onClickListener mListener;
 
     public EnglishAdapter(FragmentActivity activity) {
 
@@ -39,12 +40,20 @@ public class EnglishAdapter extends RecyclerView.Adapter<EnglishAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
 
-            viewHolder.name.setText(englishBeans.get(i).getName());
-            viewHolder.desc.setText(englishBeans.get(i).getDescription());
-            viewHolder.ji.setText("共"+englishBeans.get(i).getVideo_count()+"集");
-            Glide.with(activity).load(englishBeans.get(i).getImage_url()).into(viewHolder.img);
+        viewHolder.name.setText(englishBeans.get(i).getName());
+        viewHolder.desc.setText(englishBeans.get(i).getDescription());
+        viewHolder.ji.setText("共" + englishBeans.get(i).getVideo_count() + "集");
+        Glide.with(activity).load(englishBeans.get(i).getImage_url()).into(viewHolder.img);
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener != null) {
+                    mListener.onClick(v, i);
+                }
+            }
+        });
     }
 
     @Override
@@ -66,5 +75,14 @@ public class EnglishAdapter extends RecyclerView.Adapter<EnglishAdapter.ViewHold
             desc = itemView.findViewById(R.id.item_watch_list_desc);
             ji = itemView.findViewById(R.id.cartoom_ji);
         }
+    }
+
+    public interface onClickListener {
+        void onClick(View v, int position);
+    }
+
+
+    public void setOnClickListener(onClickListener listener) {
+        mListener = listener;
     }
 }

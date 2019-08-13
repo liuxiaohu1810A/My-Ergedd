@@ -1,12 +1,16 @@
 package com.example.myergedd.fragment.see.english;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.example.myergedd.R;
+import com.example.myergedd.activity.CommonSeeActivity;
 import com.example.myergedd.adapter.EnglishAdapter;
 import com.example.myergedd.base.BaseFragment;
+import com.example.myergedd.bean.EnglishBean;
+import com.example.myergedd.bean.CartoonBean;
 import com.example.myergedd.bean.EnglishBean;
 import com.example.myergedd.fragment.see.english.contract.English;
 import com.example.myergedd.fragment.see.english.presenter.IPresenter;
@@ -39,6 +43,20 @@ public class EnglishFragment extends BaseFragment<English.EnglishView,IPresenter
     @Override
     protected void initData() {
         mPresenter.setEnglishData();
+    }
+
+    @Override
+    protected void initListener() {
+        englishAdapter.setOnClickListener(new EnglishAdapter.onClickListener() {
+            @Override
+            public void onClick(View v, int position) {
+                Intent intent = new Intent(getActivity(), CommonSeeActivity.class);
+                EnglishBean bean = englishAdapter.englishBeans.get(position);
+                intent.putExtra("id", bean.getId());
+                intent.putExtra("title", bean.getName());
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
