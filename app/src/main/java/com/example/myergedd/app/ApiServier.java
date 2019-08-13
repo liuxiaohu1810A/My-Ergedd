@@ -11,6 +11,8 @@ import com.example.myergedd.bean.EarlyBean;
 import com.example.myergedd.bean.EnglishBean;
 import com.example.myergedd.bean.ErgeBean;
 import com.example.myergedd.bean.MusicBean;
+import com.example.myergedd.bean.SearchSeeAlbumsBean;
+import com.example.myergedd.bean.SearchSeeVideosBean;
 import com.example.myergedd.bean.SinologyBean;
 import com.example.myergedd.bean.StoryBean;
 import com.example.myergedd.bean.SynthesizeBean;
@@ -24,6 +26,7 @@ import java.util.List;
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface ApiServier {
     /**
@@ -62,6 +65,7 @@ public interface ApiServier {
 
     @GET("album_categories/2/albums?channel=new&offset=0&limit=20&sensitive=8")
     Observable<BaseResponse<List<EnglishBean>>> getEnglishData();
+
     @GET("audio_categories/6/playlists?channel=new&offset=0&limit=20")
     Observable<BaseResponse<List<MusicBean>>> getMusicData();
 
@@ -85,4 +89,10 @@ public interface ApiServier {
      */
     @GET("albums/{id}/videos?channel=new&offset=0&limit=20&sensitive=8")
     Observable<BaseResponse<List<CommonSeeBean>>> getDataCommon(@Path("id") int id);
+
+    @GET("albums/search?&offset=0&limit=20&sensitive=8")
+    Observable<BaseResponse<List<SearchSeeAlbumsBean>>> getDataAlbumsSearch(@Query("keyword") String keyword);
+
+    @GET("videos/search?&offset=0&limit=20&sensitive=8")
+    Observable<BaseResponse<List<SearchSeeVideosBean>>> getDataVideoSearch(@Query("keyword") String keyword);
 }

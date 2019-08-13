@@ -31,7 +31,7 @@
             android:launchMode="singleTask"
             android:theme="@style/NoAppTheme" />
         <activity
-            android:name=".SearchActivity"
+            android:name=".activity.SearchActivity"
             android:launchMode="singleTop"
             android:theme="@style/NoAppTheme" />
         <activity
@@ -54,5 +54,4 @@
             android:screenOrientation="portrait"
             android:theme="@style/NoAppTheme" />
     </application>
-
 </manifest>
