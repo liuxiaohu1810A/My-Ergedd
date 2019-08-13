@@ -5,9 +5,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.example.myergedd.R;
-import com.example.myergedd.adapter.CartoonAdapter;
+import com.example.myergedd.adapter.see.CartoonAdapter;
 import com.example.myergedd.base.BaseFragment;
-import com.example.myergedd.bean.CartoonBean;
+import com.example.myergedd.bean.see.CartoonBean;
 import com.example.myergedd.fragment.see.cartoon.contract.Cartoon;
 import com.example.myergedd.fragment.see.cartoon.presenter.IPresenter;
 

@@ -11,8 +11,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.myergedd.R;
-import com.example.myergedd.bean.ChosenThree;
-import com.example.myergedd.bean.ChosenTwoBean;
+import com.example.myergedd.bean.see.ChosenThree;
+import com.example.myergedd.bean.see.ChosenTwoBean;
 
 import java.util.ArrayList;
 import java.util.List;

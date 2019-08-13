@@ -1,4 +1,4 @@
-package com.example.myergedd.adapter;
+package com.example.myergedd.adapter.see;
 
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
@@ -10,23 +10,23 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.myergedd.R;
-import com.example.myergedd.bean.CartoonBean;
+import com.example.myergedd.bean.see.EarlyBean;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CartoonAdapter extends RecyclerView.Adapter<CartoonAdapter.ViewHolder> {
+public class EarlyAdapter extends RecyclerView.Adapter<EarlyAdapter.ViewHolder> {
     private final FragmentActivity activity;
-    private ArrayList<CartoonBean> albumsBeans=new ArrayList<>();
+    private ArrayList<EarlyBean> earlyBeans=new ArrayList<>();
 
-    public CartoonAdapter(FragmentActivity activity) {
+    public EarlyAdapter(FragmentActivity activity) {
 
         this.activity = activity;
     }
 
-    public void setAlbumsBeans(List<CartoonBean> beans) {
+    public void setEarlyBeans(List<EarlyBean> beans) {
 
-        albumsBeans.addAll(beans);
+        earlyBeans.addAll(beans);
         notifyDataSetChanged();
     }
 
@@ -40,15 +40,15 @@ public class CartoonAdapter extends RecyclerView.Adapter<CartoonAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
 
-            viewHolder.name.setText(albumsBeans.get(i).getName());
-            viewHolder.desc.setText(albumsBeans.get(i).getDescription());
-            viewHolder.ji.setText("共"+albumsBeans.get(i).getVideo_count()+"集");
-            Glide.with(activity).load(albumsBeans.get(i).getImage_url()).into(viewHolder.img);
+            viewHolder.name.setText(earlyBeans.get(i).getName());
+            viewHolder.desc.setText(earlyBeans.get(i).getDescription());
+            viewHolder.ji.setText("共"+earlyBeans.get(i).getVideo_count()+"集");
+            Glide.with(activity).load(earlyBeans.get(i).getImage_url()).into(viewHolder.img);
     }
 
     @Override
     public int getItemCount() {
-        return albumsBeans.size();
+        return earlyBeans.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

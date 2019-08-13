@@ -5,9 +5,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.example.myergedd.R;
-import com.example.myergedd.adapter.EarlyAdapter;
+import com.example.myergedd.adapter.see.EarlyAdapter;
 import com.example.myergedd.base.BaseFragment;
-import com.example.myergedd.bean.EarlyBean;
+import com.example.myergedd.bean.see.EarlyBean;
 import com.example.myergedd.fragment.see.early.contract.Early;
 import com.example.myergedd.fragment.see.early.presenter.IPresenter;
 

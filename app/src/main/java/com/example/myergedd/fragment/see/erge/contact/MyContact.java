@@ -1,7 +1,7 @@
 package com.example.myergedd.fragment.see.erge.contact;
 
 import com.example.myergedd.base.BaseCallBack;
-import com.example.myergedd.bean.ErgeBean;
+import com.example.myergedd.bean.see.ErgeBean;
 
 import java.util.List;
 

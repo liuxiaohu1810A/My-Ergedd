@@ -6,9 +6,9 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.myergedd.R;
-import com.example.myergedd.adapter.ErgeAdapter;
+import com.example.myergedd.adapter.see.ErgeAdapter;
 import com.example.myergedd.base.BaseFragment;
-import com.example.myergedd.bean.ErgeBean;
+import com.example.myergedd.bean.see.ErgeBean;
 import com.example.myergedd.fragment.see.erge.contact.MyContact;
 import com.example.myergedd.fragment.see.erge.presenter.MyPresenter;
 

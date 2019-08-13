@@ -2,7 +2,7 @@ package com.example.myergedd.fragment.see.cartoon.presenter;
 
 import com.example.myergedd.base.BaseCallBack;
 import com.example.myergedd.base.BasePresenter;
-import com.example.myergedd.bean.CartoonBean;
+import com.example.myergedd.bean.see.CartoonBean;
 import com.example.myergedd.fragment.see.cartoon.contract.Cartoon;
 import com.example.myergedd.fragment.see.cartoon.model.IModel;
 

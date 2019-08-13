@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+    <TextView
+        android:id="@+id/jx"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_20"
+        android:text="精 选 专 辑"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/dp_5"
+        android:textColor="@color/color_1_black"/>
+    <TextView
+        android:id="@+id/boby"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_20"
+        android:text="宝宝最爱·热门儿歌·精彩故事"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/dp_5"
+        android:textColor="@color/color_7_gray_a4"
+        android:layout_below="@id/jx"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@id/boby"
+            android:layout_marginTop="@dimen/dp_4"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:id="@+id/rlv_chosen"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_marginTop="@dimen/dp_6"
+        android:layout_below="@+id/cartoon_img"
+        android:id="@+id/views"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_6"
+        android:background="#eaeaea" />
+</LinearLayout>

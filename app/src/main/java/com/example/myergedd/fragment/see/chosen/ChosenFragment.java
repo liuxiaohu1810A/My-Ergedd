@@ -7,8 +7,8 @@ import android.view.View;
 
 import com.example.myergedd.R;
 import com.example.myergedd.base.BaseFragment;
-import com.example.myergedd.bean.ChosenThree;
-import com.example.myergedd.bean.ChosenTwoBean;
+import com.example.myergedd.bean.see.ChosenThree;
+import com.example.myergedd.bean.see.ChosenTwoBean;
 import com.example.myergedd.utils.ToastUtils;
 
 import java.util.List;

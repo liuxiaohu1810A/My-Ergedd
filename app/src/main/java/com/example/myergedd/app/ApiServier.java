@@ -3,16 +3,17 @@ package com.example.myergedd.app;
 import com.example.myergedd.base.BaseResponse;
 
 
+import com.example.myergedd.bean.hear.ChosenBean;
+import com.example.myergedd.bean.hear.ChosenBeanBan;
+import com.example.myergedd.bean.see.ChosenThree;
+import com.example.myergedd.bean.see.ChosenTwoBean;
 
-import com.example.myergedd.bean.ChosenThree;
-import com.example.myergedd.bean.ChosenTwoBean;
-
-import com.example.myergedd.bean.CartoonBean;
-import com.example.myergedd.bean.EarlyBean;
-import com.example.myergedd.bean.EnglishBean;
-import com.example.myergedd.bean.ErgeBean;
-import com.example.myergedd.bean.StoryBean;
-import com.example.myergedd.bean.SynthesizeBean;
+import com.example.myergedd.bean.see.CartoonBean;
+import com.example.myergedd.bean.see.EarlyBean;
+import com.example.myergedd.bean.see.EnglishBean;
+import com.example.myergedd.bean.see.ErgeBean;
+import com.example.myergedd.bean.see.StoryBean;
+import com.example.myergedd.bean.see.SynthesizeBean;
 
 
 
@@ -66,4 +67,12 @@ public interface ApiServier {
 
     @GET("album_categories/2/albums?channel=new&offset=0&limit=20&sensitive=8")
     Observable<BaseResponse<List<EnglishBean>>> getEnglishData();
+
+
+    @GET("audio_playlists/excellent?channel=original")
+    Observable<BaseResponse<List<ChosenBeanBan>>> getChosenBanData();
+
+    @GET("audio_categories")
+    Observable<BaseResponse<List<ChosenBean>>> getChosenData();
+
 }

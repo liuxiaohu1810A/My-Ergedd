@@ -13,16 +13,17 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_150">
+        android:layout_height="@dimen/dp_120">
 
         <ImageView
             android:id="@+id/watch_top_pig"
-            android:layout_width="@dimen/dp_250"
+            android:layout_width="@dimen/dp_230"
             android:layout_height="@dimen/dp_150"
             android:scaleType="fitXY"
             android:src="@mipmap/icon_notification" />
 
         <LinearLayout
+            android:id="@+id/ll"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/dp_150"
             android:layout_alignParentTop="true"
@@ -44,10 +45,17 @@
                 android:id="@+id/watch_top_dog"
                 android:layout_width="@dimen/dp_142"
                 android:layout_height="@dimen/dp_75"
-                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginTop="@dimen/dp_5"
                 android:layout_weight="1"
                 android:scaleType="fitXY"
                 android:src="@mipmap/icon_notification" />
         </LinearLayout>
+        <TextView
+            android:layout_marginTop="@dimen/dp_3"
+            android:layout_below="@+id/ll"
+            android:id="@+id/views"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_2"
+            android:background="#eaeaea" />
     </RelativeLayout>
 </android.support.v7.widget.CardView>

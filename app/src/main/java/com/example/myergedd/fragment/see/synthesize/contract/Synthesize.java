@@ -1,7 +1,7 @@
 package com.example.myergedd.fragment.see.synthesize.contract;
 
 import com.example.myergedd.base.BaseCallBack;
-import com.example.myergedd.bean.SynthesizeBean;
+import com.example.myergedd.bean.see.SynthesizeBean;
 
 import java.util.List;
 

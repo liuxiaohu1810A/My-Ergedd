@@ -2,7 +2,7 @@ package com.example.myergedd.fragment.see.english.presenter;
 
 import com.example.myergedd.base.BaseCallBack;
 import com.example.myergedd.base.BasePresenter;
-import com.example.myergedd.bean.EnglishBean;
+import com.example.myergedd.bean.see.EnglishBean;
 import com.example.myergedd.fragment.see.english.contract.English;
 import com.example.myergedd.fragment.see.english.model.IModel;
 

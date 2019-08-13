@@ -2,8 +2,8 @@ package com.example.myergedd.fragment.see.chosen;
 
 import com.example.myergedd.base.BaseCallBack;
 import com.example.myergedd.base.BasePresenter;
-import com.example.myergedd.bean.ChosenThree;
-import com.example.myergedd.bean.ChosenTwoBean;
+import com.example.myergedd.bean.see.ChosenThree;
+import com.example.myergedd.bean.see.ChosenTwoBean;
 
 import java.util.List;
 
@@ -31,7 +31,6 @@ public class ChosenPresenter<V extends Chosen.ChosenView> extends BasePresenter<
             });
         }
     }
-
     @Override
     public void setDataThree() {
         if (mView != null) {

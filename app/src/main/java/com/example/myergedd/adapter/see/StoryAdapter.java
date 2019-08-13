@@ -1,4 +1,4 @@
-package com.example.myergedd.adapter;
+package com.example.myergedd.adapter.see;
 
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
@@ -10,22 +10,21 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.myergedd.R;
-import com.example.myergedd.bean.ErgeBean;
-import com.example.myergedd.bean.StoryBean;
+import com.example.myergedd.bean.see.StoryBean;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ErgeAdapter extends RecyclerView.Adapter<ErgeAdapter.ViewHolder> {
+public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> {
     private final FragmentActivity activity;
-    private ArrayList<ErgeBean> albumsBeans=new ArrayList<>();
+    private ArrayList<StoryBean> albumsBeans=new ArrayList<>();
 
-    public ErgeAdapter(FragmentActivity activity) {
+    public StoryAdapter(FragmentActivity activity) {
 
         this.activity = activity;
     }
 
-    public void setAlbumsBeans(List<ErgeBean> beans) {
+    public void setAlbumsBeans(List<StoryBean> beans) {
 
         albumsBeans.addAll(beans);
         notifyDataSetChanged();

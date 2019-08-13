@@ -1,7 +1,7 @@
 package com.example.myergedd.fragment.see.english.contract;
 
 import com.example.myergedd.base.BaseCallBack;
-import com.example.myergedd.bean.EnglishBean;
+import com.example.myergedd.bean.see.EnglishBean;
 
 import java.util.List;
 

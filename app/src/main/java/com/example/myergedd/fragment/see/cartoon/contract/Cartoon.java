@@ -1,7 +1,7 @@
 package com.example.myergedd.fragment.see.cartoon.contract;
 
 import com.example.myergedd.base.BaseCallBack;
-import com.example.myergedd.bean.CartoonBean;
+import com.example.myergedd.bean.see.CartoonBean;
 
 import java.util.List;
 

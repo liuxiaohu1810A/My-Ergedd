@@ -1,4 +1,4 @@
-package com.example.myergedd.bean;
+package com.example.myergedd.bean.see;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.myergedd.adapter;
+package com.example.myergedd.adapter.see;
 
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
@@ -10,24 +10,23 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.myergedd.R;
-import com.example.myergedd.bean.EarlyBean;
-import com.example.myergedd.bean.SynthesizeBean;
+import com.example.myergedd.bean.see.EnglishBean;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SynthesizeAdapter extends RecyclerView.Adapter<SynthesizeAdapter.ViewHolder> {
+public class EnglishAdapter extends RecyclerView.Adapter<EnglishAdapter.ViewHolder> {
     private final FragmentActivity activity;
-    private ArrayList<SynthesizeBean> synthesizeBeans=new ArrayList<>();
+    private ArrayList<EnglishBean> englishBeans=new ArrayList<>();
 
-    public SynthesizeAdapter(FragmentActivity activity) {
+    public EnglishAdapter(FragmentActivity activity) {
 
         this.activity = activity;
     }
 
-    public void setSynthesizeBeans(List<SynthesizeBean> beans) {
+    public void setEnglishBeans(List<EnglishBean> beans) {
 
-        synthesizeBeans.addAll(beans);
+        englishBeans.addAll(beans);
         notifyDataSetChanged();
     }
 
@@ -41,15 +40,15 @@ public class SynthesizeAdapter extends RecyclerView.Adapter<SynthesizeAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
 
-            viewHolder.name.setText(synthesizeBeans.get(i).getName());
-            viewHolder.desc.setText(synthesizeBeans.get(i).getDescription());
-            viewHolder.ji.setText("共"+synthesizeBeans.get(i).getVideo_count()+"集");
-            Glide.with(activity).load(synthesizeBeans.get(i).getImage_url()).into(viewHolder.img);
+            viewHolder.name.setText(englishBeans.get(i).getName());
+            viewHolder.desc.setText(englishBeans.get(i).getDescription());
+            viewHolder.ji.setText("共"+englishBeans.get(i).getVideo_count()+"集");
+            Glide.with(activity).load(englishBeans.get(i).getImage_url()).into(viewHolder.img);
     }
 
     @Override
     public int getItemCount() {
-        return synthesizeBeans.size();
+        return englishBeans.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
