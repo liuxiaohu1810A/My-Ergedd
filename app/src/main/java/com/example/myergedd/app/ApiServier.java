@@ -4,7 +4,8 @@ import com.example.myergedd.activity.commonsee.CommonSeeBean;
 import com.example.myergedd.base.BaseResponse;
 
 
-
+import com.example.myergedd.bean.ChosenBean;
+import com.example.myergedd.bean.ChosenBeanBan;
 import com.example.myergedd.bean.ChosenThree;
 import com.example.myergedd.bean.ChosenTwoBean;
 
@@ -87,7 +88,11 @@ public interface ApiServier {
     @GET("audio_categories/1/playlists?channel=new&offset=0&limit=20")
     Observable<BaseResponse<List<Listen_ErgeBean>>> getListen_ErgeBeanData();
 
+    @GET("audio_playlists/excellent?channel=original")
+    Observable<BaseResponse<List<ChosenBeanBan>>> getChosenBanData();
 
+    @GET("audio_categories")
+    Observable<BaseResponse<List<ChosenBean>>> getChosenData();
 
     /**
      * http://api.t.ergedd.com/api/v1/albums/33/videos?channel=new&offset=0&limit=20&sensitive=8
