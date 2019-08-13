@@ -3,24 +3,19 @@ package com.example.myergedd;
 import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import com.example.myergedd.base.SimpleActivity;
 import com.example.myergedd.fragment.CacheFragment;
-import com.example.myergedd.fragment.SeeFragment;
+import com.example.myergedd.fragment.see.SeeFragment;
 import com.example.myergedd.fragment.hear.HearFragment;
 import com.example.myergedd.utils.ShowFragmentUtils;
 import com.example.myergedd.utils.ToastUtils;
-
-import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.OnClick;
