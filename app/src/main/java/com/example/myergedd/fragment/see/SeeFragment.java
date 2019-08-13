@@ -13,14 +13,14 @@ import android.widget.TextView;
 
 import com.example.myergedd.R;
 import com.example.myergedd.base.SimpleFragment;
-import com.example.myergedd.fragment.see.chosen.cartoon.CartoonFragment;
-import com.example.myergedd.fragment.see.chosen.early.EarlyFragment;
-import com.example.myergedd.fragment.see.chosen.english.EnglishFragment;
-import com.example.myergedd.fragment.see.chosen.erge.ErgeFragment;
-import com.example.myergedd.fragment.see.chosen.partner.PartnerFragment;
+import com.example.myergedd.fragment.hear.english.EnglishFragment;
+import com.example.myergedd.fragment.hear.erge.ErgeFragment;
+import com.example.myergedd.fragment.hear.story.StoryFragment;
+import com.example.myergedd.fragment.see.cartoon.CartoonFragment;
+import com.example.myergedd.fragment.see.early.EarlyFragment;
+import com.example.myergedd.fragment.see.partner.PartnerFragment;
 import com.example.myergedd.fragment.see.chosen.ChosenFragment;
-import com.example.myergedd.fragment.see.chosen.story.StoryFragment;
-import com.example.myergedd.fragment.see.chosen.synthesize.SynthesizeFragment;
+import com.example.myergedd.fragment.see.synthesize.SynthesizeFragment;
 
 import java.util.ArrayList;
 

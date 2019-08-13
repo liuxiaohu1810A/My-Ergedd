@@ -1,10 +1,10 @@
-package com.example.myergedd.fragment.see.chosen.cartoon.presenter;
+package com.example.myergedd.fragment.see.cartoon.presenter;
 
 import com.example.myergedd.base.BaseCallBack;
 import com.example.myergedd.base.BasePresenter;
 import com.example.myergedd.bean.CartoonBean;
-import com.example.myergedd.fragment.see.chosen.cartoon.contract.Cartoon;
-import com.example.myergedd.fragment.see.chosen.cartoon.model.IModel;
+import com.example.myergedd.fragment.see.cartoon.contract.Cartoon;
+import com.example.myergedd.fragment.see.cartoon.model.IModel;
 
 import java.util.List;
 

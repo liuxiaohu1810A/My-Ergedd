@@ -1,4 +1,4 @@
-package com.example.myergedd.fragment.see.chosen.partner;
+package com.example.myergedd.fragment.see.partner;
 
 import com.example.myergedd.R;
 import com.example.myergedd.base.SimpleFragment;

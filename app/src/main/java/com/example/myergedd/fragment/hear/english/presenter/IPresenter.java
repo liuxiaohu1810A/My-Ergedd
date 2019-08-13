@@ -6,7 +6,6 @@ import com.example.myergedd.bean.MusicBean;
 import com.example.myergedd.fragment.hear.english.bean.HearEnglishBean;
 import com.example.myergedd.fragment.hear.english.contract.HearEnglish;
 import com.example.myergedd.fragment.hear.english.model.IModel;
-import com.example.myergedd.fragment.see.chosen.english.contract.English;
 
 import java.util.List;
 

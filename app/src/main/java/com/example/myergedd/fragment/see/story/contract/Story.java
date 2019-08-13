@@ -1,4 +1,4 @@
-package com.example.myergedd.fragment.see.chosen.story.contract;
+package com.example.myergedd.fragment.see.story.contract;
 
 import com.example.myergedd.base.BaseCallBack;
 import com.example.myergedd.bean.StoryBean;

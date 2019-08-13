@@ -18,7 +18,8 @@ import java.util.List;
 
 public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> {
     private final FragmentActivity activity;
-    private ArrayList<StoryBean> albumsBeans=new ArrayList<>();
+    public ArrayList<StoryBean> albumsBeans=new ArrayList<>();
+    private onClickListener mListener;
 
     public StoryAdapter(FragmentActivity activity) {
 
@@ -39,12 +40,20 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
 
             viewHolder.name.setText(albumsBeans.get(i).getName());
             viewHolder.desc.setText(albumsBeans.get(i).getDescription());
             viewHolder.ji.setText("共"+albumsBeans.get(i).getVideo_count()+"集");
             Glide.with(activity).load(albumsBeans.get(i).getImage_url()).into(viewHolder.img);
+            viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener!=null){
+                        mListener.onClick(v,i);
+                    }
+                }
+            });
     }
 
     @Override
@@ -66,5 +75,13 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder> 
             desc = itemView.findViewById(R.id.item_watch_list_desc);
             ji = itemView.findViewById(R.id.cartoom_ji);
         }
+    }
+    public interface onClickListener {
+        void onClick(View v, int position);
+    }
+
+
+    public void setOnClickListener(onClickListener listener) {
+        mListener = listener;
     }
 }

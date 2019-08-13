@@ -1,11 +1,11 @@
-package com.example.myergedd.fragment.see.chosen.story.model;
+package com.example.myergedd.fragment.see.story.model;
 
 import com.example.myergedd.app.ApiServier;
 import com.example.myergedd.base.BaseCallBack;
 import com.example.myergedd.base.BaseObserver;
 import com.example.myergedd.base.BaseResponse;
 import com.example.myergedd.bean.StoryBean;
-import com.example.myergedd.fragment.see.chosen.story.contract.Story;
+import com.example.myergedd.fragment.see.story.contract.Story;
 import com.example.myergedd.http.HttpManager;
 import com.example.myergedd.utils.RxJavaUtils;
 

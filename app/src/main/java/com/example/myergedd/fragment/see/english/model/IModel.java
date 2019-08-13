@@ -1,11 +1,11 @@
-package com.example.myergedd.fragment.see.chosen.english.model;
+package com.example.myergedd.fragment.see.english.model;
 
 import com.example.myergedd.app.ApiServier;
 import com.example.myergedd.base.BaseCallBack;
 import com.example.myergedd.base.BaseObserver;
 import com.example.myergedd.base.BaseResponse;
 import com.example.myergedd.bean.EnglishBean;
-import com.example.myergedd.fragment.see.chosen.english.contract.English;
+import com.example.myergedd.fragment.see.english.contract.English;
 import com.example.myergedd.http.HttpManager;
 import com.example.myergedd.utils.RxJavaUtils;
 

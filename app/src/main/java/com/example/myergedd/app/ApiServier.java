@@ -1,5 +1,6 @@
 package com.example.myergedd.app;
 
+import com.example.myergedd.activity.commonsee.CommonSeeBean;
 import com.example.myergedd.base.BaseResponse;
 
 
@@ -24,6 +25,7 @@ import java.util.List;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 public interface ApiServier {
 
@@ -87,4 +89,12 @@ public interface ApiServier {
 
 
 
+    /**
+     * http://api.t.ergedd.com/api/v1/albums/33/videos?channel=new&offset=0&limit=20&sensitive=8
+     *
+     * @param id
+     * @return
+     */
+    @GET("albums/{id}/videos?channel=new&offset=0&limit=20&sensitive=8")
+    Observable<BaseResponse<List<CommonSeeBean>>> getDataCommon(@Path("id") int id);
 }

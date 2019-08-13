@@ -1,4 +1,4 @@
-package com.example.myergedd.fragment.see.chosen.early.contract;
+package com.example.myergedd.fragment.see.early.contract;
 
 import com.example.myergedd.base.BaseCallBack;
 import com.example.myergedd.bean.EarlyBean;

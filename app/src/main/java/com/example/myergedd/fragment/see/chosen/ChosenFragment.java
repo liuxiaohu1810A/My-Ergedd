@@ -1,12 +1,12 @@
 package com.example.myergedd.fragment.see.chosen;
 
-
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.example.myergedd.R;
-import com.example.myergedd.adapter.ChosenAdapter;
+import com.example.myergedd.activity.CommonSeeActivity;
 import com.example.myergedd.base.BaseFragment;
 import com.example.myergedd.bean.ChosenThree;
 import com.example.myergedd.bean.ChosenTwoBean;
@@ -36,6 +36,20 @@ public class ChosenFragment extends BaseFragment<Chosen.ChosenView, ChosenPresen
     protected void initData() {
         mPresenter.setDataTwo();
         mPresenter.setDataThree();
+    }
+
+    @Override
+    protected void initListener() {
+        mAdapter.setOnClickListener(new ChosenAdapter.onClickListener() {
+            @Override
+            public void onClick(View v, int position) {
+                Intent intent = new Intent(getActivity(), CommonSeeActivity.class);
+                ChosenTwoBean bean = mAdapter.mTwoBeans.get(position);
+                intent.putExtra("id", bean.getId());
+                intent.putExtra("title", bean.getName());
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

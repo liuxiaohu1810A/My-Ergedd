@@ -1,10 +1,10 @@
-package com.example.myergedd.fragment.see.chosen.synthesize.presenter;
+package com.example.myergedd.fragment.see.synthesize.presenter;
 
 import com.example.myergedd.base.BaseCallBack;
 import com.example.myergedd.base.BasePresenter;
 import com.example.myergedd.bean.SynthesizeBean;
-import com.example.myergedd.fragment.see.chosen.synthesize.contract.Synthesize;
-import com.example.myergedd.fragment.see.chosen.synthesize.model.IModel;
+import com.example.myergedd.fragment.see.synthesize.contract.Synthesize;
+import com.example.myergedd.fragment.see.synthesize.model.IModel;
 
 import java.util.List;
 

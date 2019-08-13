@@ -1,4 +1,4 @@
-package com.example.myergedd.adapter;
+package com.example.myergedd.fragment.see.chosen;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

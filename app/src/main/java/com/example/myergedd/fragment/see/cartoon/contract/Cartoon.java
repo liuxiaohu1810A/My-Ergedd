@@ -1,4 +1,4 @@
-package com.example.myergedd.fragment.see.chosen.cartoon.contract;
+package com.example.myergedd.fragment.see.cartoon.contract;
 
 import com.example.myergedd.base.BaseCallBack;
 import com.example.myergedd.bean.CartoonBean;

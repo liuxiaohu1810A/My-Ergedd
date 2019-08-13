@@ -1,4 +1,4 @@
-package com.example.myergedd.fragment.see.chosen.erge;
+package com.example.myergedd.fragment.see.erge;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,8 +9,8 @@ import com.example.myergedd.adapter.ErgeAdapter;
 import com.example.myergedd.base.BaseFragment;
 import com.example.myergedd.base.SimpleFragment;
 import com.example.myergedd.bean.ErgeBean;
-import com.example.myergedd.fragment.see.chosen.erge.contract.Erge;
-import com.example.myergedd.fragment.see.chosen.erge.presenter.IPresenter;
+import com.example.myergedd.fragment.see.erge.contract.Erge;
+import com.example.myergedd.fragment.see.erge.presenter.IPresenter;
 
 import java.util.List;
 
