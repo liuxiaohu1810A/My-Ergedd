@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.example.myergedd.R;
 import com.example.myergedd.activity.CommonSeeActivity;
+import com.example.myergedd.activity.VideoActivity;
 import com.example.myergedd.base.BaseFragment;
 import com.example.myergedd.bean.ChosenThree;
 import com.example.myergedd.bean.ChosenTwoBean;
@@ -47,6 +48,16 @@ public class ChosenFragment extends BaseFragment<Chosen.ChosenView, ChosenPresen
                 ChosenTwoBean bean = mAdapter.mTwoBeans.get(position);
                 intent.putExtra("id", bean.getId());
                 intent.putExtra("title", bean.getName());
+                startActivity(intent);
+            }
+        });
+        mAdapter.setOnVideoClickListener(new ChosenAdapter.onVideoClickListener() {
+            @Override
+            public void onClick(View v, int position) {
+                Intent intent = new Intent(getActivity(), VideoActivity.class);
+                ChosenThree.ItemBean item = mAdapter.mThrees.get(position).getItem();
+                intent.putExtra("video",item.getResource());
+                intent.putExtra("name",item.getName());
                 startActivity(intent);
             }
         });
