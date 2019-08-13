@@ -1,16 +1,26 @@
 package com.example.myergedd;
 
+import android.annotation.SuppressLint;
+import android.os.Handler;
+import android.os.Message;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.myergedd.base.SimpleActivity;
 import com.example.myergedd.fragment.CacheFragment;
-import com.example.myergedd.fragment.hear.HearFragment;
-import com.example.myergedd.fragment.see.SeeFragment;
+import com.example.myergedd.fragment.HearFragment;
+import com.example.myergedd.fragment.SeeFragment;
 import com.example.myergedd.utils.ShowFragmentUtils;
+import com.example.myergedd.utils.ToastUtils;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -30,38 +40,25 @@ public class MainActivity extends SimpleActivity {
     RadioButton mBtnPhoneMainProfile;
     @BindView(R.id.rgroup_main_phone_tab)
     RadioGroup mRgroupMainPhoneTab;
+    private static boolean isExit = false;
 
     @Override
     protected int getLayoutID() {
         return R.layout.activity_main;
     }
 
+    @SuppressLint("HandlerLeak")
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            isExit = false;
+        }
+    };
+
     @Override
     protected void initView() {
         ShowFragmentUtils.addFragment(getSupportFragmentManager(), SeeFragment.class, R.id.rlayout_main_phone_container);
-    }
-
-    @Override
-    protected void initData() {
-//        HttpManager.getInstance().getServer(ApiServier.class).get()
-//                .compose(RxJavaUtils.<BaseResponse<List<DongHua>>>rxScheduleThread())
-//                .compose(RxJavaUtils.<List<DongHua>>changeResult())
-//                .subscribe(new BaseObserver<List<DongHua>>() {
-//                    @Override
-//                    public void onSuccessful(List<DongHua> data) {
-//                        if (data != null) {
-//                            Log.e("data", "onSuccessful: " + data.toString());
-//                            ToastUtils.ShowToast(data.toString());
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFailed(String error) {
-//                        if (error != null) {
-//                            ToastUtils.ShowToast(error);
-//                        }
-//                    }
-//                });
     }
 
     @OnClick({R.id.btn_phone_main_video, R.id.btn_phone_main_audio, R.id.btn_phone_main_profile, R.id.rgroup_main_phone_tab})
@@ -78,6 +75,26 @@ public class MainActivity extends SimpleActivity {
             case R.id.btn_phone_main_profile:
                 ShowFragmentUtils.addFragment(getSupportFragmentManager(), CacheFragment.class, R.id.rlayout_main_phone_container);
                 break;
+        }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            exit();
+            return false;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    private void exit() {
+        if (!isExit) {
+            isExit = true;
+            ToastUtils.ShowToast("再点一次返回退出");
+            handler.sendEmptyMessageDelayed(0, 2000);
+        } else {
+            finish();
+            System.exit(0);
         }
     }
 }

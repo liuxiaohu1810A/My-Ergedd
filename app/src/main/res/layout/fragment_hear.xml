@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:ignore="MissingDefaultResource">
     <RelativeLayout
@@ -50,150 +48,13 @@
             />
     </RelativeLayout>
     <android.support.design.widget.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/hear_tab"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:tabIndicatorColor="#27D181"
-        app:tabIndicatorFullWidth="false"
-        app:tabMode="fixed"
-        app:tabSelectedTextColor="#27D181"
         />
-    <TextView
-        android:id="@+id/views"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_1"
-        android:background="#eaeaea" />
     <android.support.v4.view.ViewPager
-        android:id="@+id/hear_vp"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="9"
+        android:layout_height="match_parent"
+        android:id="@+id/hear_vp"
         />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
-        <ProgressBar
-            android:id="@+id/audio_player_progress_mini"
-            style="@style/horizonal_progress_green"
-            android:layout_width="match_parent"
-            android:layout_height="3dp" />
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:background="@color/gray_f6">
-
-            <ImageView
-                android:id="@+id/mini_player_play_stop"
-                android:layout_width="wrap_content"
-                android:layout_height="55dp"
-                android:paddingLeft="13dp"
-                android:paddingRight="8dp"
-                android:scaleType="fitCenter"
-                android:src="@mipmap/audio_player_play" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_toRightOf="@+id/mini_player_play_stop"
-                android:layout_toLeftOf="@+id/action_container"
-                android:gravity="center_vertical">
-
-                <TextView
-                    android:id="@+id/mini_player_song_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:singleLine="true"
-                    android:text="@string/application_name"
-                    android:textColor="@color/black80"
-                    android:textSize="13sp" />
-
-                <TextView
-                    android:id="@+id/mini_player_play_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/mini_player_song_name"
-                    android:text="00:00/00:00"
-                    android:textColor="@color/gray_ae"
-                    android:textSize="12sp" />
-
-            </RelativeLayout>
-
-
-            <LinearLayout
-                android:id="@+id/action_container"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="15dp"
-                android:gravity="center"
-                android:visibility="visible">
-
-
-                <ImageView
-                    android:id="@+id/mini_player_play_prev"
-                    android:layout_width="40dp"
-                    android:layout_height="55dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="5dp"
-                    android:scaleType="fitCenter"
-                    android:src="@mipmap/audio_player_prev" />
-                <ImageView
-                    android:id="@+id/mini_player_play_next"
-                    android:layout_width="40dp"
-                    android:layout_height="55dp"
-                    android:paddingLeft="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:paddingRight="5dp"
-                    android:scaleType="fitCenter"
-                    android:src="@mipmap/audio_player_next" />
-
-                <ImageView
-                    android:id="@+id/mini_player_play_mode"
-                    android:layout_width="40dp"
-                    android:layout_height="55dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="5dp"
-                    android:scaleType="fitCenter"
-                    android:visibility="gone"
-                    android:src="@mipmap/audio_player_mode_random" />
-
-                <ImageView
-                    android:id="@+id/mini_player_play_timer"
-                    android:layout_width="40dp"
-                    android:layout_height="55dp"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="5dp"
-                    android:scaleType="fitCenter"
-                    android:visibility="gone"
-                    android:src="@mipmap/audio_player_timer" />
-
-                <ImageView
-                    android:id="@+id/mini_player_lrc"
-                    android:layout_width="40dp"
-                    android:layout_height="55dp"
-                    android:paddingLeft="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:paddingRight="5dp"
-                    android:scaleType="fitCenter"
-                    android:src="@mipmap/icon_lrc" />
-
-            </LinearLayout>
-        </RelativeLayout>
-    </LinearLayout>
-
-    <!--<include-->
-        <!--android:layout_weight="1"-->
-        <!--android:id="@+id/mini_audio_player"-->
-        <!--layout="@layout/mini_audio_player"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentBottom="true" />-->
 </LinearLayout>

@@ -69,9 +69,9 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
     //内存泄漏
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5'
-    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
-    testImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.3'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
+    testImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
     //日历控件
     implementation 'com.prolificinteractive:material-calendarview:1.4.3'
     //搜索框
@@ -84,4 +84,6 @@ dependencies {
     implementation 'com.zhxh:ximageviewlib:1.2'
 
     implementation 'com.makeramen:roundedimageview:2.2.1'
+    //饺子视频
+    implementation 'cn.jzvd:jiaozivideoplayer:6.2.9'
 }

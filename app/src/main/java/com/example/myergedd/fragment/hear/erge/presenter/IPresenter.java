@@ -5,7 +5,6 @@ import com.example.myergedd.base.BasePresenter;
 import com.example.myergedd.fragment.hear.erge.bean.Listen_ErgeBean;
 import com.example.myergedd.fragment.hear.erge.contract.Erge;
 import com.example.myergedd.fragment.hear.erge.model.IModel;
-import com.example.myergedd.fragment.see.cartoon.contract.Cartoon;
 
 import java.net.IDN;
 import java.util.List;
@@ -24,7 +23,7 @@ public class IPresenter<V extends Erge.ErgeView> extends BasePresenter<V> implem
                 }
 
                 @Override
-                public void onFiled() {
+                public void onFiled(String error) {
 
                 }
             });

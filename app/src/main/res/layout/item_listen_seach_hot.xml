@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/search_hot_title"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_30"
+            android:background="@color/gray_f7"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/dp_5"
+            android:text="热门搜索"
+            android:textColor="@color/gray_ae"
+            android:textSize="@dimen/dp_13" />
+        <TextView
+            android:id="@+id/search_hot_change"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_30"
+            android:background="@color/gray_f7"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/dp_5"
+            android:drawableLeft="@mipmap/icon_refresh"
+            android:padding="@dimen/dp_5"
+            android:text="换一批"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/gray_ae"
+            android:textSize="@dimen/dp_13" />
+
+    </RelativeLayout>
+
+</LinearLayout>
