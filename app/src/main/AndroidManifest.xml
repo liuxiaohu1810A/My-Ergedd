@@ -44,6 +44,10 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.CommonSeeActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/NoAppTheme" />
     </application>
 
 </manifest>

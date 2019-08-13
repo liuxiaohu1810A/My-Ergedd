@@ -51,7 +51,6 @@ public class CommonSeeActivity extends BaseActivity<CommonSee.CommonSeeView, Com
         }
         String title = intent.getStringExtra("title");
         mId = intent.getIntExtra("id", -1);
-        ToastUtils.ShowToast(mId + "");
         mTvTitleCommon.setText(title);
         mRlv.setLayoutManager(new LinearLayoutManager(this));
         mAdapter = new CommonSeeAdapter(this);

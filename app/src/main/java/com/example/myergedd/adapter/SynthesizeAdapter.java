@@ -18,7 +18,8 @@ import java.util.List;
 
 public class SynthesizeAdapter extends RecyclerView.Adapter<SynthesizeAdapter.ViewHolder> {
     private final FragmentActivity activity;
-    private ArrayList<SynthesizeBean> synthesizeBeans=new ArrayList<>();
+    public ArrayList<SynthesizeBean> synthesizeBeans = new ArrayList<>();
+    private onClickListener mListener;
 
     public SynthesizeAdapter(FragmentActivity activity) {
 
@@ -39,12 +40,20 @@ public class SynthesizeAdapter extends RecyclerView.Adapter<SynthesizeAdapter.Vi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
 
-            viewHolder.name.setText(synthesizeBeans.get(i).getName());
-            viewHolder.desc.setText(synthesizeBeans.get(i).getDescription());
-            viewHolder.ji.setText("共"+synthesizeBeans.get(i).getVideo_count()+"集");
-            Glide.with(activity).load(synthesizeBeans.get(i).getImage_url()).into(viewHolder.img);
+        viewHolder.name.setText(synthesizeBeans.get(i).getName());
+        viewHolder.desc.setText(synthesizeBeans.get(i).getDescription());
+        viewHolder.ji.setText("共" + synthesizeBeans.get(i).getVideo_count() + "集");
+        Glide.with(activity).load(synthesizeBeans.get(i).getImage_url()).into(viewHolder.img);
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener != null) {
+                    mListener.onClick(v, i);
+                }
+            }
+        });
     }
 
     @Override
@@ -66,5 +75,14 @@ public class SynthesizeAdapter extends RecyclerView.Adapter<SynthesizeAdapter.Vi
             desc = itemView.findViewById(R.id.item_watch_list_desc);
             ji = itemView.findViewById(R.id.cartoom_ji);
         }
+    }
+
+    public interface onClickListener {
+        void onClick(View v, int position);
+    }
+
+
+    public void setOnClickListener(onClickListener listener) {
+        mListener = listener;
     }
 }
