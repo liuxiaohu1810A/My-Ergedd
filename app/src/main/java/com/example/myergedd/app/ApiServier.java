@@ -9,10 +9,8 @@ import com.example.myergedd.bean.EarlyBean;
 import com.example.myergedd.bean.EnglishBean;
 import com.example.myergedd.bean.StoryBean;
 import com.example.myergedd.bean.SynthesizeBean;
-import com.example.myergedd.fragment.english.contract.English;
 
 import java.util.List;
-import java.util.function.DoubleUnaryOperator;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
