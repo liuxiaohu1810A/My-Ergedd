@@ -1,4 +1,4 @@
-package com.example.myergedd.fragment;
+package com.example.myergedd.fragment.see;
 
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;

@@ -1,5 +1,4 @@
 package com.example.myergedd.fragment.see.cartoon.presenter;
-
 import com.example.myergedd.base.BaseCallBack;
 import com.example.myergedd.base.BasePresenter;
 import com.example.myergedd.bean.CartoonBean;
@@ -21,10 +20,14 @@ public class IPresenter<V extends Cartoon.CartoonView> extends BasePresenter<V> 
                 }
 
                 @Override
-                public void onFiled(String error) {
-                    mView.onFailed(error);
-                }
-            });
-        }
+
+                public void onFiled(String filed) {
+                    if (filed != null) {
+                        mView.onFailed(filed);
+                    }
+
+            }
+        });
+    }
     }
 }

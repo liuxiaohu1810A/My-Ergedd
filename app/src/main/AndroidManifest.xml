@@ -41,12 +41,17 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
         <activity
             android:name=".activity.CommonSeeActivity"
             android:launchMode="singleTask"
+            android:theme="@style/NoAppTheme" />
+        <activity
+            android:name=".activity.LrcActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/NoAppTheme" />
     </application>
 

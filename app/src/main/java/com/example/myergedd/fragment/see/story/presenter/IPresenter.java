@@ -1,5 +1,4 @@
 package com.example.myergedd.fragment.see.story.presenter;
-
 import com.example.myergedd.base.BaseCallBack;
 import com.example.myergedd.base.BasePresenter;
 import com.example.myergedd.bean.StoryBean;
@@ -21,8 +20,11 @@ public class IPresenter<V extends Story.StoryView> extends BasePresenter<V> impl
                 }
 
                 @Override
-                public void onFiled(String error) {
-                    mView.onFailed(error);
+                public void onFiled(String filed) {
+                    if (filed != null) {
+                        mView.onFailed(filed);
+                    }
+
                 }
             });
         }

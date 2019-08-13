@@ -1,4 +1,4 @@
-package com.example.myergedd.fragment.see.chosen;
+package com.example.myergedd.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -21,8 +21,8 @@ public class ChosenAdapter extends RecyclerView.Adapter {
     private static final int ONE = 1;
     private static final int TWO = 2;
     private static final int THREE = 3;
-    List<ChosenTwoBean> mTwoBeans = new ArrayList<>();
-    List<ChosenThree> mThrees = new ArrayList<>();
+    public List<ChosenTwoBean> mTwoBeans = new ArrayList<>();
+    public List<ChosenThree> mThrees = new ArrayList<>();
     String[] image = {"http://img5g22.ergedd.com/audio_playlist/66562931040_1493868622457.jpg",
             "http://img5g22.ergedd.com/video/24560_1558709189080.jpg"
             , "http://img5g22.ergedd.com/video/16552_1508849834248.jpg"

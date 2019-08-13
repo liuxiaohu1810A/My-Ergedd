@@ -1,6 +1,5 @@
 package com.example.myergedd.fragment.see.chosen;
 
-
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +7,7 @@ import android.view.View;
 
 import com.example.myergedd.R;
 import com.example.myergedd.activity.CommonSeeActivity;
+import com.example.myergedd.adapter.ChosenAdapter;
 import com.example.myergedd.base.BaseFragment;
 import com.example.myergedd.bean.ChosenThree;
 import com.example.myergedd.bean.ChosenTwoBean;
@@ -16,7 +16,6 @@ import com.example.myergedd.utils.ToastUtils;
 import java.util.List;
 
 public class ChosenFragment extends BaseFragment<Chosen.ChosenView, ChosenPresenter<Chosen.ChosenView>> implements Chosen.ChosenView {
-
     private RecyclerView mRlv;
     private ChosenAdapter mAdapter;
 

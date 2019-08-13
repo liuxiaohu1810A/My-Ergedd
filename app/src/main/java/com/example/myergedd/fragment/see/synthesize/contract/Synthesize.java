@@ -1,5 +1,4 @@
 package com.example.myergedd.fragment.see.synthesize.contract;
-
 import com.example.myergedd.base.BaseCallBack;
 import com.example.myergedd.bean.SynthesizeBean;
 

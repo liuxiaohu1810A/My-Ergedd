@@ -21,8 +21,11 @@ public class IPresenter<V extends English.EnglishView> extends BasePresenter<V> 
                 }
 
                 @Override
-                public void onFiled(String error) {
-                    mView.onFailed(error);
+                public void onFiled(String filed) {
+                    if (filed != null) {
+                        mView.onFailed(filed);
+                    }
+
                 }
             });
         }

@@ -13,6 +13,7 @@ import com.example.myergedd.bean.CartoonBean;
 import com.example.myergedd.bean.EarlyBean;
 import com.example.myergedd.fragment.see.early.contract.Early;
 import com.example.myergedd.fragment.see.early.presenter.IPresenter;
+import com.example.myergedd.bean.EarlyBean;
 
 import java.util.List;
 

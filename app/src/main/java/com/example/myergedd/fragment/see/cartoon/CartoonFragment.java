@@ -1,6 +1,7 @@
 package com.example.myergedd.fragment.see.cartoon;
 
 import android.content.Intent;
+
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -10,7 +11,6 @@ import com.example.myergedd.activity.CommonSeeActivity;
 import com.example.myergedd.adapter.CartoonAdapter;
 import com.example.myergedd.base.BaseFragment;
 import com.example.myergedd.bean.CartoonBean;
-import com.example.myergedd.bean.ChosenTwoBean;
 import com.example.myergedd.fragment.see.cartoon.contract.Cartoon;
 import com.example.myergedd.fragment.see.cartoon.presenter.IPresenter;
 
