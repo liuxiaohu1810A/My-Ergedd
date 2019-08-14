@@ -22,8 +22,33 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowFullscreen">true</item>
     </style>
-<!--<<<<<<< HEAD-->
 
-<!--=======-->
-<!--&gt;>>>>>> 0d74f28ffabdb9133259e1aa7b330115a70d32f2-->
+    <style name="horizonal_progress_green" parent="android:Widget.ProgressBar.Horizontal">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/progress_line_green</item>
+        <item name="android:indeterminateDrawable">
+            @android:drawable/progress_indeterminate_horizontal
+        </item>
+        <item name="android:minHeight">20dip</item>
+        <item name="android:maxHeight">20dip</item>
+    </style>
+    <style name="circle_progressbar">
+        <item name="android:indeterminateDrawable">@drawable/green_circle_progressbar</item>
+        <item name="android:minWidth">30dp</item>
+        <item name="android:minHeight">30dp</item>
+    </style>
+    <style name="audio_time_controll_text">
+        <item name="android:layout_width">90dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">audio_time_controll_text</item>
+        <item name="android:textColor">@color/audio_time_controll_text</item>
+        <item name="android:background">@drawable/audio_time_controll_background</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+    </style>
 </resources>

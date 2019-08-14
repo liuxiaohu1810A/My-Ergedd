@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlayout_audio_time_controll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black70"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <RelativeLayout
+        android:id="@+id/rlayout_audio_time_controll_set"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="10dp"
+        android:paddingBottom="15dp">
+
+        <TextView
+            android:id="@+id/tv_audio_time_controll_play_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/audio_player_time_setting" />
+
+        <TextView
+            android:id="@+id/tv_audio_time_controll_unlimited"
+            style="@style/audio_time_controll_text"
+            android:layout_below="@+id/tv_audio_time_controll_play_setting"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/unlimited" />
+
+        <TextView
+            android:id="@+id/tv_audio_time_controll_set_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_audio_time_controll_unlimited"
+            android:layout_marginTop="15dp"
+            android:text="@string/set_time" />
+
+        <TextView
+            android:id="@+id/tv_audio_time_controll_time10"
+            style="@style/audio_time_controll_text"
+            android:layout_below="@+id/tv_audio_time_controll_set_time"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/play_controll_time10" />
+
+        <TextView
+            android:id="@+id/tv_audio_time_controll_time20"
+            style="@style/audio_time_controll_text"
+            android:layout_below="@+id/tv_audio_time_controll_set_time"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/play_controll_time20" />
+
+
+        <TextView
+            android:id="@+id/tv_audio_time_controll_time30"
+            style="@style/audio_time_controll_text"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tv_audio_time_controll_set_time"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/play_controll_time30" />
+
+        <TextView
+            android:id="@+id/tv_audio_time_controll_time40"
+            style="@style/audio_time_controll_text"
+            android:layout_below="@+id/tv_audio_time_controll_time10"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/play_controll_time40" />
+
+        <TextView
+            android:id="@+id/tv_audio_time_controll_time50"
+            style="@style/audio_time_controll_text"
+            android:layout_below="@+id/tv_audio_time_controll_time20"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/play_controll_time50" />
+
+
+        <TextView
+            android:id="@+id/tv_audio_time_controll_time60"
+            style="@style/audio_time_controll_text"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/tv_audio_time_controll_time30"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/play_controll_time60" />
+
+
+        <TextView
+            android:id="@+id/tv_audio_time_controll_set_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_audio_time_controll_time40"
+            android:layout_marginTop="15dp"
+            android:text="@string/set_count" />
+
+        <TextView
+            android:id="@+id/tv_audio_time_controll_count5"
+            style="@style/audio_time_controll_text"
+            android:layout_below="@+id/tv_audio_time_controll_set_count"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/play_controll_count5" />
+
+
+        <TextView
+            android:id="@+id/tv_audio_time_controll_count10"
+            style="@style/audio_time_controll_text"
+            android:layout_below="@+id/tv_audio_time_controll_set_count"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="@string/play_controll_count10" />
+
+
+        <TextView
+            android:id="@+id/tv_audio_time_controll_count20"
+            style="@style/audio_time_controll_text"
+            android:layout_below="@+id/tv_audio_time_controll_set_count"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/play_controll_count20" />
+    </RelativeLayout>
+
+</RelativeLayout>
