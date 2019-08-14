@@ -3,6 +3,7 @@ package com.example.myergedd.app;
 import android.media.AudioRecord;
 
 import com.example.myergedd.activity.commonsee.CommonSeeBean;
+import com.example.myergedd.activity.detailshear.DetailsHearBean;
 import com.example.myergedd.base.BaseRecordResponse;
 import com.example.myergedd.base.BaseResponse;
 
@@ -140,5 +141,5 @@ public interface ApiServier {
     @Headers("Cache-Control: public, max-age=28800")
     @FormUrlEncoded
     @POST("getAudioByPlaylistId")
-    Observable<BaseRecordResponse<AudioRecord>> requestAllAudioByPlayListId(@Field("apid") int audioPlayListId, @Field("offset") int offset, @Field("limit") int limit);
+    Observable<BaseRecordResponse<DetailsHearBean>> getRequestAllAudioByPlayListId(@Field("apid") int audioPlayListId/*, @Field("offset") int offset, @Field("limit") int limit*/);
 }

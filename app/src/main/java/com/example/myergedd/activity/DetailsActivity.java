@@ -3,6 +3,7 @@ package com.example.myergedd.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -16,11 +17,17 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.example.myergedd.MainActivity;
 import com.example.myergedd.R;
+import com.example.myergedd.activity.detailshear.DetailsHear;
+import com.example.myergedd.activity.detailshear.DetailsHearAdapter;
+import com.example.myergedd.activity.detailshear.DetailsHearBean;
+import com.example.myergedd.activity.detailshear.DetailsHearPresenter;
+import com.example.myergedd.base.BaseActivity;
+import com.example.myergedd.base.BasePresenter;
 import com.example.myergedd.fragment.hear.erge.ErgeFragment;
 
 import jp.wasabeef.glide.transformations.BlurTransformation;
 
-public class DetailsActivity extends AppCompatActivity {
+public class DetailsActivity extends BaseActivity <DetailsHear.DetailsHearView,DetailsHearPresenter<DetailsHear.DetailsHearView>>implements DetailsHear.DetailsHearView {
 
     private ImageView itemListenTopDetails;
     private ImageView listenTopBackImg;
@@ -65,20 +72,16 @@ public class DetailsActivity extends AppCompatActivity {
     private String url;
     private String description;
     private static final String TAG = "DetailsActivity";
+    private DetailsHearAdapter detailsHearAdapter;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void initView() {
         id = getIntent().getIntExtra("id", 0);
         name = getIntent().getStringExtra("name");
         count = getIntent().getIntExtra("count",0);
         url = getIntent().getStringExtra("url");
         description = getIntent().getStringExtra("description");
-        setContentView(R.layout.activity_details);
-        initView();
         Log.d(TAG, "onCreate: "+count);
-    }
-
-    private void initView() {
         itemListenTopDetails = (ImageView) findViewById(R.id.item_listen_top_details);
         listenTopBackImg = (ImageView) findViewById(R.id.listen_top_back_img);
         listenTwoTopTitle = (TextView) findViewById(R.id.listen_two_top_title);
@@ -114,5 +117,34 @@ public class DetailsActivity extends AppCompatActivity {
                 finish();
             }
         });
+        detailRes.setLayoutManager(new LinearLayoutManager(this));
+        detailsHearAdapter = new DetailsHearAdapter(this);
+        detailRes.setAdapter(detailsHearAdapter);
+
+    }
+
+    @Override
+    public void onSuccessful(DetailsHearBean detailsHearBeans) {
+        detailsHearAdapter.setDetailsData(detailsHearBeans);
+    }
+
+    @Override
+    public void onFailed(String error) {
+
+    }
+
+    @Override
+    protected void initData() {
+        mPresenter.setDetailsData(338);
+    }
+
+    @Override
+    protected DetailsHearPresenter<DetailsHear.DetailsHearView> initPresenter() {
+        return new DetailsHearPresenter<>();
+    }
+
+    @Override
+    protected int getLayoutID() {
+        return R.layout.activity_details;
     }
 }
