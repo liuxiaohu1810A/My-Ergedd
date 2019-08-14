@@ -19,6 +19,7 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 
+import com.example.myergedd.bean.SynthesizeBean;
 import java.util.List;
 
 public class SynthesizeFragment extends BaseFragment<Synthesize.SynthesizeView,IPresenter<Synthesize.SynthesizeView>>implements Synthesize.SynthesizeView {

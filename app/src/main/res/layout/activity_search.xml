@@ -1,10 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SearchActivity"
+    android:orientation="vertical"
+    tools:context=".activity.SearchActivity"
     tools:ignore="MissingDefaultResource">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_48"
+        android:background="@color/gray_f8">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/dp_12"
+            android:layout_marginLeft="@dimen/dp_12"
+            android:layout_toStartOf="@+id/btn_action"
+            android:layout_toLeftOf="@+id/btn_action"
+            android:background="@drawable/search_video_edit_backgroud">
+
+            <ImageView
+                android:id="@+id/search_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/icon_search" />
+
+            <EditText
+                android:id="@+id/search_song_name"
+                android:layout_width="@dimen/dp_230"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_6"
+                android:layout_marginLeft="@dimen/dp_6"
+                android:layout_toEndOf="@+id/search_icon"
+                android:layout_toRightOf="@+id/search_icon"
+                android:background="@null"
+                android:cursorVisible="true"
+                android:hint="@string/search_video_input_hint"
+                android:imeOptions="actionSearch"
+                android:singleLine="true"
+                android:textColorHint="#dadadd"
+                android:textCursorDrawable="@drawable/search_edit_shape"
+                android:textSize="@dimen/sp_16" />
+
+            <ImageView
+                android:id="@+id/search_clean_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:scaleType="center"
+                android:src="@mipmap/search_activity_close" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/btn_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/dp_12"
+            android:paddingRight="@dimen/dp_12"
+            android:text="取消"
+            android:textColor="@color/FONT_DARK" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/gray_e4" />
+
+    <include
+        layout="@layout/item_watch_search_hot"
+        android:visibility="gone" />
+
+    <include
+        layout="@layout/item_watch_search_new"
+        android:visibility="gone" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/search_songs_rlv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:scrollbars="vertical"
+        android:smoothScrollbar="true" />
+</LinearLayout>

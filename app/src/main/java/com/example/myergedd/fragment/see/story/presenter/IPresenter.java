@@ -1,5 +1,4 @@
 package com.example.myergedd.fragment.see.story.presenter;
-
 import com.example.myergedd.base.BaseCallBack;
 import com.example.myergedd.base.BasePresenter;
 import com.example.myergedd.bean.StoryBean;

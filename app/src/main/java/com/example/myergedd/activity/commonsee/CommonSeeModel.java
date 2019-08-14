@@ -23,7 +23,7 @@ public class CommonSeeModel implements CommonSee.CommonSeeModel {
                         if (data != null) {
                             if (data.size() > 0) {
                                 callBack.onSuccessful(data);
-                                Log.e("common", "onSuccessful: " + data.size());
+                                Log.e("common", "onAlbumsSuccessful: " + data.size());
                             }
                         }
                     }

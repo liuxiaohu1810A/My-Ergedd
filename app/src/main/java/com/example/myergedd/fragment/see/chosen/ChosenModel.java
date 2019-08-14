@@ -24,7 +24,7 @@ public class ChosenModel implements Chosen.ChosenModel {
                     public void onSuccessful(List<ChosenTwoBean> data) {
                         if (data.size() > 0) {
                             twoBean.onSuccessful(data);
-                            Log.e("jingxuan", "onSuccessful:2 " + data.size());
+                            Log.e("jingxuan", "onAlbumsSuccessful:2 " + data.size());
                         }
                     }
 
@@ -47,7 +47,7 @@ public class ChosenModel implements Chosen.ChosenModel {
                     public void onSuccessful(List<ChosenThree> data) {
                         if (data.size() > 0) {
                             threeBean.onSuccessful(data);
-                            Log.e("jingxuan", "onSuccessful:3 " + data.size());
+                            Log.e("jingxuan", "onAlbumsSuccessful:3 " + data.size());
                         }
                     }
 

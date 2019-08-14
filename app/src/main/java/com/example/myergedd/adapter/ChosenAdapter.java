@@ -21,14 +21,15 @@ public class ChosenAdapter extends RecyclerView.Adapter {
     private static final int ONE = 1;
     private static final int TWO = 2;
     private static final int THREE = 3;
-    List<ChosenTwoBean> mTwoBeans = new ArrayList<>();
-    List<ChosenThree> mThrees = new ArrayList<>();
+    public List<ChosenTwoBean> mTwoBeans = new ArrayList<>();
+    public List<ChosenThree> mThrees = new ArrayList<>();
     String[] image = {"http://img5g22.ergedd.com/audio_playlist/66562931040_1493868622457.jpg",
             "http://img5g22.ergedd.com/video/24560_1558709189080.jpg"
             , "http://img5g22.ergedd.com/video/16552_1508849834248.jpg"
     };
     private Context mContext;
     private onClickListener mListener;
+    private onVideoClickListener mVideoListener;
 
 
     public ChosenAdapter(Context context) {
@@ -210,6 +211,16 @@ public class ChosenAdapter extends RecyclerView.Adapter {
             ChosenThree chosenThree = mThrees.get(i);
             Glide.with(mContext).load(chosenThree.getItem().getImage()).into(holder.mListen_buttom_img);
             holder.mListen_buttom_title.setText(chosenThree.getItem().getName());
+
+            final int finalI = i;
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mVideoListener!=null){
+                        mVideoListener.onClick(v, finalI);
+                    }
+                }
+            });
         }
     }
 
@@ -304,5 +315,12 @@ public class ChosenAdapter extends RecyclerView.Adapter {
 
     public void setOnClickListener(onClickListener listener) {
         mListener = listener;
+    }
+    public interface onVideoClickListener {
+        void onClick(View v, int position);
+    }
+
+    public void setOnVideoClickListener(onVideoClickListener listener) {
+        mVideoListener = listener;
     }
 }

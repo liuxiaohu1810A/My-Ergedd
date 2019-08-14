@@ -9,6 +9,7 @@ import android.view.View;
 import com.example.myergedd.R;
 import com.example.myergedd.activity.CommonSeeActivity;
 import com.example.myergedd.activity.VideoActivity;
+import com.example.myergedd.adapter.ChosenAdapter;
 import com.example.myergedd.base.BaseFragment;
 import com.example.myergedd.bean.ChosenThree;
 import com.example.myergedd.bean.ChosenTwoBean;
@@ -20,7 +21,6 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 import java.util.List;
 
 public class ChosenFragment extends BaseFragment<Chosen.ChosenView, ChosenPresenter<Chosen.ChosenView>> implements Chosen.ChosenView {
-
     private RecyclerView mRlv;
     private ChosenAdapter mAdapter;
     public SmartRefreshLayout mSmart;
@@ -59,7 +59,6 @@ public class ChosenFragment extends BaseFragment<Chosen.ChosenView, ChosenPresen
             }
         });
         mAdapter.setOnVideoClickListener(new ChosenAdapter.onVideoClickListener() {
-            @Override
             public void onClick(View v, int position) {
                 Intent intent = new Intent(getActivity(), VideoActivity.class);
                 ChosenThree.ItemBean item = mAdapter.mThrees.get(position).getItem();
