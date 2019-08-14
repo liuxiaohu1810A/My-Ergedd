@@ -1,5 +1,6 @@
 package com.example.myergedd.fragment.hear.story;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -11,6 +12,9 @@ import com.example.myergedd.base.SimpleFragment;
 import com.example.myergedd.fragment.hear.story.bean.HearStoryBean;
 import com.example.myergedd.fragment.hear.story.contract.HearStory;
 import com.example.myergedd.fragment.hear.story.presenter.IPresenter;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 
 import java.util.List;
 
@@ -18,7 +22,8 @@ public class StoryFragment extends BaseFragment<HearStory.HearStoryView,IPresent
 
     private RecyclerView res;
     private HearStoryAdapter hearStoryAdapter;
-
+    private SmartRefreshLayout mSmart;
+    private int page=0;
 
     @Override
     protected int getLayoutID() {
@@ -34,9 +39,21 @@ public class StoryFragment extends BaseFragment<HearStory.HearStoryView,IPresent
     @Override
     protected void initView(View view) {
         res = view.findViewById(R.id.englishRes);
+        mSmart = (SmartRefreshLayout) view.findViewById(R.id.smart);
         res.setLayoutManager(new LinearLayoutManager(getActivity()));
         hearStoryAdapter = new HearStoryAdapter(getActivity());
         res.setAdapter(hearStoryAdapter);
+        mSmart.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                mSmart.finishLoadMore();
+            }
+
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                mSmart.finishRefresh();
+            }
+        });
     }
 
     @Override

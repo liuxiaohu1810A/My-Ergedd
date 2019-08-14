@@ -3,7 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/smart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <include layout="@layout/common_head"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/chosen_rlv"
         android:layout_width="match_parent"
@@ -13,6 +17,7 @@
         android:fadingEdgeLength="0dp"
         android:overScrollMode="never"
         android:scrollbars="vertical" />
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 </LinearLayout>
 
 <!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"-->

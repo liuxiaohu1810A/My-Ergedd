@@ -1,6 +1,7 @@
 package com.example.myergedd.fragment.see.erge;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -14,6 +15,9 @@ import com.example.myergedd.bean.EnglishBean;
 import com.example.myergedd.bean.ErgeBean;
 import com.example.myergedd.fragment.see.erge.contract.Erge;
 import com.example.myergedd.fragment.see.erge.presenter.IPresenter;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 
 import java.util.List;
 
@@ -21,6 +25,8 @@ public class ErgeFragment extends BaseFragment<Erge.ErgeView,IPresenter<Erge.Erg
 
     private RecyclerView res;
     private ErgeAdapter ergeAdapter;
+    public SmartRefreshLayout mSmart;
+    private int page;
 
     @Override
     protected int getLayoutID() {
@@ -30,9 +36,21 @@ public class ErgeFragment extends BaseFragment<Erge.ErgeView,IPresenter<Erge.Erg
     @Override
     protected void initView(View view) {
         res = view.findViewById(R.id.rlv);
+        mSmart = (SmartRefreshLayout) view.findViewById(R.id.smart);
         res.setLayoutManager(new LinearLayoutManager(getActivity()));
         ergeAdapter = new ErgeAdapter(getActivity());
         res.setAdapter(ergeAdapter);
+        mSmart.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                mSmart.finishLoadMore();
+            }
+
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                mSmart.finishRefresh();
+            }
+        });
     }
 
     @Override

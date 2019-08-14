@@ -1,5 +1,6 @@
 package com.example.myergedd.fragment.hear.music;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -11,6 +12,9 @@ import com.example.myergedd.base.SimpleFragment;
 import com.example.myergedd.bean.MusicBean;
 import com.example.myergedd.fragment.hear.music.contract.Music;
 import com.example.myergedd.fragment.hear.music.presenter.IPresenter;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 
 import java.util.List;
 
@@ -18,7 +22,8 @@ public class MusicFragment extends BaseFragment<Music.MusicView,IPresenter<Music
 
     private RecyclerView res;
     private MusicAdapter musicAdapter;
-
+    private SmartRefreshLayout mSmart;
+    private int page=0;
     @Override
     protected int getLayoutID() {
         return R.layout.fragment_english;
@@ -27,9 +32,21 @@ public class MusicFragment extends BaseFragment<Music.MusicView,IPresenter<Music
     @Override
     protected void initView(View view) {
         res = view.findViewById(R.id.englishRes);
+        mSmart = (SmartRefreshLayout) view.findViewById(R.id.smart);
         res.setLayoutManager(new LinearLayoutManager(getActivity()));
         musicAdapter = new MusicAdapter(getActivity());
         res.setAdapter(musicAdapter);
+        mSmart.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                mSmart.finishLoadMore();
+            }
+
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                mSmart.finishRefresh();
+            }
+        });
     }
 
     @Override

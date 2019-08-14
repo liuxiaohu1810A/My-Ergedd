@@ -1,6 +1,7 @@
 package com.example.myergedd.fragment.see.synthesize;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -14,6 +15,9 @@ import com.example.myergedd.bean.EnglishBean;
 import com.example.myergedd.bean.SynthesizeBean;
 import com.example.myergedd.fragment.see.synthesize.contract.Synthesize;
 import com.example.myergedd.fragment.see.synthesize.presenter.IPresenter;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 
 import java.util.List;
 
@@ -21,6 +25,8 @@ public class SynthesizeFragment extends BaseFragment<Synthesize.SynthesizeView,I
 
     private RecyclerView res;
     private SynthesizeAdapter synthesizeAdapter;
+    public SmartRefreshLayout mSmart;
+    private int page;
 
     @Override
     protected int getLayoutID() {
@@ -35,9 +41,21 @@ public class SynthesizeFragment extends BaseFragment<Synthesize.SynthesizeView,I
     @Override
     protected void initView(View view) {
         res = view.findViewById(R.id.synthesizeRes);
+        mSmart = (SmartRefreshLayout) view.findViewById(R.id.smart);
         res.setLayoutManager(new LinearLayoutManager(getActivity()));
         synthesizeAdapter = new SynthesizeAdapter(getActivity());
         res.setAdapter(synthesizeAdapter);
+        mSmart.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                mSmart.finishLoadMore();
+            }
+
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                mSmart.finishRefresh();
+            }
+        });
     }
 
     @Override

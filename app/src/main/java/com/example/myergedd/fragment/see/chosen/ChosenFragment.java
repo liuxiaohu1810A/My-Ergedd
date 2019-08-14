@@ -1,6 +1,7 @@
 package com.example.myergedd.fragment.see.chosen;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -12,6 +13,9 @@ import com.example.myergedd.base.BaseFragment;
 import com.example.myergedd.bean.ChosenThree;
 import com.example.myergedd.bean.ChosenTwoBean;
 import com.example.myergedd.utils.ToastUtils;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 
 import java.util.List;
 
@@ -19,6 +23,8 @@ public class ChosenFragment extends BaseFragment<Chosen.ChosenView, ChosenPresen
 
     private RecyclerView mRlv;
     private ChosenAdapter mAdapter;
+    public SmartRefreshLayout mSmart;
+    private int page;
 
     @Override
     protected int getLayoutID() {
@@ -28,6 +34,7 @@ public class ChosenFragment extends BaseFragment<Chosen.ChosenView, ChosenPresen
     @Override
     protected void initView(View view) {
         mRlv = view.findViewById(R.id.chosen_rlv);
+        mSmart = (SmartRefreshLayout) view.findViewById(R.id.smart);
         mRlv.setLayoutManager(new LinearLayoutManager(getActivity()));
         mAdapter = new ChosenAdapter(getActivity());
         mRlv.setAdapter(mAdapter);
@@ -69,17 +76,44 @@ public class ChosenFragment extends BaseFragment<Chosen.ChosenView, ChosenPresen
     }
 
     @Override
-    public void onSuccessTwo(List<ChosenTwoBean> twoBeans) {
+    public void onSuccessTwo(final List<ChosenTwoBean> twoBeans) {
         if (twoBeans.size() > 0) {
             mAdapter.setDataTwo(twoBeans);
+
         }
+        mSmart.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                mSmart.finishLoadMore();
+            }
+
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                twoBeans.clear();
+                page=0;
+                initData();
+                mSmart.finishRefresh();
+            }
+        });
     }
 
     @Override
-    public void onSuccessThree(List<ChosenThree> threes) {
+    public void onSuccessThree(final List<ChosenThree> threes) {
         if (threes.size() > 0) {
             mAdapter.setDataThree(threes);
         }
+        mSmart.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                mSmart.finishLoadMore();
+            }
+
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                threes.clear();
+                mSmart.finishRefresh();
+            }
+        });
     }
 
     @Override

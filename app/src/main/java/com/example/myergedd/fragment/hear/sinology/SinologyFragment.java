@@ -1,5 +1,6 @@
 package com.example.myergedd.fragment.hear.sinology;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -12,6 +13,9 @@ import com.example.myergedd.bean.SinologyBean;
 import com.example.myergedd.fragment.hear.music.contract.Music;
 import com.example.myergedd.fragment.hear.sinology.contract.Sinology;
 import com.example.myergedd.fragment.hear.sinology.presenter.IPresenter;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 
 import java.util.List;
 
@@ -19,6 +23,8 @@ public class SinologyFragment extends BaseFragment<Sinology.SinologyView,IPresen
 
     private RecyclerView res;
     private SinologyAdapter sinologyAdapter;
+    private SmartRefreshLayout mSmart;
+    private int page=0;
 
     @Override
     protected int getLayoutID() {
@@ -28,9 +34,21 @@ public class SinologyFragment extends BaseFragment<Sinology.SinologyView,IPresen
     @Override
     protected void initView(View view) {
         res = view.findViewById(R.id.englishRes);
+        mSmart = (SmartRefreshLayout) view.findViewById(R.id.smart);
         res.setLayoutManager(new LinearLayoutManager(getActivity()));
         sinologyAdapter = new SinologyAdapter(getActivity());
         res.setAdapter(sinologyAdapter);
+        mSmart.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
+            @Override
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                mSmart.finishLoadMore();
+            }
+
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                mSmart.finishRefresh();
+            }
+        });
     }
 
     @Override

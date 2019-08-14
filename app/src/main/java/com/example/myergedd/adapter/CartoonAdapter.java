@@ -16,13 +16,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CartoonAdapter extends RecyclerView.Adapter<CartoonAdapter.ViewHolder> {
-    private final FragmentActivity activity;
+    public final FragmentActivity activity;
     public ArrayList<CartoonBean> albumsBeans = new ArrayList<>();
     private onClickListener mListener;
 
     public CartoonAdapter(FragmentActivity activity) {
 
         this.activity = activity;
+
     }
 
     public void setAlbumsBeans(List<CartoonBean> beans) {
@@ -30,6 +31,7 @@ public class CartoonAdapter extends RecyclerView.Adapter<CartoonAdapter.ViewHold
         albumsBeans.addAll(beans);
         notifyDataSetChanged();
     }
+
 
     @NonNull
     @Override
@@ -53,6 +55,7 @@ public class CartoonAdapter extends RecyclerView.Adapter<CartoonAdapter.ViewHold
                 }
             }
         });
+
     }
 
     @Override
@@ -83,5 +86,4 @@ public class CartoonAdapter extends RecyclerView.Adapter<CartoonAdapter.ViewHold
     public void setOnClickListener(onClickListener listener) {
         mListener = listener;
     }
-
 }
