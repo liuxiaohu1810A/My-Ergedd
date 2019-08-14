@@ -1,9 +1,9 @@
 package com.example.myergedd.http;
 
-public class HttpErrorCode extends Throwable{
-    private int code;
-    private String message;
-    private String success;
+public class HttpErrorCode extends Throwable {
+    int code;
+    String message;
+    String success;
 
     public HttpErrorCode(String message) {
         this.message = message;

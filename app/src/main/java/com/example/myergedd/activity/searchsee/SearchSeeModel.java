@@ -7,6 +7,7 @@ import com.example.myergedd.base.BaseCallBack;
 import com.example.myergedd.base.BaseObserver;
 import com.example.myergedd.base.BaseResponse;
 import com.example.myergedd.bean.SearchSeeAlbumsBean;
+import com.example.myergedd.bean.SearchSeeHotBean;
 import com.example.myergedd.bean.SearchSeeVideosBean;
 import com.example.myergedd.http.HttpManager;
 import com.example.myergedd.utils.RxJavaUtils;
@@ -63,5 +64,10 @@ public class SearchSeeModel implements SearchSee.SearchSeeModel {
                         }
                     }
                 });
+    }
+
+    @Override
+    public void getDataHotSearch(BaseCallBack<SearchSeeHotBean> callBack) {
+//        HttpManager.getInstance().getServer()
     }
 }

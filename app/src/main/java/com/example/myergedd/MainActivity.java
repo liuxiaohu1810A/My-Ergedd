@@ -3,6 +3,7 @@ package com.example.myergedd;
 import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewStub;
@@ -10,10 +11,17 @@ import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.example.myergedd.app.ApiServier;
+import com.example.myergedd.base.BaseObserver;
+import com.example.myergedd.base.BaseRecordResponse;
 import com.example.myergedd.base.SimpleActivity;
+import com.example.myergedd.bean.SearchSeeHotBean;
 import com.example.myergedd.fragment.CacheFragment;
 import com.example.myergedd.fragment.see.SeeFragment;
 import com.example.myergedd.fragment.hear.HearFragment;
+import com.example.myergedd.http.HttpManager;
+import com.example.myergedd.http.HttpManagerPost;
+import com.example.myergedd.utils.RxJavaUtils;
 import com.example.myergedd.utils.ShowFragmentUtils;
 import com.example.myergedd.utils.ToastUtils;
 

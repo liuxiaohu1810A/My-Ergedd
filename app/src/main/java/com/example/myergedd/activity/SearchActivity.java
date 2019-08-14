@@ -17,6 +17,7 @@ import com.example.myergedd.activity.searchsee.SearchSeePresenter;
 import com.example.myergedd.adapter.SearchSeeAdapter;
 import com.example.myergedd.base.BaseActivity;
 import com.example.myergedd.bean.SearchSeeAlbumsBean;
+import com.example.myergedd.bean.SearchSeeHotBean;
 import com.example.myergedd.bean.SearchSeeVideosBean;
 import com.example.myergedd.utils.ToastUtils;
 
@@ -44,7 +45,6 @@ public class SearchActivity extends BaseActivity<SearchSee.SearchSeeView, Search
     TextView mSearchHotTitle;
     @BindView(R.id.search_songs_rlv)
     RecyclerView mRlv;
-    private boolean mNetWorkError;
     private SearchSeeAdapter mAdapter;
 
     @Override
@@ -121,6 +121,7 @@ public class SearchActivity extends BaseActivity<SearchSee.SearchSeeView, Search
             case R.id.search_clean_all:
                 mSearchSongName.setText("");
                 mAdapter.mAlbumsList.clear();
+                mAdapter.mVideosList.clear();
                 mAdapter.notifyDataSetChanged();
                 break;
             case R.id.btn_action:
@@ -157,7 +158,7 @@ public class SearchActivity extends BaseActivity<SearchSee.SearchSeeView, Search
         }
         ToastUtils.ShowToast(keyword);
 
-        if (!TextUtils.isEmpty(keyword) && !mNetWorkError) {
+        if (!TextUtils.isEmpty(keyword)) {
             checkAndSaveKeywords(keyword);
             requestVideosByKeyword(keyword);
         }
@@ -166,6 +167,8 @@ public class SearchActivity extends BaseActivity<SearchSee.SearchSeeView, Search
     private void requestVideosByKeyword(String keyword) {
         mPresenter.setDataAlbumsSearch(keyword);
         mPresenter.setDataVideoSearch(keyword);
+        mBtnAction.setText("取消");
+        mBtnAction.setTextColor(getResources().getColor(R.color.FONT_DARK));
     }
 
     private void checkAndSaveKeywords(String keyword) {
@@ -191,6 +194,15 @@ public class SearchActivity extends BaseActivity<SearchSee.SearchSeeView, Search
         if (searchSeeBeans != null) {
             if (searchSeeBeans.size() > 0) {
                 mAdapter.setDataVideoSearchSee(searchSeeBeans);
+            }
+        }
+    }
+
+    @Override
+    public void onHotSuceessful(SearchSeeHotBean seeHotBean) {
+        if (seeHotBean != null) {
+            if (seeHotBean.getKeywords().size() > 0) {
+
             }
         }
     }
