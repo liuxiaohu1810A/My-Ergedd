@@ -18,7 +18,8 @@ import java.util.List;
 
 public class HearStoryAdapter extends RecyclerView.Adapter<HearStoryAdapter.ViewHolder> {
     private final FragmentActivity activity;
-    private ArrayList<HearStoryBean> hearStoryBeans=new ArrayList<>();
+    public ArrayList<HearStoryBean> hearStoryBeans=new ArrayList<>();
+    private onClickListener mListener;
 
     public HearStoryAdapter(FragmentActivity activity) {
 
@@ -39,12 +40,20 @@ public class HearStoryAdapter extends RecyclerView.Adapter<HearStoryAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
 
             viewHolder.name.setText(hearStoryBeans.get(i).getName());
             viewHolder.desc.setText(hearStoryBeans.get(i).getDescription());
             viewHolder.count.setText(hearStoryBeans.get(i).getCount()+"首");
             Glide.with(activity).load(hearStoryBeans.get(i).getSquare_image_url()).into(viewHolder.img);
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener != null) {
+                    mListener.onClick(v, i);
+                }
+            }
+        });
     }
 
     @Override
@@ -66,5 +75,12 @@ public class HearStoryAdapter extends RecyclerView.Adapter<HearStoryAdapter.View
             desc = itemView.findViewById(R.id.item_watch_list_desc);
             count = itemView.findViewById(R.id.item_watch_list_count);
         }
+    }
+    public interface onClickListener {
+        void onClick(View v, int position);
+    }
+
+    public void setOnClickListener(onClickListener listener) {
+        mListener = listener;
     }
 }

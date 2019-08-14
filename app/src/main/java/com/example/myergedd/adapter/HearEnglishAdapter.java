@@ -18,7 +18,8 @@ import java.util.List;
 
 public class HearEnglishAdapter extends RecyclerView.Adapter<HearEnglishAdapter.ViewHolder> {
     private final FragmentActivity activity;
-    private ArrayList<HearEnglishBean> hearEnglishBeans=new ArrayList<>();
+    public ArrayList<HearEnglishBean> hearEnglishBeans=new ArrayList<>();
+    private onClickListener mListener;
 
     public HearEnglishAdapter(FragmentActivity activity) {
 
@@ -39,12 +40,21 @@ public class HearEnglishAdapter extends RecyclerView.Adapter<HearEnglishAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
 
             viewHolder.name.setText(hearEnglishBeans.get(i).getName());
             viewHolder.desc.setText(hearEnglishBeans.get(i).getDescription());
             viewHolder.count.setText(hearEnglishBeans.get(i).getCount()+"首");
             Glide.with(activity).load(hearEnglishBeans.get(i).getSquare_image_url()).into(viewHolder.img);
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener != null) {
+                    mListener.onClick(v, i);
+                }
+            }
+        });
     }
 
     @Override
@@ -66,5 +76,12 @@ public class HearEnglishAdapter extends RecyclerView.Adapter<HearEnglishAdapter.
             desc = itemView.findViewById(R.id.item_watch_list_desc);
             count = itemView.findViewById(R.id.item_watch_list_count);
         }
+    }
+    public interface onClickListener {
+        void onClick(View v, int position);
+    }
+
+    public void setOnClickListener(onClickListener listener) {
+        mListener = listener;
     }
 }

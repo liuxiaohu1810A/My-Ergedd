@@ -57,6 +57,7 @@ public class ChosenAdapter extends RecyclerView.Adapter {
             Glide.with(mContext).load(image[0]).into(holder.mWatch_top_pig);
             Glide.with(mContext).load(image[1]).into(holder.mWatch_top_chicken);
             Glide.with(mContext).load(image[2]).into(holder.mWatch_top_dog);
+
         } else if (type == TWO) {
             MyTwoViewHolder holder = (MyTwoViewHolder) viewHolder;
             Glide.with(mContext).load(mTwoBeans.get(0).getIcon_url()).into(holder.mListen_center_img);

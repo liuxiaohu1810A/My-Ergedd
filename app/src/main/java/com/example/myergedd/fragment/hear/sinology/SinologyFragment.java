@@ -1,15 +1,18 @@
 package com.example.myergedd.fragment.hear.sinology;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.example.myergedd.R;
+import com.example.myergedd.activity.DetailsActivity;
 import com.example.myergedd.adapter.SinologyAdapter;
 import com.example.myergedd.base.BaseFragment;
 import com.example.myergedd.base.SimpleFragment;
 import com.example.myergedd.bean.SinologyBean;
+import com.example.myergedd.fragment.hear.english.bean.HearEnglishBean;
 import com.example.myergedd.fragment.hear.music.contract.Music;
 import com.example.myergedd.fragment.hear.sinology.contract.Sinology;
 import com.example.myergedd.fragment.hear.sinology.presenter.IPresenter;
@@ -29,6 +32,23 @@ public class SinologyFragment extends BaseFragment<Sinology.SinologyView,IPresen
     @Override
     protected int getLayoutID() {
         return R.layout.fragment_english;
+    }
+
+    @Override
+    protected void initListener() {
+        sinologyAdapter.setOnClickListener(new SinologyAdapter.onClickListener() {
+            @Override
+            public void onClick(View v, int position) {
+                Intent intent = new Intent(getActivity(), DetailsActivity.class);
+                SinologyBean sinologyBean = sinologyAdapter.sinologyBeans.get(position);
+                intent.putExtra("id", sinologyBean.getId());
+                intent.putExtra("name", sinologyBean.getName());
+                intent.putExtra("count",sinologyBean.getCount());
+                intent.putExtra("url",sinologyBean.getSquare_image_url());
+                intent.putExtra("description",sinologyBean.getDescription());
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

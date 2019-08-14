@@ -18,7 +18,8 @@ import java.util.List;
 
 public class SinologyAdapter extends RecyclerView.Adapter<SinologyAdapter.ViewHolder> {
     private final FragmentActivity activity;
-    private ArrayList<SinologyBean> sinologyBeans=new ArrayList<>();
+    public ArrayList<SinologyBean> sinologyBeans=new ArrayList<>();
+    private onClickListener mListener;
 
     public SinologyAdapter(FragmentActivity activity) {
 
@@ -39,12 +40,20 @@ public class SinologyAdapter extends RecyclerView.Adapter<SinologyAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
 
             viewHolder.name.setText(sinologyBeans.get(i).getName());
             viewHolder.desc.setText(sinologyBeans.get(i).getDescription());
             viewHolder.count.setText(sinologyBeans.get(i).getCount()+"首");
             Glide.with(activity).load(sinologyBeans.get(i).getSquare_image_url()).into(viewHolder.img);
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener != null) {
+                    mListener.onClick(v, i);
+                }
+            }
+        });
     }
 
     @Override
@@ -66,5 +75,12 @@ public class SinologyAdapter extends RecyclerView.Adapter<SinologyAdapter.ViewHo
             desc = itemView.findViewById(R.id.item_watch_list_desc);
             count = itemView.findViewById(R.id.item_watch_list_count);
         }
+    }
+    public interface onClickListener {
+        void onClick(View v, int position);
+    }
+
+    public void setOnClickListener(onClickListener listener) {
+        mListener = listener;
     }
 }
