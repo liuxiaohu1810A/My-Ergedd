@@ -98,8 +98,9 @@ public interface ApiServier {
      * http://api.t.ergedd.com/api/v1/albums/33/videos?channel=new&offset=0&limit=20&sensitive=8
      *
      * @param id
-     * @return
+     * @return338
      */
+//    http://api.t.ergedd.com/api/v1/albums/338/videos?channel=new&offset=0&limit=20&sensitive=8
     @GET("albums/{id}/videos?channel=new&offset=0&limit=20&sensitive=8")
     Observable<BaseResponse<List<CommonSeeBean>>> getDataCommon(@Path("id") int id);
 }

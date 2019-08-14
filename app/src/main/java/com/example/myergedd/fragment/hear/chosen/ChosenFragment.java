@@ -76,6 +76,7 @@ public class ChosenFragment<V extends Chosen.ChosenView> extends BaseFragment<Ch
 
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                
                 page=0;
                 initData();
                 mSmart.finishRefresh();

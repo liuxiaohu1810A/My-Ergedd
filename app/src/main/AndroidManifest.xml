@@ -18,7 +18,6 @@
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
     <application
-
         android:name=".app.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/icon_launcher"
@@ -57,12 +56,14 @@
         <activity
             android:name=".activity.SettingActivity"
             android:theme="@style/NoAppTheme" />
-        <activity android:name=".activity.VideoActivity"
-            android:theme="@style/NoAppTheme"
+        <activity
+            android:name=".activity.VideoActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
+            android:theme="@style/NoAppTheme" />
+        <activity android:name=".activity.DetailsActivity"
+            android:theme="@style/NoAppTheme"
             />
-
     </application>
 
 </manifest>

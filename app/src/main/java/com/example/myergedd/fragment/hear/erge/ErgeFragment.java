@@ -1,15 +1,13 @@
 package com.example.myergedd.fragment.hear.erge;
 
-import android.os.Bundle;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 
 import com.example.myergedd.R;
+import com.example.myergedd.activity.DetailsActivity;
 import com.example.myergedd.adapter.Listen_ErgeAdapter;
 import com.example.myergedd.base.BaseFragment;
 import com.example.myergedd.fragment.hear.erge.bean.Listen_ErgeBean;
@@ -18,8 +16,6 @@ import com.example.myergedd.fragment.hear.erge.presenter.IPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.Unbinder;
 
 public class ErgeFragment extends BaseFragment<Erge.ErgeView, IPresenter<Erge.ErgeView>> implements Erge.ErgeView {
 
@@ -42,6 +38,23 @@ public class ErgeFragment extends BaseFragment<Erge.ErgeView, IPresenter<Erge.Er
         adapter = new Listen_ErgeAdapter(getContext());
         englishRes.setAdapter(adapter);
 
+    }
+
+    @Override
+    protected void initListener() {
+        adapter.setOnClickListener(new Listen_ErgeAdapter.onClickListener() {
+            @Override
+            public void onClick(View v, int position) {
+                Intent intent = new Intent(getActivity(), DetailsActivity.class);
+                Listen_ErgeBean bean = adapter.ergeBeans.get(position);
+                intent.putExtra("id", bean.getId());
+                intent.putExtra("name", bean.getName());
+                intent.putExtra("count",bean.getCount());
+                intent.putExtra("url",bean.getSquare_image_url());
+                intent.putExtra("description",bean.getDescription());
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

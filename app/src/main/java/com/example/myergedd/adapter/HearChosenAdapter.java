@@ -77,6 +77,7 @@ public class HearChosenAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             chosenTwo = new ChosenBeanAdapter(activity);
             holder2.rlv.setAdapter(chosenTwo);
 
+
             HttpManager.getInstance().getServer(ApiServier.class).getChosenBanData()
                     .compose(RxJavaUtils.<BaseResponse<List<ChosenBeanBan>>>rxScheduleThread())
                     .compose(RxJavaUtils.<List<ChosenBeanBan>>changeResult())

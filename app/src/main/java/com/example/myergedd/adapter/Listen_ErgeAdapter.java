@@ -17,8 +17,9 @@ import java.util.List;
 
 public class Listen_ErgeAdapter extends RecyclerView.Adapter<Listen_ErgeAdapter.ViewHolder> {
 
-    private List<Listen_ErgeBean> ergeBeans=new ArrayList<>();
+    public List<Listen_ErgeBean> ergeBeans=new ArrayList<>();
     private Context context;
+    private onClickListener mListener;
 
     public Listen_ErgeAdapter(Context context) {
         this.context = context;
@@ -37,12 +38,21 @@ public class Listen_ErgeAdapter extends RecyclerView.Adapter<Listen_ErgeAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
 
         viewHolder.item_watch_list_count.setText(ergeBeans.get(i).getCount()+"首");
         viewHolder.item_watch_list_desc.setText(ergeBeans.get(i).getDescription());
         viewHolder.item_watch_list_name.setText(ergeBeans.get(i).getName());
         Glide.with(context).load(ergeBeans.get(i).getSquare_image_url()).into(viewHolder.listen_common_img);
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener != null) {
+                    mListener.onClick(v, i);
+                }
+            }
+        });
     }
 
     @Override
@@ -64,5 +74,12 @@ public class Listen_ErgeAdapter extends RecyclerView.Adapter<Listen_ErgeAdapter.
             item_watch_list_desc = itemView.findViewById(R.id.item_watch_list_desc);
             item_watch_list_count = itemView.findViewById(R.id.item_watch_list_count);
         }
+    }
+    public interface onClickListener {
+        void onClick(View v, int position);
+    }
+
+    public void setOnClickListener(onClickListener listener) {
+        mListener = listener;
     }
 }
