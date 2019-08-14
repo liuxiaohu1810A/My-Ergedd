@@ -19,6 +19,7 @@ import java.util.List;
 public class SearchSeeHotAdapter extends RecyclerView.Adapter {
     private Context mContext;
     public List<String> mList = new ArrayList<>();
+    private onClickListener mListener;
 
     public SearchSeeHotAdapter(Context context) {
         mContext = context;
@@ -31,7 +32,7 @@ public class SearchSeeHotAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, final int i) {
         MyViewHolder holder = (MyViewHolder) viewHolder;
         String name = mList.get(i);
         Log.e("lzs", "onBindViewHolder: " + mList.size());
@@ -46,6 +47,14 @@ public class SearchSeeHotAdapter extends RecyclerView.Adapter {
             holder.mIv.setVisibility(View.GONE);
         }
         holder.mTv.setText(name);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mListener != null) {
+                    mListener.onClick(v, i);
+                }
+            }
+        });
     }
 
     public void setDataHotSearchSee(SearchSeeHotBean seeHotBean) {
@@ -72,4 +81,11 @@ public class SearchSeeHotAdapter extends RecyclerView.Adapter {
         return mList.size();
     }
 
+    public interface onClickListener {
+        void onClick(View v, int position);
+    }
+
+    public void setOnClickListener(onClickListener listener) {
+        mListener = listener;
+    }
 }

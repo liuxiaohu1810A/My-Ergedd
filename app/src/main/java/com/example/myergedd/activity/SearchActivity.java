@@ -66,7 +66,7 @@ public class SearchActivity extends BaseActivity<SearchSee.SearchSeeView, Search
 
     @Override
     protected void initView() {
-        mSearchSongsHotRlv.setLayoutManager(new GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false));
+        mSearchSongsHotRlv.setLayoutManager(new GridLayoutManager(this, 2));
         mAdapterHot = new SearchSeeHotAdapter(this);
         mSearchHotLl.setVisibility(View.VISIBLE);
         mSearchSongsHotRlv.setAdapter(mAdapterHot);
@@ -122,6 +122,15 @@ public class SearchActivity extends BaseActivity<SearchSee.SearchSeeView, Search
                 intent.putExtra("id", bean.getId());
                 intent.putExtra("title", bean.getName());
                 startActivity(intent);
+            }
+        });
+        mAdapterHot.setOnClickListener(new SearchSeeHotAdapter.onClickListener() {
+            @Override
+            public void onClick(View v, int position) {
+                String name = mAdapterHot.mList.get(position);
+                mSearchSongName.setText(name);
+                mSearchHotLl.setVisibility(View.GONE);
+                requestSongsByKeyword();
             }
         });
     }
