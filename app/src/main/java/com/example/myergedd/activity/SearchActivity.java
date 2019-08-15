@@ -9,11 +9,13 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.myergedd.R;
@@ -21,13 +23,17 @@ import com.example.myergedd.activity.searchsee.SearchSee;
 import com.example.myergedd.activity.searchsee.SearchSeePresenter;
 import com.example.myergedd.adapter.SearchSeeAdapter;
 import com.example.myergedd.adapter.SearchSeeHotAdapter;
+import com.example.myergedd.adapter.SearchSeeRecentAdapte;
 import com.example.myergedd.base.BaseActivity;
 import com.example.myergedd.bean.SearchSeeAlbumsBean;
 import com.example.myergedd.bean.SearchSeeHotBean;
 import com.example.myergedd.bean.SearchSeeVideosBean;
+import com.example.myergedd.utils.SharedPreferencesUtils;
 import com.example.myergedd.utils.ToastUtils;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -56,8 +62,16 @@ public class SearchActivity extends BaseActivity<SearchSee.SearchSeeView, Search
     RecyclerView mSearchSongsHotRlv;
     @BindView(R.id.search_hot_ll)
     LinearLayout mSearchHotLl;
+    @BindView(R.id.search_recent_rl)
+    RelativeLayout mSearchRecentRl;
+    @BindView(R.id.search_songs_recent_rlv)
+    RecyclerView mSearchSongsRecentRlv;
+    @BindView(R.id.search_recent_ll)
+    LinearLayout mSearchRecentLl;
     private SearchSeeAdapter mAdapter;
     private SearchSeeHotAdapter mAdapterHot;
+    private SearchSeeRecentAdapte mAdapterRecent;
+    private List<String> mList = new ArrayList<>();
 
     @Override
     protected int getLayoutID() {
@@ -66,6 +80,10 @@ public class SearchActivity extends BaseActivity<SearchSee.SearchSeeView, Search
 
     @Override
     protected void initView() {
+        mSearchSongsRecentRlv.setLayoutManager(new GridLayoutManager(this, 2));
+        mAdapterRecent = new SearchSeeRecentAdapte(this);
+        mSearchRecentLl.setVisibility(View.VISIBLE);
+        mSearchSongsRecentRlv.setAdapter(mAdapterRecent);
         mSearchSongsHotRlv.setLayoutManager(new GridLayoutManager(this, 2));
         mAdapterHot = new SearchSeeHotAdapter(this);
         mSearchHotLl.setVisibility(View.VISIBLE);
@@ -87,7 +105,17 @@ public class SearchActivity extends BaseActivity<SearchSee.SearchSeeView, Search
     }
 
     private void requestRemoteKeywords() {
+        refreshRecent();
         mPresenter.setDataHotSearch();
+    }
+
+    private void refreshRecent() {
+        Map<String, ?> all = SharedPreferencesUtils.getAll(this);
+        for (int i = 1; i < all.size() + 1; i++) {
+            Object o = all.get(i + "");
+            mList.add((String) o);
+        }
+        mAdapterRecent.setDataRecentSee(mList);
     }
 
     @Override
@@ -129,14 +157,24 @@ public class SearchActivity extends BaseActivity<SearchSee.SearchSeeView, Search
             public void onClick(View v, int position) {
                 String name = mAdapterHot.mList.get(position);
                 mSearchSongName.setText(name);
-                mSearchHotLl.setVisibility(View.GONE);
                 requestSongsByKeyword();
+                hideKeyBoard();
+            }
+        });
+        mAdapterRecent.setOnClickListener(new SearchSeeRecentAdapte.onClickListener() {
+            @Override
+            public void onClick(View v, int position) {
+                String name = mList.get(position);
+                mSearchSongName.setText(name);
+                requestSongsByKeyword();
+                hideKeyBoard();
             }
         });
     }
 
     private void hideKeyBoard() {
         mSearchHotLl.setVisibility(View.GONE);
+        mSearchRecentLl.setVisibility(View.GONE);
         InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(mSearchSongName.getWindowToken(), 0);
     }
@@ -151,6 +189,9 @@ public class SearchActivity extends BaseActivity<SearchSee.SearchSeeView, Search
             case R.id.search_song_name:
                 break;
             case R.id.search_clean_all:
+                mList.clear();
+                refreshRecent();
+                mAdapterRecent.notifyDataSetChanged();
                 mSearchSongName.setText("");
                 mRlv.setVisibility(View.GONE);
                 mAdapter.mAlbumsList.clear();
@@ -162,11 +203,6 @@ public class SearchActivity extends BaseActivity<SearchSee.SearchSeeView, Search
                 if ("取消".equals(mBtnAction.getText())) {
                     finish();
                 } else {
-//                    TrackUtil.trackEvent(pv, "input.keyword.submit", mSearchName.getText().toString().trim(), 1);
-                    /*if (mListAdapter != null)
-                        mListAdapter.clear();
-                    isReachEnd = false;
-                    requestSongsByKeyword();*/
                     requestSongsByKeyword();
                     hideKeyBoard();
                 }
@@ -186,6 +222,7 @@ public class SearchActivity extends BaseActivity<SearchSee.SearchSeeView, Search
 
     private void showKeyBoard() {
         mSearchHotLl.setVisibility(View.VISIBLE);
+        mSearchRecentLl.setVisibility(View.VISIBLE);
         mSearchSongName.requestFocus();
         mSearchSongName.setFocusable(true);
         InputMethodManager imm = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -201,8 +238,27 @@ public class SearchActivity extends BaseActivity<SearchSee.SearchSeeView, Search
             ToastUtils.ShowToast("请勿输入特殊字符");
             return;
         }
+        Object one = SharedPreferencesUtils.get(this, "1", "");
+        Object two = SharedPreferencesUtils.get(this, "2", "");
+        Object three = SharedPreferencesUtils.get(this, "3", "");
+        Object four = SharedPreferencesUtils.get(this, "4", "");
+        assert one != null;
+        assert two != null;
+        assert three != null;
+        assert four != null;
+        if (!one.equals(keyword) && !two.equals(keyword) && !three.equals(keyword) && !four.equals(keyword)) {
+            SharedPreferencesUtils.put(this, "1", keyword);
+            if (!one.equals(keyword) && !two.equals(one)) {
+                SharedPreferencesUtils.put(this, "2", one);
+            }
+            if (!two.equals(one) && !two.equals(three) && !two.equals(four)) {
+                SharedPreferencesUtils.put(this, "3", two);
+            }
+            if (!three.equals(two) && !three.equals(four)) {
+                SharedPreferencesUtils.put(this, "4", three);
+            }
+        }
         ToastUtils.ShowToast(keyword);
-
         if (!TextUtils.isEmpty(keyword)) {
             checkAndSaveKeywords(keyword);
             requestVideosByKeyword(keyword);

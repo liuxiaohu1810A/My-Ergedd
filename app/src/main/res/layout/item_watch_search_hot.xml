@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/search_recent_ll"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -10,72 +11,61 @@
         android:layout_height="@dimen/dp_30"
         android:background="@color/gray_f7"
         android:gravity="center_vertical"
+        android:paddingStart="@dimen/dp_15"
         android:paddingLeft="@dimen/dp_15"
         android:text="最近搜索"
         android:textColor="@color/gray_ae"
-        android:textSize="@dimen/dp_13" />
+        android:textSize="@dimen/sp_13" />
 
     <RelativeLayout
+        android:id="@+id/search_recent_rl"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="@dimen/dp_120"
+        android:background="@color/white"
+        android:visibility="gone">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_120"
-            android:background="@color/white"
-            android:visibility="gone">
-
-            <TextView
-                android:id="@+id/search_recently_no_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/dp_40"
-                android:text="暂时没有你要找的这首歌哦(´-ω-`)"
-                android:textColor="@color/phone_tab_title_color"
-                android:textSize="@dimen/dp_16" />
-
-            <TextView
-                android:id="@+id/search_try_recently_other_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/search_recently_no_title"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/dp_2"
-                android:text="试试别的关键词吧(^～^)"
-                android:textColor="@color/text_color"
-                android:textSize="@dimen/dp_13" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/search_try_recently_other_title"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/dp_2"
-                android:text="或者使用下面的热搜词汇"
-                android:textColor="@color/text_color"
-                android:textSize="@dimen/dp_13" />
-        </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/search_recently_no_title"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_40"
+            android:text="暂时没有你要找的这首歌哦(´-ω-`)"
+            android:textColor="@color/phone_tab_title_color"
+            android:textSize="@dimen/dp_16" />
 
-            <LinearLayout
-                android:id="@+id/item_remonment_left"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical" />
+        <TextView
+            android:id="@+id/search_try_recently_other_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/search_recently_no_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_2"
+            android:text="试试别的关键词吧(^～^)"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/dp_13" />
 
-            <LinearLayout
-                android:id="@+id/item_remonment_right"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical" />
-        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/search_try_recently_other_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_2"
+            android:text="或者使用下面的热搜词汇"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/dp_13" />
     </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/search_songs_recent_rlv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:scrollbars="vertical"
+        android:smoothScrollbar="false" />
 </LinearLayout>
