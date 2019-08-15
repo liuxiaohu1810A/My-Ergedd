@@ -28,6 +28,7 @@ public class ChosenAdapter extends RecyclerView.Adapter {
             , "http://img5g22.ergedd.com/video/16552_1508849834248.jpg"
     };
     private Context mContext;
+    private onClickListener mListener;
 
 
     public ChosenAdapter(Context context) {
@@ -73,6 +74,134 @@ public class ChosenAdapter extends RecyclerView.Adapter {
             holder.mTv_title_seven.setText(mTwoBeans.get(6).getName());
             Glide.with(mContext).load(mTwoBeans.get(7).getIcon_url()).into(holder.mListen_center_img_eight);
             holder.mTv_title_eight.setText(mTwoBeans.get(7).getName());
+            holder.mListen_center_img.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener != null) {
+                        mListener.onClick(v, 0);
+                    }
+                }
+            });
+            holder.mTv_title.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener != null) {
+                        mListener.onClick(v, 0);
+                    }
+                }
+            });
+            holder.mListen_center_img_two.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener != null) {
+                        mListener.onClick(v, 1);
+                    }
+                }
+            });
+            holder.mTv_title_two.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener != null) {
+                        mListener.onClick(v, 1);
+                    }
+                }
+            });
+            holder.mListen_center_img_three.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener != null) {
+                        mListener.onClick(v, 2);
+                    }
+                }
+            });
+            holder.mTv_title_three.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener != null) {
+                        mListener.onClick(v, 2);
+                    }
+                }
+            });
+            holder.mListen_center_img_four.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener != null) {
+                        mListener.onClick(v, 3);
+                    }
+                }
+            });
+            holder.mTv_title_four.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener != null) {
+                        mListener.onClick(v, 3);
+                    }
+                }
+            });
+            holder.mListen_center_img_five.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener != null) {
+                        mListener.onClick(v, 4);
+                    }
+                }
+            });
+            holder.mTv_title_five.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener != null) {
+                        mListener.onClick(v, 4);
+                    }
+                }
+            });
+            holder.mListen_center_img_six.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener != null) {
+                        mListener.onClick(v, 5);
+                    }
+                }
+            });
+            holder.mTv_title_six.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener != null) {
+                        mListener.onClick(v, 5);
+                    }
+                }
+            });
+            holder.mListen_center_img_seven.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener != null) {
+                        mListener.onClick(v, 6);
+                    }
+                }
+            });
+            holder.mTv_title_seven.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener != null) {
+                        mListener.onClick(v, 6);
+                    }
+                }
+            });
+            holder.mListen_center_img_eight.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener != null) {
+                        mListener.onClick(v, 7);
+                    }
+                }
+            });
+            holder.mTv_title_eight.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener != null) {
+                        mListener.onClick(v, 7);
+                    }
+                }
+            });
         } else {
             if (mTwoBeans.size() > 0) {
                 i = i - 2;
@@ -167,5 +296,13 @@ public class ChosenAdapter extends RecyclerView.Adapter {
             mListen_buttom_title = itemView.findViewById(R.id.listen_buttom_title);
             mListen_center_img = itemView.findViewById(R.id.listen_center_img);
         }
+    }
+
+    public interface onClickListener {
+        void onClick(View v, int position);
+    }
+
+    public void setOnClickListener(onClickListener listener) {
+        mListener = listener;
     }
 }

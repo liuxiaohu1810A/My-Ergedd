@@ -1,13 +1,18 @@
 package com.example.myergedd.fragment.see.cartoon;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.example.myergedd.R;
+
 import com.example.myergedd.adapter.see.CartoonAdapter;
 import com.example.myergedd.base.BaseFragment;
 import com.example.myergedd.bean.see.CartoonBean;
+
+import com.example.myergedd.activity.CommonSeeActivity;
+import com.example.myergedd.base.BaseFragment;
 import com.example.myergedd.fragment.see.cartoon.contract.Cartoon;
 import com.example.myergedd.fragment.see.cartoon.presenter.IPresenter;
 
@@ -36,6 +41,20 @@ public class CartoonFragment extends BaseFragment<Cartoon.CartoonView, IPresente
     @Override
     protected void initData() {
         mPresenter.setCartoonData();
+    }
+
+    @Override
+    protected void initListener() {
+        cartoonAdapter.setOnClickListener(new CartoonAdapter.onClickListener() {
+            @Override
+            public void onClick(View v, int position) {
+                Intent intent = new Intent(getActivity(), CommonSeeActivity.class);
+                CartoonBean bean = cartoonAdapter.albumsBeans.get(position);
+                intent.putExtra("id", bean.getId());
+                intent.putExtra("title", bean.getName());
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

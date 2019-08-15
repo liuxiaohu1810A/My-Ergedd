@@ -1,9 +1,14 @@
 package com.example.myergedd.fragment.hear;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -12,13 +17,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.myergedd.R;
+//import com.example.myergedd.UnlockDialog;
+import com.example.myergedd.activity.LrcActivity;
 import com.example.myergedd.base.SimpleFragment;
-
 import com.example.myergedd.fragment.hear.chosen.ChosenFragment;
 import com.example.myergedd.fragment.hear.english.EnglishFragment;
 import com.example.myergedd.fragment.hear.erge.ErgeFragment;
@@ -26,39 +31,40 @@ import com.example.myergedd.fragment.hear.music.MusicFragment;
 import com.example.myergedd.fragment.hear.sinology.SinologyFragment;
 import com.example.myergedd.fragment.hear.story.StoryFragment;
 
-
-
-
-
 import java.util.ArrayList;
 
-public class HearFragment extends SimpleFragment {
+public class HearFragment extends SimpleFragment implements View.OnClickListener {
+
+
     private View view;
-    private ImageView mChild;
+    private ImageView child;
     /**
      * 11岁7个月
      */
-    private TextView mChildAge;
-    private ImageView mIconSearch;
-    private RelativeLayout mTopBar;
-    private TabLayout mHearTab;
-    private ViewPager mHearVp;
-    private ProgressBar mAudioPlayerProgressMini;
-    private ImageView mMiniPlayerPlayStop;
+    private TextView childAge;
+    private ImageView iconSearch;
+    private RelativeLayout topBar;
+    private TabLayout hearTab;
+    private ViewPager hearVp;
+    private ImageView listenPlayerStopImg;
     /**
      * 儿歌点点
      */
-    private TextView mMiniPlayerSongName;
+    private TextView listenPlayerSongName;
     /**
      * 00:00/00:00
      */
-    private TextView mMiniPlayerPlayTime;
-    private ImageView mMiniPlayerPlayPrev;
-    private ImageView mMiniPlayerPlayNext;
-    private ImageView mMiniPlayerPlayMode;
-    private ImageView mMiniPlayerPlayTimer;
-    private ImageView mMiniPlayerLrc;
-    private LinearLayout mActionContainer;
+    private TextView listenPlayerPlayTime;
+    private ImageView listenPlayerPlayPrev;
+    private ImageView listenPlayerPlayNext;
+    private ImageView listenPlayerPlayMode;
+    private ImageView listenPlayerPlayTimer;
+    private ImageView listenPlayerLrc;
+    private LinearLayout actionContainer;
+    private BroadClass broadClass;
+    private FragmentManager fm;
+    private ArrayList<Fragment> fs;
+    private ImageView mChild;
 
     @Override
     protected int getLayoutID() {
@@ -66,24 +72,27 @@ public class HearFragment extends SimpleFragment {
     }
 
     public void initView(View view) {
-        mChild = (ImageView) view.findViewById(R.id.child);
-        mChildAge = (TextView) view.findViewById(R.id.child_age);
-        mIconSearch = (ImageView) view.findViewById(R.id.icon_search);
-        mTopBar = (RelativeLayout) view.findViewById(R.id.top_bar);
-        mHearTab = (TabLayout) view.findViewById(R.id.hear_tab);
-        mHearVp = (ViewPager) view.findViewById(R.id.hear_vp);
-        mAudioPlayerProgressMini = (ProgressBar) view.findViewById(R.id.audio_player_progress_mini);
-        mMiniPlayerPlayStop = (ImageView) view.findViewById(R.id.mini_player_play_stop);
-        mMiniPlayerSongName = (TextView) view.findViewById(R.id.mini_player_song_name);
-        mMiniPlayerPlayTime = (TextView) view.findViewById(R.id.mini_player_play_time);
-        mMiniPlayerPlayPrev = (ImageView) view.findViewById(R.id.mini_player_play_prev);
-        mMiniPlayerPlayNext = (ImageView) view.findViewById(R.id.mini_player_play_next);
-        mMiniPlayerPlayMode = (ImageView) view.findViewById(R.id.mini_player_play_mode);
-        mMiniPlayerPlayTimer = (ImageView) view.findViewById(R.id.mini_player_play_timer);
-        mMiniPlayerLrc = (ImageView) view.findViewById(R.id.mini_player_lrc);
-        mActionContainer = (LinearLayout) view.findViewById(R.id.action_container);
+        int eg = getArguments().getInt("EG", -1);
+        Log.e("shix", "initView: " + eg);
+        fm = getChildFragmentManager();
 
-        final ArrayList<Fragment> fs = new ArrayList<>();
+        child = (ImageView) view.findViewById(R.id.child);
+        childAge = (TextView) view.findViewById(R.id.child_age);
+        iconSearch = (ImageView) view.findViewById(R.id.icon_search);
+        topBar = (RelativeLayout) view.findViewById(R.id.top_bar);
+        hearTab = (TabLayout) view.findViewById(R.id.hear_tab);
+        hearVp = (ViewPager) view.findViewById(R.id.hear_vp);
+        listenPlayerStopImg = (ImageView) view.findViewById(R.id.listen_player_stop_img);
+        listenPlayerSongName = (TextView) view.findViewById(R.id.listen_player_song_name);
+        listenPlayerPlayTime = (TextView) view.findViewById(R.id.listen_player_play_time);
+        listenPlayerPlayPrev = (ImageView) view.findViewById(R.id.listen_player_play_prev);
+        listenPlayerPlayNext = (ImageView) view.findViewById(R.id.listen_player_play_next);
+        listenPlayerPlayMode = (ImageView) view.findViewById(R.id.listen_player_play_mode);
+        listenPlayerPlayTimer = (ImageView) view.findViewById(R.id.listen_player_play_timer);
+        listenPlayerLrc = (ImageView) view.findViewById(R.id.listen_player_lrc);
+        actionContainer = (LinearLayout) view.findViewById(R.id.action_container);
+
+        fs = new ArrayList<>();
         fs.add(new ChosenFragment());
         fs.add(new ErgeFragment());
         fs.add(new StoryFragment());
@@ -98,7 +107,7 @@ public class HearFragment extends SimpleFragment {
         title.add("英文");
         title.add("国学");
         title.add("纯音乐");
-        mHearVp.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) {
+        hearVp.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) {
             @Override
             public Fragment getItem(int i) {
                 return fs.get(i);
@@ -115,6 +124,79 @@ public class HearFragment extends SimpleFragment {
                 return title.get(position);
             }
         });
-        mHearTab.setupWithViewPager(mHearVp);
+
+        hearTab.setupWithViewPager(hearVp);
+
+        listenPlayerLrc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), LrcActivity.class));
+            }
+        });
+        mChild = (ImageView) view.findViewById(R.id.child);
+        mChild.setOnClickListener(this);
     }
+
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            default:
+                break;
+            case R.id.child:
+            /*    UnlockDialog dialog = new UnlockDialog(this, "请确认您是家长", null, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finishActivity();
+                    }
+                });
+                dialog.show();*/
+                break;
+        }
+    }
+
+    class BroadClass extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            /*int english = intent.getIntExtra("EG", 0);
+            FragmentTransaction tran = fm.beginTransaction();
+
+            tran.show(fs.get(english+1));
+            tran.commit();
+                Intent in = new Intent("gushi");
+                in.putExtra("GS",english);
+                getActivity().sendBroadcast(in);
+
+                Intent in = new Intent("English");
+                in.putExtra("EN",english);
+                getActivity().sendBroadcast(in);
+
+                Intent in = new Intent("guoxue");
+                in.putExtra("GX",english);
+                getActivity().sendBroadcast(in);
+
+                Intent in = new Intent("music");
+                in.putExtra("YY",english);
+                getActivity().sendBroadcast(in);
+
+            Toast.makeText(context, "发送广播", Toast.LENGTH_SHORT).show();*/
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        broadClass = new BroadClass();
+        IntentFilter english = new IntentFilter("ge");
+        getActivity().registerReceiver(broadClass, english);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        getActivity().unregisterReceiver(broadClass);
+    }
+
 }

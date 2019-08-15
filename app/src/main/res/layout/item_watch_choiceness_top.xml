@@ -20,7 +20,7 @@
             android:layout_width="@dimen/dp_230"
             android:layout_height="@dimen/dp_150"
             android:scaleType="fitXY"
-            android:src="@mipmap/icon_notification" />
+            android:background="@mipmap/icon_notification" />
 
         <LinearLayout
             android:id="@+id/ll"
@@ -39,7 +39,7 @@
                 android:layout_height="@dimen/dp_75"
                 android:layout_weight="1"
                 android:scaleType="fitXY"
-                android:src="@mipmap/icon_notification" />
+                android:background="@mipmap/icon_notification" />
 
             <ImageView
                 android:id="@+id/watch_top_dog"
@@ -48,7 +48,7 @@
                 android:layout_marginTop="@dimen/dp_5"
                 android:layout_weight="1"
                 android:scaleType="fitXY"
-                android:src="@mipmap/icon_notification" />
+                android:background="@mipmap/icon_notification" />
         </LinearLayout>
         <TextView
             android:layout_marginTop="@dimen/dp_3"

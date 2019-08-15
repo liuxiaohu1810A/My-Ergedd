@@ -1,6 +1,8 @@
 package com.example.myergedd.adapter.hear;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -32,7 +34,6 @@ public class ChosenAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             "http://img5g22.ergedd.com/audio_playlist/66562931040_1493868622457.jpg"
             , "http://img5g22.ergedd.com/audio_playlist/13711963478_1493868665752.jpg"
     };
-    private ArrayList<ChosenBeanBan> earlyBeans;
     private ChosenBeanAdapter chosenTwo;
 
     public ChosenAdapter(FragmentActivity activity) {
@@ -73,7 +74,6 @@ public class ChosenAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         }else if (type==1){
             ViewHolderTwo holder2 = (ViewHolderTwo) viewHolder;
             holder2.rlv.setLayoutManager(new GridLayoutManager(activity,3));
-            earlyBeans = new ArrayList<>();
             chosenTwo = new ChosenBeanAdapter(activity);
             holder2.rlv.setAdapter(chosenTwo);
 
@@ -94,21 +94,33 @@ public class ChosenAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                     });
         }else{
             ViewHolder holder3 = (ViewHolder) viewHolder;
-            ChosenBean chosenBean = chosen.get(i);
-            holder3.title.setText(chosenBean.getName());
-            Glide.with(activity).load(chosenBean.getImage()).into(holder3.tu);
-            List<ChosenBean.PlaylistsBean> playlists = chosenBean.getPlaylists();
-            holder3.name.setText(playlists.get(0).getCount() + "");
-            holder3.desc.setText(playlists.get(0).getName());
-            Glide.with(activity).load(playlists.get(0).getSquare_image_url()).into(holder3.img);
+            if (image.length>0){
+                i=i-2;
+            }
+                ChosenBean chosenBean = chosen.get(i);
+                holder3.title.setText(chosenBean.getName());
+                Glide.with(activity).load(chosenBean.getImage()).into(holder3.tu);
+                List<ChosenBean.PlaylistsBean> playlists = chosenBean.getPlaylists();
+                holder3.name.setText(playlists.get(0).getCount() + "");
+                holder3.desc.setText(playlists.get(0).getName());
+                Glide.with(activity).load(playlists.get(0).getSquare_image_url()).into(holder3.img);
+                holder3.nameer.setText(playlists.get(1).getCount() + "");
+                holder3.descer.setText(playlists.get(1).getName());
+                Glide.with(activity).load(playlists.get(1).getSquare_image_url()).into(holder3.imger);
 
-            holder3.nameer.setText(playlists.get(1).getCount() + "");
-            holder3.descer.setText(playlists.get(1).getName());
-            Glide.with(activity).load(playlists.get(1).getSquare_image_url()).into(holder3.imger);
+                holder3.namesan.setText(playlists.get(2).getCount() + "");
+                holder3.descsan.setText(playlists.get(2).getName());
+                Glide.with(activity).load(playlists.get(2).getSquare_image_url()).into(holder3.imgsan);
 
-            holder3.namesan.setText(playlists.get(2).getCount() + "");
-            holder3.descsan.setText(playlists.get(2).getName());
-            Glide.with(activity).load(playlists.get(2).getSquare_image_url()).into(holder3.imgsan);
+            final int finalI = i;
+            holder3.more.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                            Intent intent = new Intent("ge");
+                            intent.putExtra("erge", finalI);
+                            activity.sendBroadcast(intent);
+                    }
+                });
         }
 
 
@@ -116,18 +128,14 @@ public class ChosenAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     @Override
     public int getItemCount() {
-        if (image.length>0){
-            return chosen.size();
-        }else {
-            return earlyBeans.size();
-        }
+            return chosen.size()+2;
     }
 
     @Override
     public int getItemViewType(int position) {
-        if (image.length>0 &&position==0){
+        if (position==0){
             return 0;
-        }else if (position==1 ){
+        }else if (position==1){
             return 1;
         }else{
             return 2;
@@ -163,6 +171,7 @@ public class ChosenAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     public class ViewHolder extends RecyclerView.ViewHolder {
         private final ImageView tu;
         private final TextView title;
+        private final TextView more;
 
         private final ImageView img;
         private final TextView desc;
@@ -180,6 +189,7 @@ public class ChosenAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             super(itemView);
             tu = itemView.findViewById(R.id.icon);
             title = itemView.findViewById(R.id.title);
+            more = itemView.findViewById(R.id.more);
             img = itemView.findViewById(R.id.item_chosen_img);
             name = itemView.findViewById(R.id.item_chosen_count);
             desc = itemView.findViewById(R.id.item_chosen_type);

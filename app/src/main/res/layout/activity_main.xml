@@ -9,24 +9,24 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/diviver" />
 
-    <ViewStub
+  <!--  <ViewStub
         android:id="@+id/play_history"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_40"
         android:layout_marginTop="@dimen/dp_90"
-        android:layout="@layout/play_history" />
+        android:layout="@layout/play_history" />-->
 
     <View
         android:id="@+id/diviver"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_1"
+        android:layout_height="2dp"
         android:layout_above="@+id/rgroup_main_phone_tab"
         android:background="@color/gray33" />
 
     <RadioGroup
         android:id="@+id/rgroup_main_phone_tab"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_49"
+        android:layout_height="51dp"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal">
 
@@ -39,6 +39,7 @@
             android:button="@null"
             android:checked="true"
             android:drawableTop="@drawable/bottom_bar_video_background"
+            android:focusable="true"
             android:gravity="center|bottom"
             android:paddingTop="@dimen/dp_6"
             android:paddingBottom="@dimen/dp_4"
@@ -54,6 +55,7 @@
             android:background="@drawable/phone_bottom_bar_background"
             android:button="@null"
             android:drawableTop="@drawable/bottom_bar_audio_background"
+            android:focusable="true"
             android:gravity="center|bottom"
             android:paddingTop="@dimen/dp_6"
             android:paddingBottom="@dimen/dp_4"
@@ -69,6 +71,7 @@
             android:background="@drawable/phone_bottom_bar_background"
             android:button="@null"
             android:drawableTop="@drawable/bottom_bar_mine_background"
+            android:focusable="true"
             android:gravity="center|bottom"
             android:paddingTop="@dimen/dp_6"
             android:paddingBottom="@dimen/dp_4"

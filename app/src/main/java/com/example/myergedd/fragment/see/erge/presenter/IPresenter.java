@@ -4,17 +4,18 @@ import com.example.myergedd.base.BaseCallBack;
 import com.example.myergedd.base.BasePresenter;
 import com.example.myergedd.bean.see.ErgeBean;
 import com.example.myergedd.fragment.see.erge.contact.MyContact;
+import com.example.myergedd.fragment.see.erge.contract.Erge;
 import com.example.myergedd.fragment.see.erge.model.MyMidel;
 
 import java.util.List;
 
-public class MyPresenter<V extends MyContact.MainView> extends BasePresenter<V> implements MyContact.MainPresenter {
-    private MyContact.MainModel myModel = new MyMidel();
+public class IPresenter<V extends Erge.ErgeView> extends BasePresenter<V> implements Erge.ErgePresenter {
+    private Erge.ErgeModel myModel = new MyMidel();
 
     @Override
-    public void getDataP() {
+    public void setErgeData(String album_id) {
         if (mView != null) {
-            myModel.getDataM(new BaseCallBack<List<ErgeBean>>() {
+            myModel.getErge(album_id,new BaseCallBack<List<ErgeBean>>() {
                 @Override
                 public void onSuccessful(List<ErgeBean> songBean) {
                     if (songBean != null) {
@@ -25,7 +26,7 @@ public class MyPresenter<V extends MyContact.MainView> extends BasePresenter<V> 
                 @Override
                 public void onFiled(String filed) {
                     if (filed != null) {
-                        mView.onFail(filed);
+                        mView.onFailed(filed);
                     }
                 }
             });

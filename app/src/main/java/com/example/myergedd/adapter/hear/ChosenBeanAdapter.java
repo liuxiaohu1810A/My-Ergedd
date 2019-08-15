@@ -27,7 +27,6 @@ public class ChosenBeanAdapter extends RecyclerView.Adapter<ChosenBeanAdapter.Vi
 
     }
     public void setChosenBean(List<ChosenBeanBan> beans) {
-
         earlyBeans.addAll(beans);
         notifyDataSetChanged();
     }

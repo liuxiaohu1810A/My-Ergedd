@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="110dp"
-    >
+    android:layout_height="110dp">
 
     <ImageView
-        android:layout_marginTop="@dimen/dp_6"
         android:id="@+id/cartoon_img"
         android:layout_width="162dp"
         android:layout_height="90dp"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="5dp"
+        android:layout_marginTop="@dimen/dp_6"
         android:scaleType="fitXY"
         android:src="@mipmap/icon_notification" />
 
     <LinearLayout
-        android:layout_toRightOf="@+id/cartoon_img"
-        android:layout_centerVertical="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
         android:layout_gravity="center"
         android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/cartoon_img"
         android:orientation="vertical">
 
         <TextView
@@ -38,8 +37,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:singleLine="true"
             android:ellipsize="end"
+            android:singleLine="true"
             android:text="专辑描述"
             android:textColor="#999999"
             android:textSize="13sp" />
@@ -50,18 +49,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:maxLines="2"
-            android:text="共N集"
-            android:singleLine="true"
             android:ellipsize="end"
+            android:maxLines="2"
+            android:singleLine="true"
+            android:text="共N集"
             android:textColor="#cccccc"
             android:textSize="12sp" />
     </LinearLayout>
+
     <TextView
-        android:layout_marginTop="@dimen/dp_6"
-        android:layout_below="@+id/cartoon_img"
         android:id="@+id/views"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_1"
+        android:layout_below="@+id/cartoon_img"
+        android:layout_marginTop="@dimen/dp_6"
         android:background="#eaeaea" />
 </RelativeLayout>
