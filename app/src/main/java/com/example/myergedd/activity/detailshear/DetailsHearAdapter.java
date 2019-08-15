@@ -7,12 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.example.myergedd.R;
-import com.example.myergedd.activity.DetailsActivity;
-import com.example.myergedd.activity.commonsee.CommonSeeBean;
+import com.example.myergedd.utils.TimerUtils;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class DetailsHearAdapter extends RecyclerView.Adapter<DetailsHearAdapter.ViewHolder> {
@@ -28,12 +28,14 @@ public class DetailsHearAdapter extends RecyclerView.Adapter<DetailsHearAdapter.
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_watch_choiceness_center_no, null));
+        return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.item_listen_two_buttom, null));
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        viewHolder.item.setText((int) list.get(i).getDuration());
+        DetailsHearBean.AudiosBean audiosBean = list.get(i);
+        double duration = audiosBean.getDuration();
+        viewHolder.item.setText(TimerUtils.getTime((long) duration));
         viewHolder.title.setText(list.get(i).getName());
     }
 

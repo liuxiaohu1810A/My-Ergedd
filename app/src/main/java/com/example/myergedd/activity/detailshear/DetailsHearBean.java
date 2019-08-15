@@ -177,5 +177,34 @@ public class DetailsHearBean {
         public void setDownload_type(int download_type) {
             this.download_type = download_type;
         }
+
+        @Override
+        public String toString() {
+            return "AudiosBean{" +
+                    "id=" + id +
+                    ", name='" + name + '\'' +
+                    ", image='" + image + '\'' +
+                    ", resource='" + resource + '\'' +
+                    ", lrc_file_url='" + lrc_file_url + '\'' +
+                    ", play_count=" + play_count +
+                    ", age_type=" + age_type +
+                    ", copyright_type=" + copyright_type +
+                    ", copyright_name='" + copyright_name + '\'' +
+                    ", singer='" + singer + '\'' +
+                    ", authorize=" + authorize +
+                    ", status=" + status +
+                    ", min_age=" + min_age +
+                    ", max_age=" + max_age +
+                    ", duration=" + duration +
+                    ", download_type=" + download_type +
+                    '}';
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "DetailsHearBean{" +
+                "audios=" + audios +
+                '}';
     }
 }

@@ -135,7 +135,8 @@ public class DetailsActivity extends BaseActivity <DetailsHear.DetailsHearView,D
 
     @Override
     protected void initData() {
-        mPresenter.setDetailsData(338);
+        mPresenter.setDetailsData(id);
+        Log.d(TAG, "initData: "+id);
     }
 
     @Override

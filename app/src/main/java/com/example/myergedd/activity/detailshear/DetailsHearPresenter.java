@@ -1,11 +1,8 @@
 package com.example.myergedd.activity.detailshear;
 
-import com.example.myergedd.activity.commonsee.CommonSee;
-import com.example.myergedd.activity.commonsee.CommonSeeBean;
 import com.example.myergedd.base.BaseCallBack;
 import com.example.myergedd.base.BasePresenter;
 
-import java.util.List;
 
 public class DetailsHearPresenter<V extends DetailsHear.DetailsHearView> extends BasePresenter<V> implements DetailsHear.DetailsHearPresenter {
     private DetailsHear.DetailsHearModel mModel = new DetailsHearModel();

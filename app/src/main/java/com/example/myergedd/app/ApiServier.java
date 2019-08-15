@@ -141,5 +141,5 @@ public interface ApiServier {
     @Headers("Cache-Control: public, max-age=28800")
     @FormUrlEncoded
     @POST("getAudioByPlaylistId")
-    Observable<BaseRecordResponse<DetailsHearBean>> getRequestAllAudioByPlayListId(@Field("apid") int audioPlayListId/*, @Field("offset") int offset, @Field("limit") int limit*/);
+    Observable<BaseRecordResponse<DetailsHearBean>> getRequestAllAudioByPlayListId(@Field("apid") int audioPlayListId, @Field("offset") int offset, @Field("limit") int limit);
 }
