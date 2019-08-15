@@ -82,7 +82,6 @@ public class SearchActivity extends BaseActivity<SearchSee.SearchSeeView, Search
     protected void initView() {
         mSearchSongsRecentRlv.setLayoutManager(new GridLayoutManager(this, 2));
         mAdapterRecent = new SearchSeeRecentAdapte(this);
-        mSearchRecentLl.setVisibility(View.VISIBLE);
         mSearchSongsRecentRlv.setAdapter(mAdapterRecent);
         mSearchSongsHotRlv.setLayoutManager(new GridLayoutManager(this, 2));
         mAdapterHot = new SearchSeeHotAdapter(this);
@@ -116,6 +115,11 @@ public class SearchActivity extends BaseActivity<SearchSee.SearchSeeView, Search
             mList.add((String) o);
         }
         mAdapterRecent.setDataRecentSee(mList);
+        if (mList.size() > 0) {
+            mSearchRecentLl.setVisibility(View.VISIBLE);
+        } else {
+            mSearchRecentLl.setVisibility(View.GONE);
+        }
     }
 
     @Override
