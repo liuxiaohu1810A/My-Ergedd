@@ -1,9 +1,11 @@
 package com.example.myergedd.fragment.hear.sinology;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.example.myergedd.DetailsActivity;
 import com.example.myergedd.R;
 import com.example.myergedd.adapter.SinologyAdapter;
 import com.example.myergedd.base.BaseFragment;
@@ -31,6 +33,18 @@ public class SinologyFragment extends BaseFragment<Sinology.SinologyView,IPresen
         res.setLayoutManager(new LinearLayoutManager(getActivity()));
         sinologyAdapter = new SinologyAdapter(getActivity());
         res.setAdapter(sinologyAdapter);
+
+        sinologyAdapter.setOnclci(new SinologyAdapter.OnClick() {
+            @Override
+            public void onclcik(SinologyBean sinologyBean) {
+                Intent intent = new Intent(getContext(), DetailsActivity.class);
+                intent.putExtra("name",sinologyBean.getName());
+                intent.putExtra("desc",sinologyBean.getDescription());
+                intent.putExtra("count",sinologyBean.getCount());
+                intent.putExtra("img",sinologyBean.getSquare_image_url());
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

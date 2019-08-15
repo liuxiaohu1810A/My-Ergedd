@@ -1,5 +1,4 @@
 package com.example.myergedd.fragment.see.story.model;
-
 import com.example.myergedd.app.ApiServier;
 import com.example.myergedd.base.BaseCallBack;
 import com.example.myergedd.base.BaseObserver;

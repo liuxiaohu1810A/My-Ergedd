@@ -11,7 +11,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.example.myergedd.base.SimpleActivity;
-import com.example.myergedd.fragment.CacheFragment;
+import com.example.myergedd.fragment.cache.CacheFragment;
 import com.example.myergedd.fragment.see.SeeFragment;
 import com.example.myergedd.fragment.hear.HearFragment;
 import com.example.myergedd.utils.ShowFragmentUtils;
@@ -62,12 +62,18 @@ public class MainActivity extends SimpleActivity {
             default:
                 break;
             case R.id.btn_phone_main_video:
+                mBtnPhoneMainVideo.requestFocus();
+                mBtnPhoneMainVideo.setFocusable(true);
                 ShowFragmentUtils.addFragment(getSupportFragmentManager(), SeeFragment.class, R.id.rlayout_main_phone_container);
                 break;
             case R.id.btn_phone_main_audio:
+                mBtnPhoneMainVideo.requestFocus();
+                mBtnPhoneMainVideo.setFocusable(true);
                 ShowFragmentUtils.addFragment(getSupportFragmentManager(), HearFragment.class, R.id.rlayout_main_phone_container);
                 break;
             case R.id.btn_phone_main_profile:
+                mBtnPhoneMainVideo.requestFocus();
+                mBtnPhoneMainVideo.setFocusable(true);
                 ShowFragmentUtils.addFragment(getSupportFragmentManager(), CacheFragment.class, R.id.rlayout_main_phone_container);
                 break;
         }

@@ -17,7 +17,9 @@ import com.example.myergedd.fragment.hear.english.presenter.IPresenter;
 
 import java.util.List;
 
-    public class EnglishFragment extends BaseFragment<HearEnglish.HearEnglishView, IPresenter<HearEnglish.HearEnglishView>> implements HearEnglish.HearEnglishView {
+import butterknife.OnClick;
+
+public class EnglishFragment extends BaseFragment<HearEnglish.HearEnglishView, IPresenter<HearEnglish.HearEnglishView>> implements HearEnglish.HearEnglishView {
 
         private RecyclerView res;
         private HearEnglishAdapter hearEnglishAdapter;
@@ -36,9 +38,9 @@ import java.util.List;
             hearEnglishAdapter = new HearEnglishAdapter(getActivity());
             res.setAdapter(hearEnglishAdapter);
 
-            hearEnglishAdapter.setOnclick(new HearEnglishAdapter.OnClick() {
+            hearEnglishAdapter.setOnclcik(new HearEnglishAdapter.OnClick() {
                 @Override
-                public void onclick(HearEnglishBean hearEnglishBean) {
+                public void onClick(HearEnglishBean hearEnglishBean) {
                     Intent intent = new Intent(getContext(), DetailsActivity.class);
                     intent.putExtra("name",hearEnglishBean.getName());
                     intent.putExtra("desc",hearEnglishBean.getDescription());
@@ -70,4 +72,5 @@ import java.util.List;
         public void onFailed(String error) {
 
         }
-    }
+
+}

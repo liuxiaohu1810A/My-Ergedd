@@ -36,12 +36,16 @@
     </option>
   </component>
 <<<<<<< HEAD
+<<<<<<< HEAD
   <component name="ProjectPlainTextFileTypeManager">
     <file url="file://$PROJECT_DIR$/app/src/main/res/layout/listen_search_head.xml" />
   </component>
 =======
 >>>>>>> 58155fc74b93e0f22ee6d665d40986a7f02bbc7a
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+=======
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+>>>>>>> 48e26eb70f7e47b3618033d5ec90eb17ae4f35ec
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

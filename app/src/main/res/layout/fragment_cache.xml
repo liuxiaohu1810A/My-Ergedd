@@ -22,7 +22,6 @@
 
 
         <TextView
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -46,6 +45,11 @@
             android:background="@color/divider" />
     </RelativeLayout>
 
+    <android.support.design.widget.TabLayout
+        android:id="@+id/cache_Table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/cache_vp"

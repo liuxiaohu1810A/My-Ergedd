@@ -16,6 +16,8 @@ import com.example.myergedd.fragment.hear.english.bean.HearEnglishBean;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.OnClick;
+
 public class HearEnglishAdapter extends RecyclerView.Adapter<HearEnglishAdapter.ViewHolder> {
     private final FragmentActivity activity;
     private ArrayList<HearEnglishBean> hearEnglishBeans=new ArrayList<>();
@@ -39,12 +41,18 @@ public class HearEnglishAdapter extends RecyclerView.Adapter<HearEnglishAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull final ViewHolder viewHolder, final int i) {
 
             viewHolder.name.setText(hearEnglishBeans.get(i).getName());
             viewHolder.desc.setText(hearEnglishBeans.get(i).getDescription());
             viewHolder.count.setText(hearEnglishBeans.get(i).getCount()+"首");
             Glide.with(activity).load(hearEnglishBeans.get(i).getSquare_image_url()).into(viewHolder.img);
+            viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onclcik.onClick(hearEnglishBeans.get(i));
+                }
+            });
     }
 
     @Override
@@ -66,5 +74,14 @@ public class HearEnglishAdapter extends RecyclerView.Adapter<HearEnglishAdapter.
             desc = itemView.findViewById(R.id.item_watch_list_desc);
             count = itemView.findViewById(R.id.item_watch_list_count);
         }
+    }
+
+    private OnClick onclcik;
+
+    public void setOnclcik(OnClick onclcik) {
+        this.onclcik = onclcik;
+    }
+    public interface OnClick{
+        void onClick(HearEnglishBean hearEnglishBean);
     }
 }

@@ -1,9 +1,11 @@
 package com.example.myergedd.fragment.hear.music;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.example.myergedd.DetailsActivity;
 import com.example.myergedd.R;
 import com.example.myergedd.adapter.MusicAdapter;
 import com.example.myergedd.base.BaseFragment;
@@ -30,6 +32,17 @@ public class MusicFragment extends BaseFragment<Music.MusicView,IPresenter<Music
         res.setLayoutManager(new LinearLayoutManager(getActivity()));
         musicAdapter = new MusicAdapter(getActivity());
         res.setAdapter(musicAdapter);
+        musicAdapter.setOnclick(new MusicAdapter.OnClick() {
+            @Override
+            public void onclcik(MusicBean musicBean) {
+                Intent intent = new Intent(getContext(), DetailsActivity.class);
+                intent.putExtra("name",musicBean.getName());
+                intent.putExtra("desc",musicBean.getDescription());
+                intent.putExtra("count",musicBean.getCount());
+                intent.putExtra("img",musicBean.getSquare_image_url());
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.example.myergedd.fragment.hear.erge;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
+import com.example.myergedd.DetailsActivity;
 import com.example.myergedd.R;
 import com.example.myergedd.adapter.Listen_ErgeAdapter;
 import com.example.myergedd.base.BaseFragment;
@@ -41,6 +43,18 @@ public class ErgeFragment extends BaseFragment<Erge.ErgeView, IPresenter<Erge.Er
         englishRes.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new Listen_ErgeAdapter(getContext());
         englishRes.setAdapter(adapter);
+
+        adapter.setOnclcik(new Listen_ErgeAdapter.OnClick() {
+            @Override
+            public void onclcik(Listen_ErgeBean listen_ergeBean) {
+                Intent intent = new Intent(getContext(), DetailsActivity.class);
+                intent.putExtra("name",listen_ergeBean.getName());
+                intent.putExtra("desc",listen_ergeBean.getDescription());
+                intent.putExtra("count",listen_ergeBean.getCount());
+                intent.putExtra("img",listen_ergeBean.getSquare_image_url());
+                startActivity(intent);
+            }
+        });
 
     }
 

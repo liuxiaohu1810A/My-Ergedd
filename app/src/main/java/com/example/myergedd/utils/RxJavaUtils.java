@@ -1,5 +1,6 @@
 package com.example.myergedd.utils;
 
+import com.example.myergedd.base.BaseRecordResponse;
 import com.example.myergedd.base.BaseResponse;
 import com.example.myergedd.http.HttpErrorCode;
 
@@ -45,6 +46,35 @@ public class RxJavaUtils {
                             });
                         } else {
                             return Observable.error(new HttpErrorCode(tBaseResponse.getMessage()));
+                        }
+                    }
+                });
+            }
+        };
+    }
+
+    //将数据转换成我们想要的数据
+    public static <T> ObservableTransformer<BaseRecordResponse<T>, T> changeResultPost() {
+        return new ObservableTransformer<BaseRecordResponse<T>, T>() {
+            @Override
+            public ObservableSource<T> apply(Observable<BaseRecordResponse<T>> upstream) {
+                return upstream.flatMap(new Function<BaseRecordResponse<T>, ObservableSource<T>>() {
+                    @Override
+                    public ObservableSource<T> apply(final BaseRecordResponse<T> tBaseResponse) throws Exception {
+                        if (tBaseResponse.isSuccess()) {
+                            return Observable.create(new ObservableOnSubscribe<T>() {
+                                @Override
+                                public void subscribe(ObservableEmitter<T> emitter) throws Exception {
+                                    try {
+                                        emitter.onNext(tBaseResponse.getData());
+                                        emitter.onComplete();
+                                    } catch (Exception e) {
+                                        emitter.onError(e);
+                                    }
+                                }
+                            });
+                        } else {
+                            return Observable.error(new HttpErrorCode("失败了哦···"));
                         }
                     }
                 });

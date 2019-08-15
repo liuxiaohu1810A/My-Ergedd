@@ -14,7 +14,7 @@ import com.example.myergedd.bean.EnglishBean;
 import com.example.myergedd.bean.SynthesizeBean;
 import com.example.myergedd.fragment.see.synthesize.contract.Synthesize;
 import com.example.myergedd.fragment.see.synthesize.presenter.IPresenter;
-
+import com.example.myergedd.bean.SynthesizeBean;
 import java.util.List;
 
 public class SynthesizeFragment extends BaseFragment<Synthesize.SynthesizeView,IPresenter<Synthesize.SynthesizeView>>implements Synthesize.SynthesizeView {

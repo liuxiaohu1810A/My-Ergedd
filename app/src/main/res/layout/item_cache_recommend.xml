@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_30"
+        android:background="@color/gray_d5"
+        android:text="已占用空间0.0M / 可用空间20.9G"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dp_12"
+        android:gravity="center"/>
+
+</RelativeLayout>

@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/search_hot_title"
+        android:id="@+id/search_recently_hot_title"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_30"
         android:background="@color/gray_f7"
@@ -23,10 +23,11 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_120"
             android:background="@color/white"
-            android:visibility="gone">
+           >
+            <!--android:visibility="gone"-->
 
             <TextView
-                android:id="@+id/search_no_title"
+                android:id="@+id/search_recently_no_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -36,10 +37,10 @@
                 android:textSize="@dimen/dp_16" />
 
             <TextView
-                android:id="@+id/search_try_other_title"
+                android:id="@+id/search_try_recently_other_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/search_no_title"
+                android:layout_below="@id/search_recently_no_title"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/dp_2"
                 android:text="试试别的关键词吧(^～^)"
@@ -50,7 +51,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/search_try_other_title"
+                android:layout_below="@id/search_try_recently_other_title"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/dp_2"
                 android:text="或者使用下面的热搜词汇"

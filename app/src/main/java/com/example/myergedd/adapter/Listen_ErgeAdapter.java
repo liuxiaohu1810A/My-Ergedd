@@ -37,12 +37,18 @@ public class Listen_ErgeAdapter extends RecyclerView.Adapter<Listen_ErgeAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
 
         viewHolder.item_watch_list_count.setText(ergeBeans.get(i).getCount()+"首");
         viewHolder.item_watch_list_desc.setText(ergeBeans.get(i).getDescription());
         viewHolder.item_watch_list_name.setText(ergeBeans.get(i).getName());
         Glide.with(context).load(ergeBeans.get(i).getSquare_image_url()).into(viewHolder.listen_common_img);
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onclcik.onclcik(ergeBeans.get(i));
+            }
+        });
     }
 
     @Override
@@ -64,5 +70,14 @@ public class Listen_ErgeAdapter extends RecyclerView.Adapter<Listen_ErgeAdapter.
             item_watch_list_desc = itemView.findViewById(R.id.item_watch_list_desc);
             item_watch_list_count = itemView.findViewById(R.id.item_watch_list_count);
         }
+    }
+
+    private OnClick onclcik;
+
+    public void setOnclcik(OnClick onclcik) {
+        this.onclcik = onclcik;
+    }
+    public interface OnClick{
+        void onclcik(Listen_ErgeBean listen_ergeBean);
     }
 }

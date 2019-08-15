@@ -16,6 +16,22 @@
         android:layout_height="220dp"
         android:background="@color/black20"/>
 
+    <ImageView
+        android:id="@+id/listen_top_back_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/icon_back_white"
+        android:paddingTop="@dimen/dp_5"/>
+
+    <TextView
+        android:id="@+id/listen_two_top_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="@dimen/dp_5"
+        android:text="@string/app_name"/>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -38,10 +54,12 @@
             android:layout_height="153dp"
             android:scaleType="centerCrop"
             android:padding="3dp"/>
+
         <TextView
+            android:id="@+id/item_listen_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-           android:layout_alignBottom="@id/item_listen_top_img"
+            android:layout_alignBottom="@id/item_listen_top_img"
             android:background="@mipmap/bg_small_grey_label"
             android:drawableLeft="@mipmap/icon_music_white"
             android:drawablePadding="4dp"
@@ -50,7 +68,7 @@
             android:paddingRight="2dp"
             android:text="99"
             android:textColor="@color/white"
-            android:textSize="11sp"/>
+            android:textSize="11sp" />
     </RelativeLayout>
     <TextView
         android:id="@+id/item_list_title"

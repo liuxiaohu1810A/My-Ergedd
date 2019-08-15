@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.myergedd.R;
 import com.example.myergedd.fragment.hear.english.bean.HearEnglishBean;
+import com.example.myergedd.fragment.hear.erge.bean.Listen_ErgeBean;
 import com.example.myergedd.fragment.hear.story.bean.HearStoryBean;
 
 import java.util.ArrayList;
@@ -39,12 +40,18 @@ public class HearStoryAdapter extends RecyclerView.Adapter<HearStoryAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
 
             viewHolder.name.setText(hearStoryBeans.get(i).getName());
             viewHolder.desc.setText(hearStoryBeans.get(i).getDescription());
             viewHolder.count.setText(hearStoryBeans.get(i).getCount()+"首");
             Glide.with(activity).load(hearStoryBeans.get(i).getSquare_image_url()).into(viewHolder.img);
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onclcik.onclcik(hearStoryBeans.get(i));
+            }
+        });
     }
 
     @Override
@@ -66,5 +73,13 @@ public class HearStoryAdapter extends RecyclerView.Adapter<HearStoryAdapter.View
             desc = itemView.findViewById(R.id.item_watch_list_desc);
             count = itemView.findViewById(R.id.item_watch_list_count);
         }
+    }
+    private OnClick onclcik;
+
+    public void setOnclcik(OnClick onclcik) {
+        this.onclcik = onclcik;
+    }
+    public interface OnClick{
+        void onclcik(HearStoryBean hearStoryBean);
     }
 }

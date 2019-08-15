@@ -130,7 +130,7 @@
     <color name="lightBlue">#ffe0faff</color>
 
     <color name="FONT_DARK">#333333</color>
-    <color name="FONT_GRAY">#67 6a6b</color>
+    <color name="FONT_GRAY">#676a6b</color>
 
     <color name="action_bar_bg">@color/gray_f8</color>
     <color name="action_bar_text">@color/main_color</color>

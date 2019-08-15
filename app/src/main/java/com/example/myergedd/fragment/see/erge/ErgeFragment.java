@@ -1,5 +1,7 @@
 package com.example.myergedd.fragment.see.erge;
 
+import com.example.myergedd.R;
+
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -17,7 +19,7 @@ import com.example.myergedd.fragment.see.erge.presenter.IPresenter;
 
 import java.util.List;
 
-public class ErgeFragment extends BaseFragment<Erge.ErgeView,IPresenter<Erge.ErgeView>>implements Erge.ErgeView {
+public class ErgeFragment extends BaseFragment<Erge.ErgeView, IPresenter<Erge.ErgeView>> implements Erge.ErgeView {
 
     private RecyclerView res;
     private ErgeAdapter ergeAdapter;

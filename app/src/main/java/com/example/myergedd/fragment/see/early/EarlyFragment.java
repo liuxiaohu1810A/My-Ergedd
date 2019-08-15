@@ -10,8 +10,6 @@ import com.example.myergedd.activity.CommonSeeActivity;
 import com.example.myergedd.adapter.EarlyAdapter;
 import com.example.myergedd.base.BaseFragment;
 import com.example.myergedd.bean.EarlyBean;
-import com.example.myergedd.bean.CartoonBean;
-import com.example.myergedd.bean.EarlyBean;
 import com.example.myergedd.fragment.see.early.contract.Early;
 import com.example.myergedd.fragment.see.early.presenter.IPresenter;
 
