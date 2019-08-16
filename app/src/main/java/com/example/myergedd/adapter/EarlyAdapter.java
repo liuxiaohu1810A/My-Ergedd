@@ -18,7 +18,8 @@ import java.util.List;
 
 public class EarlyAdapter extends RecyclerView.Adapter<EarlyAdapter.ViewHolder> {
     private final FragmentActivity activity;
-    private ArrayList<EarlyBean> earlyBeans=new ArrayList<>();
+    public ArrayList<EarlyBean> earlyBeans=new ArrayList<>();
+    private onClickListener mListener;
 
     public EarlyAdapter(FragmentActivity activity) {
 
@@ -39,12 +40,20 @@ public class EarlyAdapter extends RecyclerView.Adapter<EarlyAdapter.ViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
 
             viewHolder.name.setText(earlyBeans.get(i).getName());
             viewHolder.desc.setText(earlyBeans.get(i).getDescription());
             viewHolder.ji.setText("共"+earlyBeans.get(i).getVideo_count()+"集");
             Glide.with(activity).load(earlyBeans.get(i).getImage_url()).into(viewHolder.img);
+            viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mListener!=null){
+                        mListener.onClick(v,i);
+                    }
+                }
+            });
     }
 
     @Override
@@ -66,5 +75,14 @@ public class EarlyAdapter extends RecyclerView.Adapter<EarlyAdapter.ViewHolder> 
             desc = itemView.findViewById(R.id.item_watch_list_desc);
             ji = itemView.findViewById(R.id.cartoom_ji);
         }
+    }
+
+    public interface onClickListener {
+        void onClick(View v, int position);
+    }
+
+
+    public void setOnClickListener(onClickListener listener) {
+        mListener = listener;
     }
 }

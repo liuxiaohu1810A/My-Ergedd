@@ -1,0 +1,117 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/action_bar_bg"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/top_bar_extra"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <RelativeLayout
+                android:id="@+id/topbar_left_action_frame"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/topbar_left_action_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:scaleType="center"
+                    android:src="@drawable/return_backgroud"
+                    android:visibility="visible" />
+
+                <View
+                    android:id="@+id/topbar_left_action_redview"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:layout_marginLeft="26dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/red_point"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/topbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:maxWidth="220dp"
+                android:singleLine="true"
+                tools:text="标题"
+                android:textColor="@color/action_bar_text"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/topbar_title_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@id/topbar_title"
+                android:maxWidth="220dp"
+                android:singleLine="true"
+                android:text="15首"
+                android:textColor="@color/action_bar_text"
+                android:textSize="13sp"
+                android:visibility="gone" />
+
+
+            <LinearLayout
+                android:id="@+id/topbar_right_action_frame"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/topbar_right_action_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:paddingLeft="12dp"
+                    android:textColor="@color/action_bar_text"
+                    android:textSize="14sp" />
+
+
+                <ImageView
+                    android:id="@+id/topbar_right_action_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:scaleType="center"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_e4" />
+</LinearLayout>

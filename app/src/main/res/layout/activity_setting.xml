@@ -1,0 +1,953 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:toggle="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.SettingActivity">
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/settingTool"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/return_backgroud"
+            />
+        <TextView
+            android:id="@+id/topbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置"
+            android:layout_gravity="center_horizontal"
+            android:maxWidth="220dp"
+            android:singleLine="true"
+            android:textColor="@color/action_bar_text"
+            />
+    </android.support.v7.widget.Toolbar>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!--<com.mampod.ergedd.view.AccountView-->
+                    <!--android:id="@+id/account_view"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginBottom="8dp"-->
+                    <!--android:visibility="visible" />-->
+
+                <include
+                    android:id="@+id/vip_view"
+                    layout="@layout/activity_setting_vip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/player_setting"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@drawable/all_press_selector_backgroud">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="6dp"
+                                android:src="@mipmap/setting_icon_play" />
+
+                            <TextView
+                                style="@style/setting_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="播放设置" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="18dp"
+                                android:src="@mipmap/next_page_gray"
+                                android:visibility="visible" />
+                        </RelativeLayout>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/black5" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="@color/white"-->
+                    <!--android:orientation="vertical">-->
+
+                    <!--<LinearLayout-->
+                        <!--android:id="@+id/sdcard_view"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:orientation="vertical">-->
+
+                        <!--<RelativeLayout-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="45dp">-->
+
+                            <!--<ImageView-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_centerVertical="true"-->
+                                <!--android:layout_marginLeft="6dp"-->
+                                <!--android:src="@mipmap/setting_icon_sd" />-->
+
+                            <!--<TextView-->
+                                <!--style="@style/setting_text"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_centerVertical="true"-->
+                                <!--android:text="下载到SD卡" />-->
+
+
+                            <!--<com.mampod.ergedd.view.togglebutton.ToggleButton-->
+                                <!--android:id="@+id/setting_sdcard_enable"-->
+                                <!--android:layout_width="50dp"-->
+                                <!--android:layout_height="30dp"-->
+                                <!--android:layout_alignParentRight="true"-->
+                                <!--android:layout_centerVertical="true"-->
+                                <!--android:layout_marginRight="18dp"-->
+                                <!--android:paddingLeft="2dp"-->
+                                <!--android:paddingTop="3dp"-->
+                                <!--android:paddingRight="2dp"-->
+                                <!--android:paddingBottom="3dp"-->
+                                <!--toggle:borderWidth="1dp"-->
+                                <!--toggle:offColor="#dadbda"-->
+                                <!--toggle:onColor="@color/main_color" />-->
+
+                        <!--</RelativeLayout>-->
+
+                        <!--<View-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="1dp"-->
+                            <!--android:background="@color/black5" />-->
+                    <!--</LinearLayout>-->
+                <!--</LinearLayout>-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/setting_sound_effect"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="6dp"
+                                android:src="@mipmap/setting_icon_splash" />
+
+                            <TextView
+                                style="@style/setting_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="启动音效" />
+
+                            <Switch
+                                android:id="@+id/setting_sound_enable"
+                                android:layout_width="50dp"
+                                android:layout_height="30dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="18dp"
+                                android:paddingLeft="2dp"
+                                android:paddingTop="3dp"
+                                android:paddingRight="2dp"
+                                android:paddingBottom="3dp"
+                                />
+                            <!--<com.mampod.ergedd.view.togglebutton.ToggleButton-->
+                                <!--android:id="@+id/setting_sound_enable"-->
+                                <!--android:layout_width="50dp"-->
+                                <!--android:layout_height="30dp"-->
+                                <!--android:layout_alignParentRight="true"-->
+                                <!--android:layout_centerVertical="true"-->
+                                <!--android:layout_marginRight="18dp"-->
+                                <!--android:paddingLeft="2dp"-->
+                                <!--android:paddingTop="3dp"-->
+                                <!--android:paddingRight="2dp"-->
+                                <!--android:paddingBottom="3dp"-->
+                                <!--toggle:borderWidth="1dp"-->
+                                <!--toggle:offColor="#dadbda"-->
+                                <!--toggle:onColor="@color/main_color" />-->
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/black5" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="6dp"
+                            android:src="@mipmap/setting_icon_sleep" />
+
+                        <TextView
+                            style="@style/setting_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="作息控制" />
+
+                        <Switch
+                            android:id="@+id/sleep_toggle"
+                            android:layout_width="50dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="18dp"
+                            android:paddingLeft="2dp"
+                            android:paddingTop="3dp"
+                            android:paddingRight="2dp"
+                            android:paddingBottom="3dp"
+                            />
+                        <!--<com.mampod.ergedd.view.togglebutton.ToggleButton-->
+                            <!--android:id="@+id/sleep_toggle"-->
+                            <!--android:layout_width="50dp"-->
+                            <!--android:layout_height="30dp"-->
+                            <!--android:layout_alignParentRight="true"-->
+                            <!--android:layout_centerVertical="true"-->
+                            <!--android:layout_marginRight="18dp"-->
+                            <!--android:paddingLeft="2dp"-->
+                            <!--android:paddingTop="3dp"-->
+                            <!--android:paddingRight="2dp"-->
+                            <!--android:paddingBottom="3dp"-->
+                            <!--toggle:borderWidth="1dp"-->
+                            <!--toggle:offColor="#dadbda"-->
+                            <!--toggle:onColor="@color/main_color" />-->
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/time_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="60dp"
+                            android:background="@color/black5" />
+
+                        <RelativeLayout
+                            android:id="@+id/get_up_setting"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@drawable/all_press_selector_backgroud">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="6dp"
+                                android:src="@mipmap/phone_setting_common_question"
+                                android:visibility="gone" />
+
+                            <TextView
+                                style="@style/setting_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="早起时间"
+                                android:textColor="@color/gray_ae" />
+
+                            <TextView
+                                android:id="@+id/get_up_time_value"
+                                style="@style/setting_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="40dp"
+                                android:text="06:00"
+                                android:textColor="@color/gray_ae" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="18dp"
+                                android:src="@mipmap/next_page_gray"
+                                android:visibility="visible" />
+
+                        </RelativeLayout>
+
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginLeft="60dp"
+                            android:background="@color/black5" />
+
+                        <RelativeLayout
+                            android:id="@+id/sleep_setting"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@drawable/all_press_selector_backgroud">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="6dp"
+                                android:src="@mipmap/phone_setting_common_question"
+                                android:visibility="gone" />
+
+                            <TextView
+                                style="@style/setting_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:text="睡觉时间"
+                                android:textColor="@color/gray_ae" />
+
+                            <TextView
+                                android:id="@+id/sleep_time_value"
+                                style="@style/setting_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="40dp"
+                                android:text="21:00"
+                                android:textColor="@color/gray_ae" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="18dp"
+                                android:src="@mipmap/next_page_gray"
+                                android:visibility="visible" />
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/black5" />
+
+                    <RelativeLayout
+                        android:id="@+id/setting_rest"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/all_press_selector_backgroud">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="6dp"
+                            android:src="@mipmap/setting_icon_rest" />
+
+                        <TextView
+                            style="@style/setting_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/text_title_rest_frequency" />
+
+                        <TextView
+                            android:id="@+id/rest_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="12dp"
+                            android:layout_toLeftOf="@+id/rest_arrow"
+                            android:text=""
+                            android:textColor="@color/gray_ae" />
+
+                        <ImageView
+                            android:id="@+id/rest_arrow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="18dp"
+                            android:src="@mipmap/next_page_gray"
+                            android:visibility="visible" />
+
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/vip_limit_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="6dp"
+                            android:src="@mipmap/setting_icon_vip_limit" />
+
+                        <TextView
+                            style="@style/setting_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/setting_vip_limit_text" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/vip_limit_value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="10dp"
+                                android:layout_toLeftOf="@+id/wechat_arrow"
+                                android:text=""
+                                android:textColor="@color/gray_a4"
+                                android:textSize="@dimen/font_small"
+                                android:visibility="gone" />
+
+                            <TextView
+                                android:id="@+id/vip_renew"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/open_vip_btn"
+                                android:gravity="center"
+                                android:text="@string/setting_vip_open"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/font_small"
+                                android:visibility="gone" />
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/black5" />
+
+                    <RelativeLayout
+                        android:id="@+id/phone_setting_renew"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/all_press_selector_backgroud"
+                        android:clickable="true">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="6dp"
+                            android:src="@mipmap/setting_icon_vip_renew" />
+
+                        <TextView
+                            style="@style/setting_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/setting_vip_renew_text" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="18dp"
+                            android:src="@mipmap/next_page_gray"
+                            android:visibility="visible" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/black5" />
+
+                    <RelativeLayout
+                        android:id="@+id/phone_setting_record"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/all_press_selector_backgroud"
+                        android:clickable="true">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="6dp"
+                            android:src="@mipmap/setting_icon_vip_record" />
+
+                        <TextView
+                            style="@style/setting_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/setting_vip_record_text" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="18dp"
+                            android:src="@mipmap/next_page_gray"
+                            android:visibility="visible" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/wechat"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/all_press_selector_backgroud">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="6dp"
+                            android:src="@mipmap/setting_icon_wechat" />
+
+                        <TextView
+                            style="@style/setting_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="微信公众号" />
+
+                        <ImageView
+                            android:id="@+id/wechat_arrow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="18dp"
+                            android:src="@mipmap/next_page_gray"
+                            android:visibility="visible" />
+
+
+                        <TextView
+                            android:id="@+id/wechat_slogan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="12dp"
+                            android:layout_toLeftOf="@+id/wechat_arrow"
+                            android:text="关注微信享福利"
+                            android:textColor="@color/gray_ae" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/black5" />
+
+                    <RelativeLayout
+                        android:id="@+id/promotion"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/all_press_selector_backgroud"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="6dp"
+                            android:src="@mipmap/setting_icon_gift" />
+
+                        <TextView
+                            android:id="@+id/promotion_text"
+                            style="@style/setting_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="微信公众号" />
+
+                        <ImageView
+                            android:id="@+id/promotion_arrow"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="18dp"
+                            android:src="@mipmap/next_page_gray"
+                            android:visibility="visible" />
+
+
+                        <TextView
+                            android:id="@+id/promotion_slogan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="12dp"
+                            android:layout_toLeftOf="@+id/promotion_arrow"
+                            android:text="egdiandian"
+                            android:textColor="@color/gray_ae"
+                            android:visibility="gone" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/black5"
+                        android:visibility="gone" />
+
+                    <RelativeLayout
+                        android:id="@+id/phone_setting_question"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/all_press_selector_backgroud"
+                        android:clickable="true">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="6dp"
+                            android:src="@mipmap/setting_icon_question" />
+
+                        <TextView
+                            style="@style/setting_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/common_question" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="18dp"
+                            android:src="@mipmap/next_page_gray"
+                            android:visibility="visible" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/black5" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/phone_setting_feedback"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/all_press_selector_backgroud">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="6dp"
+                            android:src="@mipmap/setting_icon_advise" />
+
+                        <TextView
+                            style="@style/setting_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/advise" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="18dp"
+                            android:src="@mipmap/next_page_gray"
+                            android:visibility="visible" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/black5" />
+
+                    <RelativeLayout
+                        android:id="@+id/phone_setting_score"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/all_press_selector_backgroud">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="6dp"
+                            android:src="@mipmap/setting_icon_comment" />
+
+                        <TextView
+                            style="@style/setting_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/go_comment" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="18dp"
+                            android:src="@mipmap/next_page_gray"
+                            android:visibility="visible" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/phone_setting_share"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/all_press_selector_backgroud">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="6dp"
+                            android:src="@mipmap/setting_icon_share" />
+
+                        <TextView
+                            style="@style/setting_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/setting_vip_share_text" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="18dp"
+                            android:src="@mipmap/next_page_gray"
+                            android:visibility="visible" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/black5" />
+
+                    <RelativeLayout
+                        android:id="@+id/phone_setting_cooperation"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/all_press_selector_backgroud">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="6dp"
+                            android:src="@mipmap/setting_icon_cooperation" />
+
+                        <TextView
+                            style="@style/setting_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/cooperation" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="18dp"
+                            android:src="@mipmap/next_page_gray"
+                            android:visibility="visible" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/black5" />
+
+                    <RelativeLayout
+                        android:id="@+id/phone_setting_about"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/all_press_selector_backgroud">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="6dp"
+                            android:src="@mipmap/setting_icon_about" />
+
+                        <TextView
+                            style="@style/setting_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="@string/about_us" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="18dp"
+                            android:src="@mipmap/next_page_gray"
+                            android:visibility="visible" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/logout"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="退出登录"
+                    android:textColor="@color/main_color"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_setting_version"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center"
+                    android:padding="1dp"
+                    android:text="v2.6.18.debug"
+                    android:textColor="@color/gray_ae"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_setting_patch_version"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center"
+                    android:padding="1dp"
+                    android:text=""
+                    android:textColor="@color/gray_ae"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </ScrollView>
+
+        <RelativeLayout
+            android:id="@+id/progress_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:id="@+id/pbar_network_error_loading"
+                style="@style/circle_progressbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:indeterminate="false" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>
