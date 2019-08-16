@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:background="@color/gray_f8">
+
+        <ImageView
+            android:id="@+id/search_music_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/dp_15"
+            android:paddingRight="@dimen/dp_15"
+            android:src="@mipmap/icon_common_back" />
+
+        <RelativeLayout
+            android:id="@+id/search_rl_music"
+            android:layout_width="@dimen/dp_284"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/search_edit_backgroud">
+
+            <EditText
+                android:id="@+id/search_edit_frame_music"
+                android:layout_width="@dimen/dp_230"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:cursorVisible="true"
+                android:hint="@string/search_video_input_hint"
+                android:imeOptions="actionSearch"
+                android:singleLine="true"
+                android:textColorHint="#dadadd"
+                android:textCursorDrawable="@drawable/search_edit_shape"
+                android:textSize="@dimen/sp_16" />
+
+            <ImageView
+                android:id="@+id/search_remove_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:scaleType="center"
+                android:src="@mipmap/search_activity_close" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/search_determine_music"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/dp_5"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_toEndOf="@+id/search_rl_music"
+            android:layout_toRightOf="@+id/search_rl_music"
+            android:text="搜索"
+            android:textColor="@color/main_color" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:background="@color/gray_e4" />
+
+    <LinearLayout
+        android:id="@+id/search_histotry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_5"
+        android:layout_marginLeft="@dimen/dp_5"
+        android:layout_marginTop="@dimen/dp_10"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_5"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:padding="@dimen/dp_5"
+            android:text="最近搜索"
+            android:textColor="#575757"
+            android:textSize="@dimen/sp_15">
+
+        </TextView>
+
+        <com.zhy.view.flowlayout.TagFlowLayout
+            android:id="@+id/local_history_record"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_marginRight="@dimen/dp_5"
+            android:padding="@dimen/dp_12"
+            app:max_select="0" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/search_hot_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_5"
+        android:layout_marginLeft="@dimen/dp_5"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_8"
+        android:layout_marginRight="@dimen/dp_8"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/hot_search_text"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_45">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/dp_5"
+                android:layout_marginLeft="@dimen/dp_5"
+                android:padding="@dimen/dp_5"
+                android:text="热门搜索"
+                android:textColor="#575757"
+                android:textSize="@dimen/sp_15" />
+
+            <TextView
+                android:id="@+id/search_refresh_other"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/dp_5"
+                android:layout_marginRight="@dimen/dp_5"
+                android:padding="@dimen/dp_5"
+                android:text="换一批"
+                android:textColor="#575757"
+                android:textSize="@dimen/sp_15" />
+
+            <ImageView
+                android:id="@+id/search_refresh_song"
+                android:layout_width="@dimen/dp_15"
+                android:layout_height="@dimen/dp_15"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@id/search_refresh_other"
+                android:src="@mipmap/icon_refresh" />
+
+
+        </RelativeLayout>
+
+        <com.zhy.view.flowlayout.TagFlowLayout
+            android:id="@+id/hot_history_record"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_marginRight="@dimen/dp_5"
+            android:padding="@dimen/dp_12"
+            app:max_select="-1" />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/search_songs_rlv_music"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:scrollbars="vertical"
+        android:smoothScrollbar="true" />
+</LinearLayout>

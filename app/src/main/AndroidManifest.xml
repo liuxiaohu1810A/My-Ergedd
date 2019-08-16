@@ -35,6 +35,10 @@
             android:launchMode="singleTop"
             android:theme="@style/NoAppTheme" />
         <activity
+            android:name=".activity.SearchMusicActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NoAppTheme" />
+        <activity
             android:name=".activity.SplashActivity"
             android:theme="@style/AppThemeFullscreen">
             <intent-filter>

@@ -16,7 +16,7 @@ import com.example.myergedd.utils.RxJavaUtils;
 
 import java.util.List;
 
-public class SearchSeeModel implements SearchSee.SearchSeeModel {
+public class SearchSeeVideoModel implements SearchVideoSee.SearchSeeModel {
 
     @Override
     public void getDataAlbumsSearch(String keyword, final BaseCallBack<List<SearchSeeAlbumsBean>> callBack) {

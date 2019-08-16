@@ -8,8 +8,8 @@ import com.example.myergedd.bean.SearchSeeVideosBean;
 
 import java.util.List;
 
-public class SearchSeePresenter<V extends SearchSee.SearchSeeView> extends BasePresenter<V> implements SearchSee.SearchSeePresenter {
-    private SearchSee.SearchSeeModel mModel = new SearchSeeModel();
+public class SearchSeeVideoPresenter<V extends SearchVideoSee.SearchSeeView> extends BasePresenter<V> implements SearchVideoSee.SearchSeePresenter {
+    private SearchVideoSee.SearchSeeModel mModel = new SearchSeeVideoModel();
 
     @Override
     public void setDataAlbumsSearch(String keyword) {

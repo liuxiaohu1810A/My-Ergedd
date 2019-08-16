@@ -17,8 +17,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.myergedd.R;
-import com.example.myergedd.activity.searchsee.SearchSee;
-import com.example.myergedd.activity.searchsee.SearchSeePresenter;
+import com.example.myergedd.activity.searchsee.SearchVideoSee;
+import com.example.myergedd.activity.searchsee.SearchSeeVideoPresenter;
 import com.example.myergedd.adapter.SearchSeeAdapter;
 import com.example.myergedd.adapter.SearchSeeHotAdapter;
 import com.example.myergedd.adapter.SearchSeeRecentAdapte;
@@ -36,7 +36,7 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class SearchVideoActivity extends BaseActivity<SearchSee.SearchSeeView, SearchSeePresenter<SearchSee.SearchSeeView>> implements SearchSee.SearchSeeView {
+public class SearchVideoActivity extends BaseActivity<SearchVideoSee.SearchSeeView, SearchSeeVideoPresenter<SearchVideoSee.SearchSeeView>> implements SearchVideoSee.SearchSeeView {
     @BindView(R.id.search_icon)
     ImageView mSearchIcon;
     @BindView(R.id.search_song_name)
@@ -92,15 +92,6 @@ public class SearchVideoActivity extends BaseActivity<SearchSee.SearchSeeView, S
 
     @Override
     protected void initData() {
-        requestRemoteKeywords();
-        initLocalHistoryKeyword();
-    }
-
-    private void initLocalHistoryKeyword() {
-
-    }
-
-    private void requestRemoteKeywords() {
         refreshRecent();
         mPresenter.setDataHotSearch();
     }
@@ -201,7 +192,7 @@ public class SearchVideoActivity extends BaseActivity<SearchSee.SearchSeeView, S
                 showKeyBoard();
                 break;
             case R.id.btn_action:
-                if ("取消".equals(mBtnAction.getText())) {
+                if ("取消".contentEquals(mBtnAction.getText())) {
                     finish();
                 } else {
                     requestSongsByKeyword();
@@ -261,7 +252,6 @@ public class SearchVideoActivity extends BaseActivity<SearchSee.SearchSeeView, S
         }
         ToastUtils.ShowToast(keyword);
         if (!TextUtils.isEmpty(keyword)) {
-            checkAndSaveKeywords(keyword);
             requestVideosByKeyword(keyword);
         }
     }
@@ -274,13 +264,9 @@ public class SearchVideoActivity extends BaseActivity<SearchSee.SearchSeeView, S
         mBtnAction.setTextColor(getResources().getColor(R.color.FONT_DARK));
     }
 
-    private void checkAndSaveKeywords(String keyword) {
-
-    }
-
     @Override
-    protected SearchSeePresenter<SearchSee.SearchSeeView> initPresenter() {
-        return new SearchSeePresenter<>();
+    protected SearchSeeVideoPresenter<SearchVideoSee.SearchSeeView> initPresenter() {
+        return new SearchSeeVideoPresenter<>();
     }
 
     @Override

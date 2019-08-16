@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.example.myergedd.R;
 import com.example.myergedd.activity.LrcActivity;
+import com.example.myergedd.activity.SearchMusicActivity;
 import com.example.myergedd.base.SimpleFragment;
 import com.example.myergedd.fragment.hear.chosen.ChosenFragment;
 import com.example.myergedd.fragment.hear.english.EnglishFragment;
@@ -113,14 +114,21 @@ public class HearFragment extends SimpleFragment {
             }
         });
         hearTab.setupWithViewPager(hearVp);
+    }
 
+    @Override
+    protected void initListener() {
         listenPlayerLrc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(),LrcActivity.class));
+                startActivity(new Intent(getActivity(), LrcActivity.class));
+            }
+        });
+        iconSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), SearchMusicActivity.class));
             }
         });
     }
-
-
 }

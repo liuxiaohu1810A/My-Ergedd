@@ -7,7 +7,7 @@ import com.example.myergedd.bean.SearchSeeVideosBean;
 
 import java.util.List;
 
-public interface SearchSee {
+public interface SearchVideoSee {
     public interface SearchSeeView {
         void onAlbumsSuccessful(List<SearchSeeAlbumsBean> searchSeeBeans);
 
