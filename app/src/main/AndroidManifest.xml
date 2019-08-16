@@ -61,8 +61,14 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/NoAppTheme" />
-        <activity android:name=".activity.DetailsActivity"
-            android:theme="@style/NoAppTheme"
-            />
+        <activity
+            android:name=".activity.DetailsActivity"
+            android:theme="@style/NoAppTheme" />
+
+        <service
+            android:name=".activity.DeatilsService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
+
 </manifest>

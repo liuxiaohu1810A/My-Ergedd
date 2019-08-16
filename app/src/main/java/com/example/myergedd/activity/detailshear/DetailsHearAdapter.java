@@ -1,6 +1,7 @@
 package com.example.myergedd.activity.detailshear;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.example.myergedd.R;
+import com.example.myergedd.activity.LrcActivity;
 import com.example.myergedd.utils.TimerUtils;
 
 import java.text.SimpleDateFormat;
@@ -32,11 +34,23 @@ public class DetailsHearAdapter extends RecyclerView.Adapter<DetailsHearAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
         DetailsHearBean.AudiosBean audiosBean = list.get(i);
         double duration = audiosBean.getDuration();
         viewHolder.item.setText(TimerUtils.getTime((long) duration));
         viewHolder.title.setText(list.get(i).getName());
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, LrcActivity.class);
+                intent.putExtra("name",list.get(i).getName());
+                intent.putExtra("image",list.get(i).getImage());
+                intent.putExtra("resource",list.get(i).getResource());
+                intent.putExtra("duration",list.get(i).getDuration());
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
