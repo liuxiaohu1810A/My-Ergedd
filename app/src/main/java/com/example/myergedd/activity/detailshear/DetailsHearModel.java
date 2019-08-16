@@ -15,7 +15,7 @@ public class DetailsHearModel implements DetailsHear.DetailsHearModel {
     private static final String TAG = "DetailsHearModel";
     @Override
     public void getDetailsData(int id, final BaseCallBack<DetailsHearBean> callBack) {
-        HttpManagerPost.getInstance().getServer(ApiServier.class).getRequestAllAudioByPlayListId(id,0,40)
+        HttpManagerPost.getInstance().getServer(ApiServier.class).getRequestAllAudioByPlayListId(id,0,300)
                 .compose(RxJavaUtils.<BaseRecordResponse<DetailsHearBean>>rxScheduleThread())
                 .compose(RxJavaUtils.<DetailsHearBean>changeResultPost())
                 .subscribe(new BaseObserver<DetailsHearBean> () {
