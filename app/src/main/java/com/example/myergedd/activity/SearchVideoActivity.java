@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -97,11 +98,12 @@ public class SearchVideoActivity extends BaseActivity<SearchVideoSee.SearchSeeVi
     }
 
     private void refreshRecent() {
-        Map<String, ?> all = SharedPreferencesUtils.getAll(this);
+        Map<String, ?> all = SharedPreferencesUtils.getAll(this, "search_video");
         for (int i = 1; i < all.size() + 1; i++) {
             Object o = all.get(i + "");
             mList.add((String) o);
         }
+        Log.e("lzsv", "refreshRecent: " + mList.toString());
         mAdapterRecent.setDataRecentSee(mList);
         if (mList.size() > 0) {
             mSearchRecentLl.setVisibility(View.VISIBLE);
@@ -213,6 +215,7 @@ public class SearchVideoActivity extends BaseActivity<SearchVideoSee.SearchSeeVi
     }
 
     private void showKeyBoard() {
+
         mSearchHotLl.setVisibility(View.VISIBLE);
         mSearchRecentLl.setVisibility(View.VISIBLE);
         mSearchSongName.requestFocus();
@@ -230,27 +233,27 @@ public class SearchVideoActivity extends BaseActivity<SearchVideoSee.SearchSeeVi
             ToastUtils.ShowToast("请勿输入特殊字符");
             return;
         }
-        Object one = SharedPreferencesUtils.get(this, "1", "");
-        Object two = SharedPreferencesUtils.get(this, "2", "");
-        Object three = SharedPreferencesUtils.get(this, "3", "");
-        Object four = SharedPreferencesUtils.get(this, "4", "");
+        Object one = SharedPreferencesUtils.get(this, "search_video", "1", "");
+        Object two = SharedPreferencesUtils.get(this, "search_video", "2", "");
+        Object three = SharedPreferencesUtils.get(this, "search_video", "3", "");
+        Object four = SharedPreferencesUtils.get(this, "search_video", "4", "");
         assert one != null;
         assert two != null;
         assert three != null;
         assert four != null;
-        if (!one.equals(keyword) && !two.equals(keyword) && !three.equals(keyword) && !four.equals(keyword)) {
-            SharedPreferencesUtils.put(this, "1", keyword);
-            if (!one.equals(keyword) && !two.equals(one)) {
-                SharedPreferencesUtils.put(this, "2", one);
+        if (!one.equals(keyword) && !two.equals(keyword) && !three.equals(keyword) &&
+                !four.equals(keyword)) {
+            SharedPreferencesUtils.put(this, "search_video", "1", keyword);
+            if (!one.equals(keyword) && !one.equals(two) && !one.equals(three)) {
+                SharedPreferencesUtils.put(this, "search_video", "2", one);
             }
             if (!two.equals(one) && !two.equals(three) && !two.equals(four)) {
-                SharedPreferencesUtils.put(this, "3", two);
+                SharedPreferencesUtils.put(this, "search_video", "3", two);
             }
-            if (!three.equals(two) && !three.equals(four)) {
-                SharedPreferencesUtils.put(this, "4", three);
+            if (!three.equals(one) && !three.equals(two) && !three.equals(four)) {
+                SharedPreferencesUtils.put(this, "search_video", "4", three);
             }
         }
-        ToastUtils.ShowToast(keyword);
         if (!TextUtils.isEmpty(keyword)) {
             requestVideosByKeyword(keyword);
         }
@@ -273,6 +276,7 @@ public class SearchVideoActivity extends BaseActivity<SearchVideoSee.SearchSeeVi
     public void onAlbumsSuccessful(List<SearchSeeAlbumsBean> searchSeeBeans) {
         if (searchSeeBeans != null) {
             if (searchSeeBeans.size() > 0) {
+                hideKeyBoard();
                 mAdapter.setDataAlbumsSearchSee(searchSeeBeans);
             }
         }
@@ -286,7 +290,6 @@ public class SearchVideoActivity extends BaseActivity<SearchVideoSee.SearchSeeVi
             }
         }
     }
-
     @Override
     public void onHotSuceessful(SearchSeeHotBean seeHotBean) {
         if (seeHotBean != null) {

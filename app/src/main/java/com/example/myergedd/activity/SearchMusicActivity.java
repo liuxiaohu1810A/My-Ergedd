@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
@@ -25,10 +26,15 @@ import com.example.myergedd.base.BaseActivity;
 import com.example.myergedd.bean.SearchHearHotBean;
 import com.example.myergedd.bean.SearchHearMusicBean;
 import com.example.myergedd.utils.ClickUtils;
+import com.example.myergedd.utils.SharedPreferencesUtils;
 import com.example.myergedd.utils.ToastUtils;
 import com.zhy.view.flowlayout.FlowLayout;
 import com.zhy.view.flowlayout.TagAdapter;
 import com.zhy.view.flowlayout.TagFlowLayout;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -64,6 +70,7 @@ public class SearchMusicActivity extends BaseActivity<SearchMusicHear.SearchMusi
     private SearchHearMusicAdapter mAdapter;
     private int offset = 0;
     private RotateAnimation mRotateAnimation;
+    private List<String> mList = new ArrayList<>();
 
     @Override
     protected int getLayoutID() {
@@ -80,11 +87,26 @@ public class SearchMusicActivity extends BaseActivity<SearchMusicHear.SearchMusi
 
     @Override
     protected void initData() {
+        refreshRecent();
         mRotateAnimation = new RotateAnimation(0, 360, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         mRotateAnimation.setDuration(1000);
         mRotateAnimation.setInterpolator(new LinearInterpolator());
         mRotateAnimation.setRepeatCount(Integer.MAX_VALUE);
         mPresenter.setSearchHot(offset);
+    }
+
+    private void refreshRecent() {
+        Map<String, ?> all = SharedPreferencesUtils.getAll(this, "search_music");
+        for (int i = 1; i < all.size() + 1; i++) {
+            Object o = all.get(i + "");
+            mList.add((String) o);
+        }
+        Log.e("lzsm", "refreshRecent: " + mList.toString());
+        if (mList.size() > 0) {
+            mSearchHistotry.setVisibility(View.VISIBLE);
+        } else {
+            mSearchHistotry.setVisibility(View.GONE);
+        }
     }
 
     private void requestRemoteKeywords() {
@@ -94,6 +116,34 @@ public class SearchMusicActivity extends BaseActivity<SearchMusicHear.SearchMusi
 
     @Override
     protected void initListener() {
+        addHistoricalRecord();
+    }
+
+    private void addHistoricalRecord() {
+        mLocalHistoryRecord.setAdapter(new TagAdapter(mList) {
+            @Override
+            public int getCount() {
+                return mList.size();
+            }
+
+            @Override
+            public View getView(FlowLayout parent, final int position, Object o) {
+                TextView inflate = (TextView) LayoutInflater.from(SearchMusicActivity.this).inflate(R.layout.flow_item_navigation, parent, false);
+                if (mList == null && mList.size() > 0) {
+                    return null;
+                }
+                inflate.setText(mList.get(position));
+                inflate.setBackgroundResource(R.drawable.title_style_one);
+                inflate.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mSearchEditFrameMusic.setText(mList.get(position));
+                        requestSongsByKeyword();
+                    }
+                });
+                return inflate;
+            }
+        });
     }
 
     @OnClick({R.id.search_music_back, R.id.search_remove_all, R.id.search_determine_music, R.id.search_refresh_song, R.id.search_refresh_other})
@@ -105,6 +155,9 @@ public class SearchMusicActivity extends BaseActivity<SearchMusicHear.SearchMusi
                 finish();
                 break;
             case R.id.search_remove_all:
+                mList.clear();
+                refreshRecent();
+                addHistoricalRecord();
                 mSearchEditFrameMusic.setText("");
                 mAdapter.mList.clear();
                 mAdapter.notifyDataSetChanged();
@@ -144,6 +197,39 @@ public class SearchMusicActivity extends BaseActivity<SearchMusicHear.SearchMusi
         if (keyword.contains("%")) {
             ToastUtils.ShowToast("请勿输入特殊字符");
             return;
+        }
+        Object one = SharedPreferencesUtils.get(this, "search_music", "1", "");
+        Object two = SharedPreferencesUtils.get(this, "search_music", "2", "");
+        Object three = SharedPreferencesUtils.get(this, "search_music", "3", "");
+        Object four = SharedPreferencesUtils.get(this, "search_music", "4", "");
+        Object five = SharedPreferencesUtils.get(this, "search_music", "5", "");
+        Object six = SharedPreferencesUtils.get(this, "search_music", "6", "");
+        assert one != null;
+        assert two != null;
+        assert three != null;
+        assert four != null;
+        assert five != null;
+        assert six != null;
+        if (!one.equals(keyword) && !two.equals(keyword) && !three.equals(keyword) &&
+                !four.equals(keyword) && !five.equals(keyword) && !five.equals(keyword) && !six.equals(keyword)) {
+            SharedPreferencesUtils.put(this, "search_music", "1", keyword);
+            if (!one.equals(keyword) && !one.equals(two) && !one.equals(three)) {
+                SharedPreferencesUtils.put(this, "search_music", "2", one);
+            }
+            if (!two.equals(one) && !two.equals(three) && !two.equals(four) && !two.equals(five) && !two.equals(six)) {
+                SharedPreferencesUtils.put(this, "search_music", "3", two);
+            }
+            if (!three.equals(one) && !three.equals(two) && !three.equals(four) && !three.equals(five) && !three.equals(six)) {
+                SharedPreferencesUtils.put(this, "search_music", "4", three);
+            }
+            if (!four.equals(one) && !four.equals(two) && !four.equals(three) &&
+                    !four.equals(five) && !four.equals(six)) {
+                SharedPreferencesUtils.put(this, "search_music", "5", four);
+            }
+            if (!five.equals(one) && !five.equals(two) && !five.equals(three) &&
+                    !five.equals(four) && !five.equals(six)) {
+                SharedPreferencesUtils.put(this, "search_music", "6", five);
+            }
         }
         if (!TextUtils.isEmpty(keyword)) {
             requestMusicByKeyword(keyword);
