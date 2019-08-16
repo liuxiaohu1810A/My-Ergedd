@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.myergedd.R;
-import com.example.myergedd.activity.SearchActivity;
+import com.example.myergedd.activity.SearchVideoActivity;
 import com.example.myergedd.base.SimpleFragment;
 import com.example.myergedd.fragment.see.cartoon.CartoonFragment;
 import com.example.myergedd.fragment.see.chosen.ChosenFragment;
@@ -22,7 +22,6 @@ import com.example.myergedd.fragment.see.english.EnglishFragment;
 import com.example.myergedd.fragment.see.erge.ErgeFragment;
 import com.example.myergedd.fragment.see.story.StoryFragment;
 import com.example.myergedd.fragment.see.partner.PartnerFragment;
-import com.example.myergedd.fragment.see.chosen.ChosenFragment;
 import com.example.myergedd.fragment.see.synthesize.SynthesizeFragment;
 
 import java.util.ArrayList;
@@ -96,7 +95,7 @@ public class SeeFragment extends SimpleFragment {
         mIconSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), SearchActivity.class));
+                startActivity(new Intent(getActivity(), SearchVideoActivity.class));
             }
         });
     }

@@ -2,14 +2,12 @@ package com.example.myergedd.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -36,10 +34,9 @@ import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class SearchActivity extends BaseActivity<SearchSee.SearchSeeView, SearchSeePresenter<SearchSee.SearchSeeView>> implements SearchSee.SearchSeeView {
+public class SearchVideoActivity extends BaseActivity<SearchSee.SearchSeeView, SearchSeePresenter<SearchSee.SearchSeeView>> implements SearchSee.SearchSeeView {
     @BindView(R.id.search_icon)
     ImageView mSearchIcon;
     @BindView(R.id.search_song_name)
@@ -75,7 +72,7 @@ public class SearchActivity extends BaseActivity<SearchSee.SearchSeeView, Search
 
     @Override
     protected int getLayoutID() {
-        return R.layout.activity_search;
+        return R.layout.activity_video_search;
     }
 
     @Override
@@ -149,7 +146,7 @@ public class SearchActivity extends BaseActivity<SearchSee.SearchSeeView, Search
         mAdapter.setOnClickListener(new SearchSeeAdapter.onClickListener() {
             @Override
             public void onClick(View v, int position) {
-                Intent intent = new Intent(SearchActivity.this, CommonSeeActivity.class);
+                Intent intent = new Intent(SearchVideoActivity.this, CommonSeeActivity.class);
                 SearchSeeAlbumsBean bean = mAdapter.mAlbumsList.get(position);
                 intent.putExtra("id", bean.getId());
                 intent.putExtra("title", bean.getName());
