@@ -14,6 +14,7 @@ import com.example.myergedd.bean.EarlyBean;
 import com.example.myergedd.bean.EnglishBean;
 import com.example.myergedd.bean.ErgeBean;
 import com.example.myergedd.bean.MusicBean;
+import com.example.myergedd.bean.PartnerBean;
 import com.example.myergedd.bean.SearchHearHotBean;
 import com.example.myergedd.bean.SearchHearMusicBean;
 import com.example.myergedd.bean.SearchSeeAlbumsBean;
