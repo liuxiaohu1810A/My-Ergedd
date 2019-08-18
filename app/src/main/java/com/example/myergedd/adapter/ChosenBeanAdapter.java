@@ -69,7 +69,7 @@ public class ChosenBeanAdapter extends RecyclerView.Adapter<ChosenBeanAdapter.Vi
 
     @Override
     public int getItemCount() {
-        return earlyBeans.size()-2;
+        return earlyBeans.size()-10;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

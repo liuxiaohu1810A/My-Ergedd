@@ -32,7 +32,7 @@ public class HearChosenAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             "http://img5g22.ergedd.com/audio_playlist/66562931040_1493868622457.jpg"
             , "http://img5g22.ergedd.com/audio_playlist/13711963478_1493868665752.jpg"
     };
-    private ArrayList<ChosenBeanBan> earlyBeans;
+    private ArrayList<ChosenBeanBan> chosenBeanBans=new ArrayList<>();
     private ChosenBeanAdapter chosenTwo;
 
     public HearChosenAdapter(FragmentActivity activity) {
@@ -73,7 +73,6 @@ public class HearChosenAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         }else if (type==1){
             ViewHolderTwo holder2 = (ViewHolderTwo) viewHolder;
             holder2.rlv.setLayoutManager(new GridLayoutManager(activity,3));
-            earlyBeans = new ArrayList<>();
             chosenTwo = new ChosenBeanAdapter(activity);
             holder2.rlv.setAdapter(chosenTwo);
 
@@ -95,6 +94,9 @@ public class HearChosenAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                     });
         }else{
             ViewHolder holder3 = (ViewHolder) viewHolder;
+            if (image.length>0){
+                i=i-2;
+            }
             ChosenBean chosenBean = chosen.get(i);
             holder3.title.setText(chosenBean.getName());
             Glide.with(activity).load(chosenBean.getImage()).into(holder3.tu);
@@ -118,15 +120,15 @@ public class HearChosenAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override
     public int getItemCount() {
         if (image.length>0){
-            return chosen.size();
-        }else {
-            return earlyBeans.size();
+            return chosen.size()+2;
+        }else{
+            return chosenBeanBans.size();
         }
     }
 
     @Override
     public int getItemViewType(int position) {
-        if (image.length>0 &&position==0){
+        if (position==0){
             return 0;
         }else if (position==1 ){
             return 1;

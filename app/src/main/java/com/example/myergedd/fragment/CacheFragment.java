@@ -1,18 +1,21 @@
 package com.example.myergedd.fragment;
 
+import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.myergedd.Preferences;
 import com.example.myergedd.R;
 import com.example.myergedd.activity.SettingActivity;
 import com.example.myergedd.base.SimpleFragment;
+import com.example.myergedd.utils.Constants;
+import com.example.myergedd.utils.RestUtil;
+import com.example.myergedd.utils.UnlockDialog;
+
 
 public class CacheFragment extends SimpleFragment {
     private View view;
@@ -27,7 +30,20 @@ public class CacheFragment extends SimpleFragment {
      * 关注微信好礼
      */
     private TextView mCacheGift;
+    private static final int MODE_NONE=0;
+    public static final int MODE_REST = 1;
+    public static final int MODE_SLEEP = 2;
 
+
+    private int sMode = MODE_NONE;
+
+    public static void start(Context context, int mode) {
+        if (context != null) {
+            Intent it = new Intent();
+            it.putExtra("mode",mode);
+            context.startActivity(it);
+        }
+    }
     @Override
     protected int getLayoutID() {
         return R.layout.fragment_cache;
@@ -43,9 +59,34 @@ public class CacheFragment extends SimpleFragment {
         mSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), SettingActivity.class);
-                startActivity(intent);
+                UnlockDialog dialog = new UnlockDialog(getActivity(), "请确认您是家长", null, new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                       // finishActivity();
+                        Intent intent = new Intent(getActivity(), SettingActivity.class);
+                        startActivity(intent);
+                    }
+                });
+                dialog.show();
+
             }
         });
+
     }
+   /* private void finishActivity() {
+
+        Preferences.getPreferences(getActivity()).setPlayControlStrategy(Constants.PLAY_STRATEGY_TIME);
+        long timeCount = Preferences.getPreferences(getActivity()).getVideoControlTime();
+        Preferences.getPreferences(getActivity()).setVideoControlResetTime(System.currentTimeMillis());
+        Preferences.getPreferences(getActivity()).setVideoControlRemainTime(timeCount);
+
+        if (sMode == MODE_SLEEP)
+            Utility.resetLastSleepCheckTime(getActivity());
+
+        if (sMode == MODE_REST) {
+            RestUtil.getInstance().reset();
+        }
+        getActivity().finish();
+    }
+*/
 }

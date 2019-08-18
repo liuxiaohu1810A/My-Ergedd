@@ -69,19 +69,7 @@ public class ChosenFragment<V extends Chosen.ChosenView> extends BaseFragment<Ch
         mRlv.setAdapter(chosenAdapter);
 
         mSmart = (SmartRefreshLayout) view.findViewById(R.id.smart);
-        mSmart.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
-            @Override
-            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
-            }
 
-            @Override
-            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                
-                page=0;
-                initData();
-                mSmart.finishRefresh();
-            }
-        });
     }
 
 
