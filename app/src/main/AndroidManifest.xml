@@ -31,7 +31,11 @@
             android:launchMode="singleTask"
             android:theme="@style/NoAppTheme" />
         <activity
-            android:name=".activity.SearchActivity"
+            android:name=".activity.SearchVideoActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NoAppTheme" />
+        <activity
+            android:name=".activity.SearchMusicActivity"
             android:launchMode="singleTop"
             android:theme="@style/NoAppTheme" />
         <activity

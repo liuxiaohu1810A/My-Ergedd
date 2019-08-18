@@ -18,6 +18,9 @@ import com.example.myergedd.bean.EarlyBean;
 import com.example.myergedd.bean.EnglishBean;
 import com.example.myergedd.bean.ErgeBean;
 import com.example.myergedd.bean.MusicBean;
+import com.example.myergedd.bean.PartnerBean;
+import com.example.myergedd.bean.SearchHearHotBean;
+import com.example.myergedd.bean.SearchHearMusicBean;
 import com.example.myergedd.bean.SearchSeeAlbumsBean;
 import com.example.myergedd.bean.SearchSeeHotBean;
 import com.example.myergedd.bean.SearchSeeVideosBean;
@@ -142,4 +145,27 @@ public interface ApiServier {
     @FormUrlEncoded
     @POST("getAudioByPlaylistId")
     Observable<BaseRecordResponse<DetailsHearBean>> getRequestAllAudioByPlayListId(@Field("apid") int audioPlayListId, @Field("offset") int offset, @Field("limit") int limit);
+    Observable<BaseRecordResponse<AudioRecord>> requestAllAudioByPlayListId(@Field("apid") int audioPlayListId, @Field("offset") int offset, @Field("limit") int limit);
+
+    /**
+     * http://api.t.ergedd.com/searchAudio
+     * 搜索音乐
+     *
+     * @return
+     */
+    @Headers("Cache-Control: public, max-age=28800")
+    @FormUrlEncoded
+    @POST("searchAudio")
+    Observable<BaseRecordResponse<SearchHearMusicBean>> getDataHearMusicSearch(@Field("keyword") String keyword);
+
+    /**
+     * http://api.t.ergedd.com/getAudioSearchKeyword
+     * 热门搜索
+     *
+     * @return
+     */
+    @Headers("Cache-Control: public, max-age=28800")
+    @FormUrlEncoded
+    @POST("http://api.t.ergedd.com/getAudioSearchKeyword")
+    Observable<BaseRecordResponse<SearchHearHotBean>> getDataHearHotSearch(@Field("offset") int offset);
 }
