@@ -17,8 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CommonSeeAdapter extends RecyclerView.Adapter {
-    List<CommonSeeBean> mList = new ArrayList<>();
+    public List<CommonSeeBean> mList = new ArrayList<>();
     private Context mContext;
+    private onVideoClickListener mVideoListener;
 
     public CommonSeeAdapter(Context context) {
         mContext = context;
@@ -31,11 +32,20 @@ public class CommonSeeAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, final int i) {
         MyViewHolder holder = (MyViewHolder) viewHolder;
         CommonSeeBean bean = mList.get(i);
         Glide.with(mContext).load(bean.getImage()).into(holder.mListen_buttom_img);
         holder.mListen_buttom_title.setText(bean.getName());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mVideoListener!=null){
+                    mVideoListener.onClick(v, i);
+                }
+            }
+        });
     }
 
     public void setCommonData(List<CommonSeeBean> commonSeeBeans) {
@@ -60,5 +70,13 @@ public class CommonSeeAdapter extends RecyclerView.Adapter {
     @Override
     public int getItemCount() {
         return mList.size();
+    }
+
+    public interface onVideoClickListener {
+        void onClick(View v, int position);
+    }
+
+    public void setOnVideoClickListener(onVideoClickListener listener) {
+        mVideoListener = listener;
     }
 }

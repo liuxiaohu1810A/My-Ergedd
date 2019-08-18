@@ -17,10 +17,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.OnClick;
+import retrofit2.http.HEAD;
 
 public class HearEnglishAdapter extends RecyclerView.Adapter<HearEnglishAdapter.ViewHolder> {
     private final FragmentActivity activity;
-    private ArrayList<HearEnglishBean> hearEnglishBeans=new ArrayList<>();
+    public ArrayList<HearEnglishBean> hearEnglishBeans = new ArrayList<>();
+   // private onClickListener mListener;
 
     public HearEnglishAdapter(FragmentActivity activity) {
 
@@ -43,16 +45,26 @@ public class HearEnglishAdapter extends RecyclerView.Adapter<HearEnglishAdapter.
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder viewHolder, final int i) {
 
-            viewHolder.name.setText(hearEnglishBeans.get(i).getName());
-            viewHolder.desc.setText(hearEnglishBeans.get(i).getDescription());
-            viewHolder.count.setText(hearEnglishBeans.get(i).getCount()+"首");
-            Glide.with(activity).load(hearEnglishBeans.get(i).getSquare_image_url()).into(viewHolder.img);
-            viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onclcik.onClick(hearEnglishBeans.get(i));
-                }
-            });
+
+        viewHolder.name.setText(hearEnglishBeans.get(i).getName());
+        viewHolder.desc.setText(hearEnglishBeans.get(i).getDescription());
+        viewHolder.count.setText(hearEnglishBeans.get(i).getCount() + "首");
+        Glide.with(activity).load(hearEnglishBeans.get(i).getSquare_image_url()).into(viewHolder.img);
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onclcik.onClick(hearEnglishBeans.get(i));
+            }
+        });
+
+//        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (mListener != null) {
+//                    mListener.onClick(v, i);
+//                }
+//            }
+//        });
     }
 
     @Override
@@ -81,7 +93,17 @@ public class HearEnglishAdapter extends RecyclerView.Adapter<HearEnglishAdapter.
     public void setOnclcik(OnClick onclcik) {
         this.onclcik = onclcik;
     }
-    public interface OnClick{
+
+    public interface OnClick {
         void onClick(HearEnglishBean hearEnglishBean);
+
+//    public interface onClickListener {
+//        void onClick(View v, int position);
+//    }
+//
+//    public void setOnClickListener(onClickListener listener) {
+//        mListener = listener;
+//
+//    }
     }
 }

@@ -11,9 +11,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.myergedd.R;
-import com.example.myergedd.bean.EnglishBean;
 import com.example.myergedd.bean.MusicBean;
-import com.example.myergedd.fragment.hear.erge.bean.Listen_ErgeBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +19,7 @@ import java.util.List;
 public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> {
     private final FragmentActivity activity;
     private ArrayList<MusicBean> musicBeans = new ArrayList<>();
+
 
     public MusicAdapter(FragmentActivity activity) {
 
@@ -54,6 +53,30 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> 
             }
         });
 
+//        public void onBindViewHolder (@NonNull ViewHolder viewHolder,final int i){
+//
+//            viewHolder.name.setText(musicBeans.get(i).getName());
+//            viewHolder.desc.setText(musicBeans.get(i).getDescription());
+//            viewHolder.count.setText(musicBeans.get(i).getCount() + "首");
+//            Glide.with(activity).load(musicBeans.get(i).getSquare_image_url()).into(viewHolder.img);
+//            viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    if (mListener != null) {
+//                        mListener.onClick(v, i);
+//                    }
+//                }
+//            });
+//        }
+//        private onClickListener mListener;
+//
+//    public interface onClickListener {
+//        void onClick(View v, int position);
+//    }
+//
+//    public void setOnClickListener(onClickListener listener) {
+//        mListener = m;
+//    }
     }
 
     @Override
@@ -61,19 +84,20 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> 
         return musicBeans.size();
     }
 
+
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private final ImageView img;
         private final TextView name;
         private final TextView desc;
         private final TextView count;
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             img = itemView.findViewById(R.id.listen_common_img);
             name = itemView.findViewById(R.id.item_watch_list_name);
             desc = itemView.findViewById(R.id.item_watch_list_desc);
             count = itemView.findViewById(R.id.item_watch_list_count);
+
         }
     }
     private OnClick onclick;
@@ -81,7 +105,8 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder> 
     public void setOnclick(OnClick onclick) {
         this.onclick = onclick;
     }
-    public interface OnClick{
+
+    public interface OnClick {
         void onclcik(MusicBean musicBean);
     }
 }

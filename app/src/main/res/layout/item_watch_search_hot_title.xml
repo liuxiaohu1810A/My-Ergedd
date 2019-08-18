@@ -32,5 +32,4 @@
         android:gravity="center"
         android:text="超级飞侠" />
 
-
 </RelativeLayout>

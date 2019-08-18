@@ -9,6 +9,16 @@
         android:id="@+id/listen_paly_Recy"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!---->
+        <!--android:id="@+id/listen_paly_Recy"/>-->
+
+    <FrameLayout
+        android:id="@+id/listen_paly_Frag"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@color/white" />
 
@@ -81,7 +91,9 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="5dp"
                 android:scaleType="fitCenter"
-                android:src="@mipmap/audio_player_prev"/>
+                android:src="@mipmap/audio_player_prev" />
+
+                <!--android:src="@mipmap/audio_player_prev"/>-->
 
             <ImageView
                 android:id="@+id/listen_player_play_next"

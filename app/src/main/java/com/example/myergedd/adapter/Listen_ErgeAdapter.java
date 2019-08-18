@@ -15,19 +15,22 @@ import com.example.myergedd.fragment.hear.erge.bean.Listen_ErgeBean;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.http.HEAD;
+
 public class Listen_ErgeAdapter extends RecyclerView.Adapter<Listen_ErgeAdapter.ViewHolder> {
 
-    private List<Listen_ErgeBean> ergeBeans=new ArrayList<>();
+    private List<Listen_ErgeBean> Listen_ErgeBean = new ArrayList<>();
     private Context context;
 
     public Listen_ErgeAdapter(Context context) {
         this.context = context;
     }
 
-    public void setList(List<Listen_ErgeBean> list) {
-        ergeBeans = list;
+    public void setListen_ergeAdapters(List<Listen_ErgeBean> Listen_ErgeBean) {
+        this.Listen_ErgeBean = Listen_ErgeBean;
         notifyDataSetChanged();
     }
+
 
     @NonNull
     @Override
@@ -38,22 +41,21 @@ public class Listen_ErgeAdapter extends RecyclerView.Adapter<Listen_ErgeAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
-
-        viewHolder.item_watch_list_count.setText(ergeBeans.get(i).getCount()+"首");
-        viewHolder.item_watch_list_desc.setText(ergeBeans.get(i).getDescription());
-        viewHolder.item_watch_list_name.setText(ergeBeans.get(i).getName());
-        Glide.with(context).load(ergeBeans.get(i).getSquare_image_url()).into(viewHolder.listen_common_img);
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onclcik.onclcik(ergeBeans.get(i));
-            }
-        });
+            viewHolder.item_watch_list_name.setText(Listen_ErgeBean.get(i).getName());
+            viewHolder.item_watch_list_desc.setText(Listen_ErgeBean.get(i).getDescription());
+            viewHolder.item_watch_list_count.setText(Listen_ErgeBean.get(i).getCount()+"");
+            Glide.with(context).load(Listen_ErgeBean.get(i).getSquare_image_url()).into(viewHolder.listen_common_img);
+            viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onclick.onclcick(Listen_ErgeBean.get(i));
+                }
+            });
     }
 
     @Override
     public int getItemCount() {
-        return ergeBeans.size();
+        return Listen_ErgeBean.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -72,12 +74,13 @@ public class Listen_ErgeAdapter extends RecyclerView.Adapter<Listen_ErgeAdapter.
         }
     }
 
-    private OnClick onclcik;
+    private OnClick onclick;
 
-    public void setOnclcik(OnClick onclcik) {
-        this.onclcik = onclcik;
+    public void setOnclick(OnClick onclick) {
+        this.onclick = onclick;
     }
+
     public interface OnClick{
-        void onclcik(Listen_ErgeBean listen_ergeBean);
+        void onclcick(Listen_ErgeBean listen_ergeBean);
     }
 }

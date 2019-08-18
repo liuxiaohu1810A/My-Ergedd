@@ -1,5 +1,6 @@
 package com.example.myergedd.adapter;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
@@ -16,25 +17,25 @@ import com.example.myergedd.bean.SinologyBean;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.http.HEAD;
+
 public class SinologyAdapter extends RecyclerView.Adapter<SinologyAdapter.ViewHolder> {
-    private final FragmentActivity activity;
-    private ArrayList<SinologyBean> sinologyBeans=new ArrayList<>();
 
-    public SinologyAdapter(FragmentActivity activity) {
+    private List<SinologyBean> sinologyBeans = new ArrayList<>();
+    private Context context;
 
-        this.activity = activity;
+    public SinologyAdapter(Context context) {
+        this.context = context;
     }
 
-    public void setSinologyBeans(List<SinologyBean> beans) {
-
-        sinologyBeans.addAll(beans);
+    public void setSinologyBeans(List<SinologyBean> sinologyBeans) {
+        this.sinologyBeans = sinologyBeans;
         notifyDataSetChanged();
     }
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = View.inflate(activity, R.layout.item_listen_common, null);
+        View view = View.inflate(context, R.layout.item_listen_common, null);
         return new ViewHolder(view);
     }
 
@@ -44,13 +45,13 @@ public class SinologyAdapter extends RecyclerView.Adapter<SinologyAdapter.ViewHo
             viewHolder.name.setText(sinologyBeans.get(i).getName());
             viewHolder.desc.setText(sinologyBeans.get(i).getDescription());
             viewHolder.count.setText(sinologyBeans.get(i).getCount()+"首");
-            Glide.with(activity).load(sinologyBeans.get(i).getSquare_image_url()).into(viewHolder.img);
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onclci.onclcik(sinologyBeans.get(i));
-            }
-        });
+            Glide.with(context).load(sinologyBeans.get(i).getSquare_image_url()).into(viewHolder.img);
+            viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onclci.onclcik(sinologyBeans.get(i));
+                }
+            });
     }
 
     @Override
@@ -73,13 +74,14 @@ public class SinologyAdapter extends RecyclerView.Adapter<SinologyAdapter.ViewHo
             count = itemView.findViewById(R.id.item_watch_list_count);
         }
     }
+
     private OnClick onclci;
 
     public void setOnclci(OnClick onclci) {
         this.onclci = onclci;
     }
 
-    public interface OnClick{
+    public interface OnClick {
         void onclcik(SinologyBean sinologyBean);
     }
 }

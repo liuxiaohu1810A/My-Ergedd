@@ -45,21 +45,38 @@
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".activity.LrcActivity"
             android:screenOrientation="portrait"
             android:theme="@style/NoAppTheme" />
-
         <activity
             android:name=".activity.CommonSeeActivity"
             android:launchMode="singleTask"
             android:theme="@style/NoAppTheme" />
-        <activity
-
-            android:name=".SentingActivity"
-            android:theme="@style/NoAppTheme" />
         <activity android:name=".Listen_DetailsActivity" />
-        <activity android:name=".DetailsActivity" android:theme="@style/NoAppTheme"></activity>
+        <activity
+            android:name=".DetailsActivity"
+            android:theme="@style/NoAppTheme" />
+        <activity
+            android:name=".activity.SettingActivity"
+            android:theme="@style/NoAppTheme" />
+        <activity
+            android:name=".activity.VideoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/NoAppTheme" />
+        <activity
+            android:name=".activity.DetailsActivity"
+            android:theme="@style/NoAppTheme" />
+        <activity android:name=".activity.VipActivity" />
+        <activity android:name=".activity.CommonActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.PlaySettingActivity"></activity>
     </application>
+
 </manifest>

@@ -6,6 +6,13 @@ import com.example.myergedd.activity.commonsee.CommonSeeBean;
 import com.example.myergedd.base.BaseRecordResponse;
 import com.example.myergedd.base.BaseResponse;
 
+import com.example.myergedd.activity.detailshear.DetailsHearBean;
+import com.example.myergedd.base.BaseRecordResponse;
+import com.example.myergedd.base.BaseResponse;
+
+
+import com.example.myergedd.bean.ChosenBean;
+import com.example.myergedd.bean.ChosenBeanBan;
 import com.example.myergedd.bean.ChosenThree;
 import com.example.myergedd.bean.ChosenTwoBean;
 
@@ -32,6 +39,8 @@ import com.example.myergedd.fragment.hear.story.bean.HearStoryBean;
 import java.util.List;
 
 import io.reactivex.Observable;
+import retrofit2.Call;
+import retrofit2.http.Field;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -105,20 +114,32 @@ public interface ApiServier {
     @GET("audio_categories/1/playlists?channel=new&offset=0&limit=20")
     Observable<BaseResponse<List<Listen_ErgeBean>>> getListen_ErgeBeanData();
 
+    @GET("audio_playlists/excellent?channel=original")
+    Observable<BaseResponse<List<ChosenBeanBan>>> getChosenBanData();
 
+    @GET("audio_categories")
+    Observable<BaseResponse<List<ChosenBean>>> getChosenData();
     /**
      * http://api.t.ergedd.com/api/v1/albums/33/videos?channel=new&offset=0&limit=20&sensitive=8
      *
      * @param id
-     * @return
+     * @return338
      */
+
     @Headers("Cache-Control: public, max-age=28800")
     @GET("albums/{id}/videos?channel=new&offset=0&limit=20&sensitive=8")
     Observable<BaseResponse<List<CommonSeeBean>>> getDataCommon(@Path("id") int id);
+
     //http://api.t.ergedd.com/api/v1/home_items?type=1&channel=new&offset=0&limit=999&sensitive=8
     @GET("home_items?type=1&channel=new&offset=0&limit=999&sensitive=8")
     Observable<BaseResponse<List<RecommendBean>>> getRecommendBean();
 
+//    http://api.t.ergedd.com/api/v1/albums/338/videos?channel=new&offset=0&limit=20&sensitive=8
+
+
+//    @Headers("Cache-Control: public, max-age=28800")
+//    @GET("albums/{id}/videos?channel=new&offset=0&limit=20&sensitive=8")
+//    Observable<BaseResponse<List<CommonSeeBean>>> getDataCommon(@Path("id") int id);
 
     @Headers("Cache-Control: public, max-age=28800")
     @GET("albums/search?&offset=0&limit=20&sensitive=8")
@@ -135,5 +156,8 @@ public interface ApiServier {
     @Headers("Cache-Control: public, max-age=28800")
     @FormUrlEncoded
     @POST("getAudioByPlaylistId")
+
     Observable<BaseRecordResponse<AudioRecord>> requestAllAudioByPlayListId(@Field("apid") int audioPlayListId, @Field("offset") int offset, @Field("limit") int limit);
+
+    Observable<BaseRecordResponse<DetailsHearBean>> getRequestAllAudioByPlayListId(@Field("apid") int audioPlayListId, @Field("offset") int offset, @Field("limit") int limit);
 }

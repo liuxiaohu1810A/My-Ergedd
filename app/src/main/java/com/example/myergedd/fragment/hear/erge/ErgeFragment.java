@@ -2,26 +2,26 @@ package com.example.myergedd.fragment.hear.erge;
 
 import android.content.Intent;
 import android.os.Bundle;
+
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 
-import com.example.myergedd.DetailsActivity;
 import com.example.myergedd.R;
+import com.example.myergedd.activity.DetailsActivity;
 import com.example.myergedd.adapter.Listen_ErgeAdapter;
 import com.example.myergedd.base.BaseFragment;
 import com.example.myergedd.fragment.hear.erge.bean.Listen_ErgeBean;
 import com.example.myergedd.fragment.hear.erge.contract.Erge;
 import com.example.myergedd.fragment.hear.erge.presenter.IPresenter;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.Unbinder;
 
 public class ErgeFragment extends BaseFragment<Erge.ErgeView, IPresenter<Erge.ErgeView>> implements Erge.ErgeView {
 
@@ -30,6 +30,8 @@ public class ErgeFragment extends BaseFragment<Erge.ErgeView, IPresenter<Erge.Er
     private Listen_ErgeAdapter adapter;
     private static final String TAG = "ErgeFragment";
     private RecyclerView englishRes;
+    private SmartRefreshLayout mSmart;
+    private int page=0;
 
     @Override
     protected int getLayoutID() {
@@ -39,23 +41,37 @@ public class ErgeFragment extends BaseFragment<Erge.ErgeView, IPresenter<Erge.Er
     @Override
     protected void initView(View view) {
         englishRes = view.findViewById(R.id.englishRes);
-
+        mSmart = (SmartRefreshLayout) view.findViewById(R.id.smart);
         englishRes.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new Listen_ErgeAdapter(getContext());
         englishRes.setAdapter(adapter);
 
-        adapter.setOnclcik(new Listen_ErgeAdapter.OnClick() {
+        mSmart.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
             @Override
-            public void onclcik(Listen_ErgeBean listen_ergeBean) {
-                Intent intent = new Intent(getContext(), DetailsActivity.class);
-                intent.putExtra("name",listen_ergeBean.getName());
-                intent.putExtra("desc",listen_ergeBean.getDescription());
+            public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
+                mSmart.finishLoadMore();
+            }
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                mSmart.finishRefresh();
+            }
+        });
+    }
+
+    @Override
+    protected void initListener() {
+        adapter.setOnclick(new Listen_ErgeAdapter.OnClick() {
+            @Override
+            public void onclcick(Listen_ErgeBean listen_ergeBean) {
+                Intent intent = new Intent(getActivity(), DetailsActivity.class);
+                intent.putExtra("id", listen_ergeBean.getId());
+                intent.putExtra("name", listen_ergeBean.getName());
                 intent.putExtra("count",listen_ergeBean.getCount());
-                intent.putExtra("img",listen_ergeBean.getSquare_image_url());
+                intent.putExtra("url",listen_ergeBean.getSquare_image_url());
+                intent.putExtra("description",listen_ergeBean.getDescription());
                 startActivity(intent);
             }
         });
-
     }
 
     @Override
@@ -70,7 +86,7 @@ public class ErgeFragment extends BaseFragment<Erge.ErgeView, IPresenter<Erge.Er
 
     @Override
     public void OnSuccess(List<Listen_ErgeBean> listen_ergeBeans) {
-        adapter.setList(listen_ergeBeans);
+        adapter.setListen_ergeAdapters(listen_ergeBeans);
     }
 
     @Override

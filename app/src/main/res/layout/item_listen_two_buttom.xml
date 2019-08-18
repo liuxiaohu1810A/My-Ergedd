@@ -13,10 +13,21 @@
         android:paddingLeft="@dimen/dp_5">
 
         <TextView
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginTop="@dimen/dp_10"
             android:id="@+id/listen_two_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Monkey"/>
+        <ImageView
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_below="@+id/listen_two_title"
+            android:id="@+id/iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/icon_duration"
+            android:layout_marginTop="@dimen/dp_8"
+            />
 
         <TextView
             android:id="@+id/listen_two_time"
@@ -24,17 +35,37 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/listen_two_title"
             android:padding="@dimen/dp_5"
-            android:drawableLeft="@mipmap/icon_duration"
+            android:paddingLeft="@dimen/dp_12"
             android:textSize="@dimen/dp_11"
+            android:layout_marginLeft="@dimen/dp_12"
             android:text="01:16"/>
     </RelativeLayout>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/dp_15"
-        android:paddingRight="@dimen/dp_10"
-        android:src="@mipmap/icon_download" />
+    <!--<ImageView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_marginBottom="@dimen/dp_15"-->
+        <!--android:paddingRight="@dimen/dp_10"-->
+        <!--android:src="@mipmap/icon_download" />-->
+            <!--/>-->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:paddingRight="@dimen/dp_10"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/icon_download" />
+        <TextView
+            android:id="@+id/views"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:layout_marginStart="@dimen/dp_5"
+            android:layout_marginLeft="@dimen/dp_5"
+            android:layout_marginTop="@dimen/dp_6"
+            android:layout_marginEnd="@dimen/dp_5"
+            android:layout_marginRight="@dimen/dp_5"
+            android:background="#eaeaea" />
 </RelativeLayout>

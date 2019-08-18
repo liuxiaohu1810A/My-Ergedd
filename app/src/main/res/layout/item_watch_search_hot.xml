@@ -23,8 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_120"
             android:background="@color/white"
-           >
-            <!--android:visibility="gone"-->
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/search_recently_no_title"
